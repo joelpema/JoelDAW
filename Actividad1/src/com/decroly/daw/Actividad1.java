@@ -7,7 +7,8 @@ public class Actividad1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Buenos Dias"); //Ejercicio 1
+		//Ejercicio 1
+		System.out.println("Buenos Dias"); 
 		
 		//Rjercicio 2
 		
@@ -124,32 +125,40 @@ public class Actividad1 {
 		 reader= new Scanner(System.in);
 		 System.out.println("Escribe un numero: ");
 		 double x = reader.nextDouble();
-		 System.out.println("Escribe un segundo numero: ");
+		 System.out.println("escribe un numero que no sea 0");
 		 double y =	reader.nextDouble();
 		 boolean cero = (x == 0);
 		 boolean zero = (y == 0);
 		 
-		 System.out.println(cero + " el primer numero que pusiste fue 0");
 		 System.out.println(zero + " el segundo numero que pusiste fue 0");
-		 System.out.println("valor de suma " + (numero1 + numero2));
-		 System.out.println("valor de resta " + (numero1 - numero2));
-		 System.out.println("valor de producto " + (numero1 % numero2));
-		 System.out.println("valor de division " + (numero1 / numero2));
+		 System.out.println("valor de suma " + (x + y));
+		 System.out.println("valor de resta " + (x - y));
+		 System.out.println("valor de producto " + (x % y));
+		 System.out.println("valor de division " + (x / y));
 		
 		 // ejercicio 12
 		 
 		 reader= new Scanner(System.in);
-		 System.out.println("Escribe un numero: ");
+		 System.out.println("Escribe un numero=  ");
 		 double numero8 = reader.nextDouble();
 		 
-		 System.out.println("Escribe otro numero");
+		 System.out.println("Escribe otro numero= ");
 		 double numero9 = reader.nextDouble();
 		 
 		 double mayores = Math.max(numero8, numero9);
-		 System.out.println("Escribe otro numero" + mayores);
+		 System.out.println("El numero mayor es: " + mayores);
 		 
 		 //ejercicio 13
 		 
+		 reader= new Scanner(System.in);
+		 System.out.println("Escribe un numero: ");
+		 double z = reader.nextDouble();
+		 
+		 boolean positivo = (z >= 0);
+		 boolean negativo = (z <= 0);
+		 
+		 System.out.println(positivo + " El numero es positivo");
+		 System.out.println(negativo + " El numero es negativo");
 		 
 		 
 		 
