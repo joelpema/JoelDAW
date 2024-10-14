@@ -13,8 +13,67 @@ public class Actividad3 {
 		
 		
 		
+		System.out.println("introduce los euros que vas a meter");
+		int dinero = sc.nextInt();
+		
+		int billete500 = 0;
+		int billete200 = 0;
+		int billete100 = 0;
+		int billete50 = 0;
+		int billete20 = 0;
+		int billete10 = 0;
+		int billete5 = 0;
+		int resto = dinero;
 		
 		
+		if (dinero % 5 !=0) {
+			System.out.println("el Dinero tiene que ser multiplo de 5");
+	
+		}
+		
+		if (dinero >= 500) {
+			billete500 = resto / 500;
+			 resto= resto % 500;
+			
+		}
+		if (resto >= 200) {
+			billete200 = resto / 200;
+			resto= resto % 200;
+			
+		}
+		if (resto >= 100) {
+			billete100 = resto / 100;
+			resto= resto % 100;
+			
+		}
+		if (resto >= 50) {
+			billete50 = resto / 50;
+			resto= resto % 50;
+			
+		}
+		if (resto >= 20) {
+			billete20 = resto / 20;
+			resto= resto % 20;
+			
+		}
+		if (resto >= 10) {
+			billete10 = resto / 10;
+			resto= resto % 10;
+			
+		}
+		if (resto >= 5) {
+			billete5 = resto / 5;
+			resto= resto % 5;
+			
+		}
+		
+		System.out.println("se necesitan " + billete500 + " billetes de 500");
+		System.out.println("se necesitan " + billete200 + " billetes de 200");
+		System.out.println("se necesitan " + billete100 + " billetes de 100");
+		System.out.println("se necesitan " + billete50 + " billetes de 50");
+		System.out.println("se necesitan " + billete20 + " billetes de 20");
+		System.out.println("se necesitan " + billete10 + " billetes de 10");
+		System.out.println("se necesitan " + billete5 + " billetes de 5");
 		
 		
 		// Ejercicio 2
