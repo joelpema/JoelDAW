@@ -83,7 +83,7 @@ public class Actividad3 {
 		double numero2 = 0;
 		
 		
-		System.out.println("Bienvenido a mi menu de ");
+		System.out.println("\n Bienvenido a mi menu de ");
 		
 		do {
 			sc  = new Scanner(System.in);
