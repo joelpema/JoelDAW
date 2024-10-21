@@ -77,24 +77,23 @@ public class main {
 //			System.out.println("Escribe un numero");
 //			
 //			numeros4[i] = sc.nextInt(); 
-//			}//for1
 //			
-//		for (double numeros : numeros4) {
+//			if (numeros4[i] < 0) {
+//				negativos += numeros4[i]; 
 //				
-//			if (numeros < 0) {
-//				negativos += numeros; 
-//				
-//			}else if (numeros > 0){
-//				positivos += numeros;
+//			}else if (numeros4[i] > 0){
+//				positivos += numeros4[i];
 //				
 //			}
-//		} //for2
+//			
+//		}//for1
+//			
 //		
 //		System.out.println("los numeros positivos son:" + positivos);
 //		System.out.println("los numeros negativos son:" + negativos);
-//		
+		
 		//Ejercicio5
-//		
+		
 //		sc = new Scanner(System.in);
 //		
 //		double[] numeros5 = new double[20];
@@ -107,11 +106,8 @@ public class main {
 //			System.out.println("Escribe un numero");
 //			
 //			numeros5[i] = sc.nextInt();
-//		}
-//		
-//		for (double numero : numeros5){
-//			
-//			suma += numero;
+//
+//			suma += numeros5[i];
 //			
 //			media = suma / 20;
 //		}
@@ -160,11 +156,11 @@ public class main {
 //			System.out.println("el valor de P tiene que ser menor o igual que el valor de Q");
 //		}else {
 //		
-//			array = Q - P + 1;
+//			array = Q - P ;
 //		
 //			double[] numeros7 = new double[array];
 //		
-//			for (int i = 0; i < array; i++){
+//			for (int i = 0; i <= array; i++){
 //		
 //				numeros7[i] = P + i;
 //			
@@ -217,15 +213,121 @@ public class main {
 //	    }
  		
 		// Ejercicio 10
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+//		
+//		 System.out.print("Introduce el número de personas: ");
+//	     int N = sc.nextInt();
+//		
+//	     double[] alturas = new double[N];
+//		
+//	     for (int i = 0; i < N; i++) {
+//	    	 System.out.print("Introduce la altura de la persona: ");
+//	     	 alturas[i] = sc.nextDouble();
+//	     }
+//	     
+//	     double sAlturas = 0;
+//	        double aMax = alturas[0];
+//	        double aMin = alturas[0];
+//	     
+//	     for (int i = 0; i < N; i++) {
+//	         sAlturas += alturas[i];
+//	         if (alturas[i] > aMax) {
+//	             aMax = alturas[i];
+//	     }
+//	         if (alturas[i] < aMin) {
+//	             aMin = alturas[i];
+//	         }
+//	     }
+//	     
+//	     double aMedia = sAlturas / N;
+//		
+//	     int PEMedia = 0;
+//	     int PDMedia = 0;
+//		 
+//	     for (int i = 0; i < N; i++) {
+//	    	 if (alturas[i] > aMedia) {
+//	             	PEMedia++;
+//	     } else if (alturas[i] < aMedia) {
+//	                PDMedia++;
+//	        }
+//	     }
+//	     
+//	     System.out.println("la altura media es:" + aMedia);
+//	     System.out.printf("La altura Minima:", aMin);
+//	     System.out.printf(" La altura máxima es: ", aMax);
+//	     System.out.println("Personas por encima de la media: " + PEMedia);
+//	     System.out.println("Personas por debajo de la media: " + PDMedia);
+//	     
+	     //Ejercicio 11
+//	     
+//	     int[] numeros11 = new int[100];
+//	     int [] alreves = new int[100];
+//	     
+//	     for (int i = 0; i < numeros11.length; i++) {
+//	    	 
+//	    	 numeros11[i] = i + 1;
+//	    	 //alreves[i] = 100 - i;
+//	    	 
+//	    	 System.out.println("los numeros son: " + numeros11[i]);
+//	     }
+//	     
+//	     for(int i =0; i < numeros11.length;i++)
+//	     {
+//	    	 alreves[i] = numeros11[numeros11.length -1 - i];
+//	    	 System.out.println("los numeros inversos son: " + alreves[i]);
+//	     }
+//	    
+//	     
+	     // Ejercicio 12
+	     
+	     String opciones = "";
+	     
+	     int[] numeros12 = new int[10];
+	     
 
+	     
+	     
+	     do {
+	     	sc  = new Scanner(System.in);
+			
+			System.out.println("a. Mostrar valores");
+			System.out.println("b. Introducir valor");
+			System.out.println("c. salir");
+			opciones = sc.nextLine();
+			
+			if(opciones.equals("a")){
+				 
+			     for (int i = 0; i < numeros12.length; i++) {
+		    			 
+			    	 System.out.println("El valor del numero "+(i+1) + " es "+ numeros12[i] );
+			    	 
+			     }
+				
+				 
+	         }else if(opciones.equals("b"))
+	         {
+	        	 System.out.print("Introduce la posición (0-9): ");
+                 int posicion = sc.nextInt();
+                 System.out.print("Introduce el valor: ");
+                 int valor = sc.nextInt();
+
+                 
+                 if (posicion >= 0 && posicion < numeros12.length) {
+                     numeros12[posicion] = valor;
+                     System.out.println("Valor " + valor + " introducido en la posición " + posicion);
+                 }else {
+                	 System.out.println("posicion no valida, debe estar entre 0 y 9,");
+                 }
+                 
+                 
+	        	 }else if(opciones.equals("c")){
+	        	 System.out.println("Hasta pronto");
+	        	 
+	         }else { 
+	        	 System.out.println("Añade una opcion que sea correcta en el menu");
+	         }
+			
+	     }while(!opciones.equals("c"));			
+	     
+	}     
+	     
 }
