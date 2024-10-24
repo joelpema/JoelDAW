@@ -39,7 +39,10 @@ public class main {
 //        	System.out.println("No son iguales");
 //        }
 		
+		
         // Ejercicio 3
+		
+		
 //		sc = new Scanner(System.in);
 //		
 //		System.out.println("Introduce una cadena de texto:");
@@ -48,7 +51,7 @@ public class main {
 //	    System.out.println("Introduce una segunda cadena de texto:");
 //	    String apellido = sc.nextLine();
 //	    
-//	    System.out.println("Introduce una segunda cadena de texto:");
+//	    System.out.println("Introduce una tercera cadena de texto:");
 //	    String apellido2 = sc.nextLine();
 //	    
 //	    
@@ -61,9 +64,9 @@ public class main {
 //		sc = new Scanner(System.in);
 //	    
 //		System.out.println("Introduce una cadena de texto:");
-//	    String palabras = sc.nextLine();
+//	    String palabras2 = sc.nextLine();
 //		
-//	    palabras = palabras.toLowerCase();
+//	    palabras2 = palabras2.toLowerCase();
 //	    
 //	    int aes = 0;
 //	    int ees = 0;
@@ -71,33 +74,33 @@ public class main {
 //	    int oes = 0;
 //	    int ues = 0;
 //	    
-//	    for (int i = 0; i < palabras.length(); i++) {
-//            if (palabras.charAt(i) == 'a') {
+//	    for (int i = 0; i < palabras2.length(); i++) {
+//            if (palabras2.charAt(i) == 'a') {
 //                aes++;
 //            }
 //        }
 //	 
 //
-//       for (int i = 0; i < palabras.length(); i++) {
-//             if (palabras.charAt(i) == 'e') {
+//       for (int i = 0; i < palabras2.length(); i++) {
+//             if (palabras2.charAt(i) == 'e') {
 //                 ees++;
 //             }
 //       }
 //        
-//       for (int i = 0; i < palabras.length(); i++) {
-//           if (palabras.charAt(i) == 'i') {
+//       for (int i = 0; i < palabras2.length(); i++) {
+//           if (palabras2.charAt(i) == 'i') {
 //               ies++;
 //           }
 //       }
 //        
-//       for (int i = 0; i < palabras.length(); i++) {
-//           if (palabras.charAt(i) == 'o') {
+//       for (int i = 0; i < palabras2.length(); i++) {
+//           if (palabras2.charAt(i) == 'o') {
 //               oes++;
 //           }
 //       }
 //       
-//       for (int i = 0; i < palabras.length(); i++) {
-//           if (palabras.charAt(i) == 'u') {
+//       for (int i = 0; i < palabras2.length(); i++) {
+//           if (palabras2.charAt(i) == 'u') {
 //               ues++;
 //           }
 //       }
@@ -109,13 +112,34 @@ public class main {
         
 		sc = new Scanner(System.in);
 		  
-	    System.out.print("Introduce una frase: ");
-	    String texto = sc.nextLine();
-	    
-	    texto = texto.replaceAll(" ","").toLowerCase();
+        System.out.println("intoduce las palabras: ");
+		
+  		 String textos = sc.nextLine().toLowerCase();
+  		 
+  		 String textos2 = textos.replaceAll(" ", "").toLowerCase();
         
-        boolean palindromo = true;
-        int longitud = texto.length();
+        boolean Palindromo = true;
+        
+        int letras = textos2.length();
+        
+        for (int i = 0; i < letras; i++) {
+       	 
+            if (textos2.charAt(i) != textos2.charAt(letras - 1 - i)) {
+           	 
+                Palindromo = false;
+                
+            }
+        }
+        
+        if (Palindromo == true){
+       	 
+            System.out.println("es un palindromo");
+           
+        } else if (Palindromo == false){
+       	 
+            System.out.println("no es un palindromo");
+            
+        }
         
         
       
