@@ -12,6 +12,9 @@ public class App {
 
         String jugador = "";
 
+        int ganado = 0;
+        int perdido = 0;
+
         do { 
             
             System.out.println("P = Piedra");
@@ -23,7 +26,8 @@ public class App {
 
             int bot = (int) (Math.random() * 3 + 1);
                 String bot2 = "";
-
+                
+            if(!jugador.equals("S")){    
                 if (bot == 1){
                     bot2 = "P"; 
                     System.out.println("\n La maquina a elegido Piedra \n");
@@ -36,24 +40,28 @@ public class App {
                     bot2 = "T";
                     System.out.println("\n La maquina a elegido Tijeras \n");
                 } 
-
+            }    
             
                 
             if(jugador.equals("P")){
                 if (bot2 == "T"){
                     System.out.println("\n has ganado!!!");
+                    ganado++;
                 }else if (bot2 == "P"){
                     System.out.println("\n Has empatado");
                 }else if (bot2 == "L"){
                     System.out.println("\n Has perdido :(");
+                    perdido++;
                 }
 
             }
             else if(jugador.equals("L")){
                 if (bot2 == "T"){
                     System.out.println("\n has perdido :(");
+                    perdido++;
                 }else if (bot2 == "P"){
                     System.out.println("\n Has ganado!!!!");
+                    ganado++;
                 }else if (bot2 == "L"){
                     System.out.println("\n Has empatado");
                 }  
@@ -63,16 +71,21 @@ public class App {
                     System.out.println("\n has empatado");
                 }else if (bot2 == "P"){
                     System.out.println("\n Has perdido :(");
+                    perdido++;
                 }else if (bot2 == "L"){
                     System.out.println("\n Has ganado!!!");
+                    ganado++;
                 }  
             }     
+
             else if(jugador.equals("S")){
                 System.out.println("\n hasta luego...");
+                System.out.println("Has ganado " + ganado + " veces \nHas perdido " + perdido + " veces");
             }    
             else {
                 System.out.println("pon una opcion que sea valida en el menu");
-            }
+            }   
+
 
 
         }while (!jugador.equals("S"));
