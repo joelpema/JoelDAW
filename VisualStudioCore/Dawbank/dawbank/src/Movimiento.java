@@ -1,5 +1,6 @@
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Movimiento {
 
@@ -7,15 +8,16 @@ public class Movimiento {
 
     private int id;
     private String fecha;
-    private boolean tipo;
+    private String tipo;
     private double cantidad;
-    private String mostrarInfoMovimiento;
 
+     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
 
-public Movimiento(boolean tipo, double cantidad){
+public Movimiento(String tipo, double cantidad){
 
     this.id = contador;
     this.contador++;
+    
     this.fecha = LocalDateTime.now().toString();
     this.tipo = tipo;
     this.cantidad = cantidad;
@@ -26,20 +28,20 @@ public int getId(){
 public String getTecha(){
     return this.fecha;
 }
-public boolean  getTipo(){
+public String  getTipo(){
     return this.tipo;
 }
 public double  getCantidad(){
     return this.cantidad;
 }
 
-public String mostrarInfoMovimientos(){
-
-String info = String.format("Movimientos - ID: %s, Fecha: %s , Tipo ingreso/Retirada: %s, Cantidad: %s"
-            , this.id, this.fecha, this.tipo, this.cantidad);
-        return info;
-} 
 
 
+public void mostrarInfoMovimientos(){
+    System.out.println("La id del movimiento es: " + id);
+    System.out.println("La fecha del movimiento es: " + fecha);
+    System.out.println("El tipo de movimiento es: " + tipo);
+    System.out.println("La cantidad es: " + cantidad);
+}
 
-}   
+}
