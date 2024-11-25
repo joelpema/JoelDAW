@@ -40,10 +40,20 @@ public class CuentaBancaria {
         if(m1 != null){
 
             if(m1.getTipo().equalsIgnoreCase("ingreso")){
-                ingresar(m1);
+                if (m1.getCantidad() >= 3000.0){
+                    System.out.println("Cantidad de dinero elevada, por favor procesar por hacienda");
+                }else if (m1.getCantidad() <= 0 ) {
+                    System.out.println("debe ser un numero positivo"); 
+                }else{ 
+                    this.saldo += m1.getCantidad(); 
+                }
             }
             else if (m1.getTipo().equalsIgnoreCase("retirada")){
-                retirar(m1);
+                if (this.saldo <= -50){
+                    System.out.println("no puedes tener menos de -50 €");
+                }else{
+                this.saldo = this.saldo - m1.getCantidad();
+                }
             }
             this.movimientos[numeroMovimientos] = m1;
             this.numeroMovimientos++;
@@ -51,25 +61,6 @@ public class CuentaBancaria {
         }
         return isAdd;
     }
-
-    private void ingresar(Movimiento m1){
-        
-        if (m1.getCantidad() >= 3000.0){
-            System.out.println("Cantidad de dinero elevada, por favor procesar por hacienda");
-        }else if (m1.getCantidad() <= 0 ) {
-            System.out.println("debe ser un numero positivo"); 
-        }else{ 
-            this.saldo += m1.getCantidad(); 
-        }
-    }
-
-    private  void retirar(Movimiento m1){
-        if (this.saldo <= -50){
-            System.out.println("no puedes tener menos de -50 €");
-        }
-        this.saldo = this.saldo - m1.getCantidad();
-    }       
-
     public String mostrarMovimientos(){
         String result = "";
         if(this.numeroMovimientos > 0){

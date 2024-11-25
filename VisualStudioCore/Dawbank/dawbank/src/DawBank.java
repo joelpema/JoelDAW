@@ -62,17 +62,19 @@ public class DawBank {
             System.out.println("SALDO: " + cuentaBancaria.getSaldo());
             
         } else if (menu.equals("5")) {  
+
             sc = new Scanner(System.in);
             System.out.println("INGRESAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A INGRESAR");
 			double ingreso = sc.nextDouble();
-            Movimiento m1 = new Movimiento("Ingresar", ingreso);
+            Movimiento m1 = new Movimiento("Ingreso", ingreso);
             cuentaBancaria.insertarMovimiento(m1);
 
         } else if (menu.equals("6")) {  
+
             sc = new Scanner(System.in);
             System.out.println("RETIRAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A RETIRAR");
 			double retirar = sc.nextDouble();
-            Movimiento m1 = new Movimiento("retirar", retirar);
+            Movimiento m1 = new Movimiento("retirada", retirar);
             cuentaBancaria.insertarMovimiento(m1);
 
         } else if (menu.equals("7")) {  

@@ -11,14 +11,14 @@ public class Movimiento {
     private String tipo;
     private double cantidad;
 
-     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
 
 public Movimiento(String tipo, double cantidad){
 
     this.id = contador;
     this.contador++;
     
-    this.fecha = LocalDateTime.now().toString();
+    this.fecha = LocalDateTime.now().format(formatter);
     this.tipo = tipo;
     this.cantidad = cantidad;
 }
