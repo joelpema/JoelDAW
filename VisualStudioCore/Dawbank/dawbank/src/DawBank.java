@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,7 +8,7 @@ public class DawBank {
 
     Scanner sc = new Scanner(System.in);
 
-     Pattern pat = Pattern.compile("[A-Z a-z]{2}[0-9]{22}");
+     Pattern pat = Pattern.compile("[A-Z]{2}[0-9]{22}");
 
     System.out.println("Introduzca un IBAN correcto: ");
     String iban = sc.nextLine();
@@ -65,16 +66,18 @@ public class DawBank {
             System.out.println("INGRESAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A INGRESAR");
 			double ingreso = sc.nextDouble();
             Movimiento m1 = new Movimiento("Ingresar", ingreso);
-            cuentaBancaria.ingresar(m1);
+            cuentaBancaria.insertarMovimiento(m1);
+
         } else if (menu.equals("6")) {  
             sc = new Scanner(System.in);
             System.out.println("RETIRAR SALDO" + "\nINTRODUCE LA CANTIDAD QUE VAS A RETIRAR");
 			double retirar = sc.nextDouble();
             Movimiento m1 = new Movimiento("retirar", retirar);
-            cuentaBancaria.retirar(m1);
+            cuentaBancaria.insertarMovimiento(m1);
+
         } else if (menu.equals("7")) {  
 
-            cuentaBancaria.mostrarMovimiento();
+            System.out.println(cuentaBancaria.mostrarMovimientos());
 
             
         } else if (menu.equals("8")) {  

@@ -11,12 +11,6 @@ public class CuentaBancaria {
 
     public CuentaBancaria (String iban, String titular, int nMovimientos) {
         
-        if (!iban.matches("[A-Z]{2}\\d{22}")) {
-            
-        }
-        if (titular.isBlank()) {
-            System.out.println("El titular no puede estar vacío");
-        }
         this.iban = iban;
         this.titular = titular;
         this.saldo = 0;
@@ -41,7 +35,6 @@ public class CuentaBancaria {
         return info;
     }
 
-
     public boolean insertarMovimiento(Movimiento m1){
         boolean isAdd = false;
         if(m1 != null){
@@ -59,37 +52,37 @@ public class CuentaBancaria {
         return isAdd;
     }
 
-    public void ingresar(Movimiento m1){
+    private void ingresar(Movimiento m1){
         
         if (m1.getCantidad() >= 3000.0){
-            System.out.println("Cantidad de dinero elevada, por fabvor procesar por hacienda");
+            System.out.println("Cantidad de dinero elevada, por favor procesar por hacienda");
         }else if (m1.getCantidad() <= 0 ) {
             System.out.println("debe ser un numero positivo"); 
         }else{ 
-            this.saldo = m1.getCantidad(); 
+            this.saldo += m1.getCantidad(); 
         }
     }
 
-    public void retirar(Movimiento m1){
+    private  void retirar(Movimiento m1){
         if (this.saldo <= -50){
             System.out.println("no puedes tener menos de -50 €");
-        }this.saldo = this.saldo - m1.getCantidad();
-    }
-
-    public void registrarMovimiento(String tipo, double cantidad){
-        if(numeroMovimientos >= 100){
-            System.out.println("No se pueden realizar mas movimientos.");
         }
-        movimientos[numeroMovimientos] = new Movimiento(tipo,cantidad);
-        numeroMovimientos++;
-    }
+        this.saldo = this.saldo - m1.getCantidad();
+    }       
 
-    public void mostrarMovimiento(){
-        for (int i = 0; i < numeroMovimientos; i++) {
-            movimientos[i].mostrarInfoMovimientos();
+    public String mostrarMovimientos(){
+        String result = "";
+        if(this.numeroMovimientos > 0){
+            for(Movimiento m1 : this.movimientos){
+                if(m1 != null){
+                    result += m1.mostrarInfoMovimientos() + "\n";
+                }
+            }
         }
+        return result;
     }
 }
+    
 
 
 

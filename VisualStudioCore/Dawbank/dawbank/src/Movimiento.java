@@ -35,13 +35,10 @@ public double  getCantidad(){
     return this.cantidad;
 }
 
-
-
-public void mostrarInfoMovimientos(){
-    System.out.println("La id del movimiento es: " + id);
-    System.out.println("La fecha del movimiento es: " + fecha);
-    System.out.println("El tipo de movimiento es: " + tipo);
-    System.out.println("La cantidad es: " + cantidad);
-}
+public String mostrarInfoMovimientos(){
+    String infoMovi = String.format("Movimientos - ID: %s, Fecha: %s , Tipo (ingrso o retirada): %s, Cantidad: %s"
+                , this.id, this.fecha, this.tipo, this.cantidad);
+            return infoMovi;
+    }
 
 }
