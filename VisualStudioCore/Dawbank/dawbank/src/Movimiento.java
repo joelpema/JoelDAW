@@ -9,7 +9,7 @@ public class Movimiento {
     private int id;
     private String fecha;
     private String tipo;
-    private double cantidad;
+    private double cantidad;    
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
 
@@ -40,5 +40,4 @@ public String mostrarInfoMovimientos(){
                 , this.id, this.fecha, this.tipo, this.cantidad);
             return infoMovi;
     }
-
 }
