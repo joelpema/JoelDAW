@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -7,16 +8,14 @@ public class Pelicula {
 
     private int id;
     private String titulo;
-    private Enum genero;
-    private String fechaRegistro;
-    private String fechaBaja;
+    private Genero genero;
+    private LocalDate fechaRegistro;
+    private LocalDate fechaBaja;
     private String fechaAlquiler;
     private boolean isAlquilada;
 
     
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
-
-
     public Pelicula (int id, String titulo){
 
         this.id = id;
@@ -24,13 +23,13 @@ public class Pelicula {
 
         this.titulo = titulo;
         this.genero = genero;
-        this.fechaRegistro = LocalDateTime.now().format(formatter);
-        this.fechaBaja = LocalDateTime.now().format(formatter);
+        this.fechaRegistro = fechaRegistro;
+        this.fechaBaja = fechaBaja;
+        this.fechaAlquiler = fechaAlquiler;
         this.isAlquilada = false;
-
     }
 
-    public int getid(){
+    public int getIdPelicula(){
         return this.id;
     }
     
@@ -38,20 +37,23 @@ public class Pelicula {
         return this.titulo;
     }
 
-    public Enum getGenero(){
+    public Genero getGenero(){
         return this.genero;
     }
 
-    public String getFechaRegistro(){
+    public LocalDate getFechaRegistro(){
         return this.fechaRegistro;
     }
 
-    public String getFechaBaja(){
+    public LocalDate getFechaBaja(){
         return this.fechaBaja;
     }
     
     public String getFechaAlquiler(){
         return this.fechaAlquiler;
+    }
+    public boolean isAlquilada(){
+        return isAlquilada;
     }
 
     public String mostrarInfoPelicula(){
@@ -59,6 +61,9 @@ public class Pelicula {
             , this.id, this.titulo, this.genero, this.fechaRegistro, this.fechaBaja, this.fechaAlquiler);
         return infoPelicula;
     }
+    public LocalDate PAlquilada(){
+        this.fechaAlquiler = LocalDateTime.now().format(formatter);
 
-
+    }
 }
+
