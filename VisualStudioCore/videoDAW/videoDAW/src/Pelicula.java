@@ -61,9 +61,10 @@ public class Pelicula {
             , this.id, this.titulo, this.genero, this.fechaRegistro, this.fechaBaja, this.fechaAlquiler);
         return infoPelicula;
     }
-    public LocalDate PAlquilada(){
+    public boolean  PAlquilada(){
+        isAlquilada = true;
         this.fechaAlquiler = LocalDateTime.now().format(formatter);
-
+        return isAlquilada;
     }
 }
 
