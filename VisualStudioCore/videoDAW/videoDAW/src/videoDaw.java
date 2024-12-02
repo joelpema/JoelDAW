@@ -1,4 +1,5 @@
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class videoDaw {
 
@@ -78,14 +79,19 @@ public class videoDaw {
             return infoClientes;
         }
 
-        public boolean alquilarPelicula(Pelicula p, Cliente c){
+        public String alquilarPelicula(Pelicula p, Cliente c){
             boolean isAll = false;
             if(p.isAlquilada() == false){
                 p.PAlquilada();
             }else {
                 System.out.println("no puedes escoger una pelicula que ya este cogida, elija de nuevo");
             }
-            return isAll;
+        }
+        
+        public String darBajaCliente(Cliente c){
+
+            Scanner sc = new Scanner(System.in);
+
         }
 
 }

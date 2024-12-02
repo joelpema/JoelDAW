@@ -1,3 +1,3 @@
 public enum Genero {
-
+    ACCION, COMEDIA, DRAMA, FANTASIA, TERROR, DOCUMENTALES;
 }

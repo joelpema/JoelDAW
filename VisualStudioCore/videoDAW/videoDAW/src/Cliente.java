@@ -56,5 +56,4 @@ public class Cliente {
         this.id, this.nombre, this.DNI, this.direccion, this.fechaNacimiento, this.peliculasAlquiladas);
         return infoCliente;
     }
-    
 }
