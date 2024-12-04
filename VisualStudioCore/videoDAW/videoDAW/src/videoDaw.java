@@ -41,14 +41,14 @@ public class videoDaw {
             return this.NClientes;
         }
 
-        public int clientesTotales(Cliente nuevo){
+        public int clientesAdd(Cliente nuevo){
             if (nuevo != null){
                 this.clientes [NClientes] = nuevo;
                 NClientes++;
             }
             return NClientes;
         }
-        public int peliculasTotales(Pelicula nueva){
+        public int peliculasAdd(Pelicula nueva){
             if (nueva != null){
                 this.peliculas [NPeliculas] = nueva;
                 NPeliculas++;
@@ -62,35 +62,32 @@ public class videoDaw {
             return InfoVD;
         }
 
-        public String mostrarPeliculasRegistradas(){
+        public void mostrarPeliculasRegistradas(){
             String infoPeliculas = "";
             for (int i = 0; i < NPeliculas; i++){
                 infoPeliculas += this.peliculas[i].mostrarInfoPelicula() + "\n";
             }
-            return infoPeliculas;
         }
 
-        public String mostrarClientesRegistrados(){
+        public void mostrarClientesRegistrados(){
             String infoClientes = "";
             for (int i = 0; i < NClientes; i++){
                 infoClientes += this.clientes[i].mostrarInfoCliente() + "\n";
             }
-            return infoClientes;
+            
         }
 
-        public boolean alquilarPelicula(Pelicula p, Cliente c){
-            boolean isAll = false;
-            if(p.isAlquilada() == false){
-                p.PAlquilada();
-            }else {
-                System.out.println("no puedes escoger una pelicula que ya este cogida, elija de nuevo");
-            }
-            return isAll;
+        public Cliente clientePosicion( Cliente c){
+        return this.peliculas(c);
+        }
+
+        public Pelicula peliculaPosicion( Pelicula p){
+            this.peliculaPosicion(p);
         }
         
         public String darBajaCliente(Cliente c){
-
             
+
             return "";
         }
 

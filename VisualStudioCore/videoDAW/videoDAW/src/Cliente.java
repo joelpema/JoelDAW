@@ -16,7 +16,7 @@ public class Cliente {
 
     public Cliente(int id, String nombre, String DNI, String direccion, String fechaNacimiento) {
 
-        this.id = id;
+        this.id = this.contador;
         this.contador++;
 
         this.nombre = nombre;
