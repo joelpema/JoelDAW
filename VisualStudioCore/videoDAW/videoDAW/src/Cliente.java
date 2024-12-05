@@ -4,7 +4,7 @@ public class Cliente {
 
     private int contador = 0;
 
-    private int id;
+    private String id;
     private String nombre;
     private String DNI;
     private String direccion;
@@ -14,9 +14,9 @@ public class Cliente {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
 
-    public Cliente(int id, String nombre, String DNI, String direccion, String fechaNacimiento) {
+    public Cliente(String id, String nombre, String DNI, String direccion, String fechaNacimiento) {
 
-        this.id = this.contador;
+        this.id = "RE-" + this.contador;
         this.contador++;
 
         this.nombre = nombre;
@@ -27,7 +27,7 @@ public class Cliente {
         this.peliculas = new Pelicula[100];
     }    
 
-    public int getId() {
+    public String getId() {
         return id;
     }
     
@@ -56,4 +56,27 @@ public class Cliente {
         this.id, this.nombre, this.DNI, this.direccion, this.fechaNacimiento, this.peliculasAlquiladas);
         return infoCliente;
     }
+
+    public void anadirPelicula(Pelicula p) {
+        if(p != null){
+            this.peliculas[peliculasAlquiladas] = p;
+            peliculasAlquiladas++;
+        }
+    }    
+
+    public void eliminarPelicula(Pelicula p){
+        if(p != null){
+            this.peliculas[peliculasAlquiladas] = null;
+            peliculasAlquiladas--;
+        }
+    }
+
+    public void enseñarPeliculas(){
+        System.out.println("las Peliculas que hay son: ");
+        for (int i = 0; 1 < peliculasAlquiladas; i++){
+            System.out.println(peliculas[i].mostrarInfoPelicula());
+        }
+    }
+    
+    
 }

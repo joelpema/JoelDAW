@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class videoDaw {
@@ -77,18 +78,52 @@ public class videoDaw {
             
         }
 
-        public Cliente clientePosicion( Cliente c){
-        return this.peliculas(c);
+        public String MostrarPeliculasNoAlquiladas(videoDaw a){
+            String PeliculasNoAlquiladas = "";
+            if(a.NPeliculas > 0){
+                for(int i = 0; i < NPeliculas; i++){
+                    if(peliculas[i].isAlquilada() == false)
+                     PeliculasNoAlquiladas += (peliculas[i].mostrarInfoPelicula());
+                }
+            }else {
+                PeliculasNoAlquiladas = "no hay peliculas aun, vuelva mas tarde";
+            }
+            return PeliculasNoAlquiladas;
         }
 
-        public Pelicula peliculaPosicion( Pelicula p){
-            this.peliculaPosicion(p);
+    
+        public Pelicula posicionPelicula(int i){
+            return this.peliculas[i];
         }
-        
-        public String darBajaCliente(Cliente c){
-            
 
-            return "";
+        public Cliente posicionCliente(int i){
+            return this.clientes[i];
         }
+
+        public boolean alquilarPelicula(int c, int p){
+            this.posicionCliente(c);
+            this.posicionPelicula(p).Alquilado();
+            boolean isEliminada = false;
+            return isEliminada;
+        }    
+
+        public boolean  darBajaCliente(int c, int nS){
+            boolean isEliminada = false;
+                if(this.clientes != null){
+            this.clientes [nS] = null;
+            LocalDate fechaBajaCliente = posicionCliente(c)(nS).baja();
+            for(int i = nS + 1; i < nclientes; i++){
+                this.clientes [i-1] = this.clientes[i];
+            }
+            this.clientes [nclientes-1] = null;
+            nclientes--;
+            isEliminated = true;
+            System.out.println("Cliente eliminado");
+            posicionCliente(c)(nS).InfoCliente();
+            System.out.println("Fecha de baja: " + fechaBajaCliente);
+        }
+        }
+
+
 
 }

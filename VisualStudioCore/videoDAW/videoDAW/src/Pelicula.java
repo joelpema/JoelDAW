@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -9,23 +8,21 @@ public class Pelicula {
     private int id;
     private String titulo;
     private Genero genero;
-    private LocalDate fechaRegistro;
-    private LocalDate fechaBaja;
-    private String fechaAlquiler;
+    private LocalDateTime fechaRegistro;
+    private LocalDateTime fechaBaja;
+    private LocalDateTime fechaAlquiler;
     private boolean isAlquilada;
 
     
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:SS");
-    public Pelicula (int id, String titulo){
+    public Pelicula (int id, String titulo, Genero genero){
 
-        this.id = id;
+        this.id = this.contador;
         this.contador++;
 
         this.titulo = titulo;
         this.genero = genero;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaBaja = fechaBaja;
-        this.fechaAlquiler = fechaAlquiler;
+        this.fechaRegistro = LocalDateTime.now();
         this.isAlquilada = false;
     }
 
@@ -41,15 +38,15 @@ public class Pelicula {
         return this.genero;
     }
 
-    public LocalDate getFechaRegistro(){
+    public LocalDateTime getFechaRegistro(){
         return this.fechaRegistro;
     }
 
-    public LocalDate getFechaBaja(){
+    public LocalDateTime getFechaBaja(){
         return this.fechaBaja;
     }
     
-    public String getFechaAlquiler(){
+    public LocalDateTime setFechaAlquiler(){
         return this.fechaAlquiler;
     }
     public boolean isAlquilada(){
@@ -61,10 +58,19 @@ public class Pelicula {
             , this.id, this.titulo, this.genero, this.fechaRegistro, this.fechaBaja, this.fechaAlquiler);
         return infoPelicula;
     }
-    public boolean  PAlquilada(){
-        isAlquilada = true;
-        this.fechaAlquiler = LocalDateTime.now().format(formatter);
-        return isAlquilada;
+    public String PAlquilada(){
+        String PAlquilada = String.format("El Codigo de la pelicula es %s", this.id);
+        return PAlquilada;
     }
+
+    public boolean Alquilado(){
+        this.isAlquilada = true;
+        return this.isAlquilada;
+    }
+    public boolean Devolucion(){
+        this.isAlquilada = false;
+        return this.isAlquilada;
+    }
+
 }
 
