@@ -57,7 +57,7 @@ public class Pelicula {
     public String InfoPelicula(){ 
         String getInfoPelicula = String.format("\nCod: Pel-%s, Titulo: %s, Genero: %s, Registro: %s, alquilada: %s",
         this.cod, this.titulo, this.genero, this.FechaRegistro.format(formatter), this.isAlquilada);
-        return getInfoPelicula;
+        return getInfoPelicula + "\n";
     }
     
     public String CodPelicula(){ 
