@@ -13,7 +13,7 @@ public class Pelicula {
     private int cod;
     private String titulo;
     private Generos genero;
-    private LocalDateTime registro;
+    private LocalDateTime FechaRegistro;
     private LocalDate fechaBaja;
     private LocalDateTime fechaAlquiler;
     private boolean isAlquilada;
@@ -26,7 +26,7 @@ public class Pelicula {
         this.contador++;
         this.titulo = titulo;
         this.genero = genero;
-        this.registro = LocalDateTime.now();
+        this.FechaRegistro = LocalDateTime.now();
         this.isAlquilada = false;
         this.fechaAlquiler = fechaAlquiler;
     }
@@ -41,7 +41,7 @@ public class Pelicula {
         return genero;
     }
     public LocalDateTime getfechaRegistro() {
-        return registro;
+        return FechaRegistro;
     }
     public LocalDate getfechaBaja() {
         return fechaBaja;
@@ -56,7 +56,7 @@ public class Pelicula {
 
     public String InfoPelicula(){ 
         String getInfoPelicula = String.format("\nCod: Pel-%s, Titulo: %s, Genero: %s, Registro: %s, alquilada: %s",
-        this.cod, this.titulo, this.genero, this.registro.format(formatter), this.isAlquilada);
+        this.cod, this.titulo, this.genero, this.FechaRegistro.format(formatter), this.isAlquilada);
         return getInfoPelicula;
     }
     

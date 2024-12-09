@@ -5,9 +5,9 @@ public class VideoDaw {
     
     private String cif;
     private String direccion;
-    private LocalDate alta;
-    private int npeliculas;
-    private int nclientes;
+    private LocalDate FechaAlta;
+    private int nPeliculas;
+    private int nClientes;
     
     private Cliente [] clientes;
     private Pelicula [] peliculas;
@@ -16,11 +16,11 @@ public class VideoDaw {
     public VideoDaw(String cif, String direccion){
         this.cif = cif;
         this.direccion = direccion;
-        this.alta = LocalDate.now();
+        this.FechaAlta = LocalDate.now();
         this.peliculas = new Pelicula[100];
-        this.npeliculas = 0;
+        this.nPeliculas = 0;
         this.clientes = new Cliente[100];
-        this.nclientes = 0;
+        this.nClientes = 0;
     }
 
     public String getCif() {
@@ -29,26 +29,26 @@ public class VideoDaw {
     public String getDireccion() {
         return direccion;
     }
-    public LocalDate getAlta() {
-        return alta;
+    public LocalDate getFechaAlta() {
+        return FechaAlta;
     }
     public int getNpeliculas() {
-        return npeliculas;
+        return nPeliculas;
     }
     public int getNclientes() {
-        return nclientes;
+        return nClientes;
     }
 
 
     public boolean nuevoCliente(Cliente nuevo){
         if (nuevo != null) {
-            for (int i = 0; i < nclientes; i++) {
+            for (int i = 0; i < nClientes; i++) {
                 if (clientes[i].getDni().equals(nuevo.getDni())) {
                     return false;
                 }
             }
-            this.clientes[nclientes] = nuevo;
-            nclientes++;
+            this.clientes[nClientes] = nuevo;
+            nClientes++;
             return true;
         }
         return false;
@@ -57,8 +57,8 @@ public class VideoDaw {
     public boolean nuevaPelicula(Pelicula nueva){
         boolean isAdd = false;
         if (nueva != null){
-            this.peliculas [npeliculas] = nueva;
-            npeliculas++;
+            this.peliculas [nPeliculas] = nueva;
+            nPeliculas++;
         }
         return isAdd;
     }
@@ -66,13 +66,13 @@ public class VideoDaw {
     public String InfoVideoDaw(){
         String getInfoVideoDaw = String.format("INFO DEL VIDEOCLUB" +
         "\nCif: %s, Direccion: %s, Fecha de alta: %s, Nº de Peliculas: %s, Nº de clientes %s", 
-        this.cif, this.direccion, this.alta, this.npeliculas, this.nclientes);
+        this.cif, this.direccion, this.FechaAlta, this.nPeliculas, this.nClientes);
         return getInfoVideoDaw;
     }
 
     public String mostrarPeliculas(){
      String peliculasDisponibles = "";
-     for(int i = 0; i < npeliculas; i++){
+     for(int i = 0; i < nPeliculas; i++){
         System.out.println(i + "." + peliculas[i].InfoPelicula());
         }
     return peliculasDisponibles;
@@ -80,8 +80,8 @@ public class VideoDaw {
 
     public String mostrarPeliculasNoAlquiladas(){
         String peliculasNoAlquiladas = "";
-        if(npeliculas > 0){
-        for(int i = 0; i < npeliculas; i++){
+        if(nPeliculas > 0){
+        for(int i = 0; i < nPeliculas; i++){
             if (peliculas[i].isAlquilada() == false){
                 peliculasNoAlquiladas += (peliculas[i].InfoPelicula());
             }
@@ -95,7 +95,7 @@ public class VideoDaw {
     public String mostrarClientes(){ 
         String mostrarClientes = "";
         if(clientes != null){   
-        for(int i = 0; i < nclientes; i++){
+        for(int i = 0; i < nClientes; i++){
             System.out.println(i + "." + clientes[i].InfoCliente());
             }
         }
@@ -103,39 +103,39 @@ public class VideoDaw {
     }
 
 
-    public Pelicula obtenerPeliculaPorPosicion(int i){
+    public Pelicula PeliculaPorPosicion(int i){
         return this.peliculas[i];
     } 
 
-    public Cliente obtenerClientePorPosicion(int i){
+    public Cliente ClientePorPosicion(int i){
         return this.clientes[i];
     }
 
   
 
     public boolean alquilarPelicula(int c, int p){
-        this.obtenerClientePorPosicion(c);
-        this.obtenerPeliculaPorPosicion(p).Alquiler();
+        this.ClientePorPosicion(c);
+        this.PeliculaPorPosicion(p).Alquiler();
         boolean isAdd = false;
         return isAdd;
     }
 
     public boolean devolverPelicula(int c, int p){
-        this.obtenerClientePorPosicion(c);
-        this.obtenerPeliculaPorPosicion(p).devolver();
+        this.ClientePorPosicion(c);
+        this.PeliculaPorPosicion(p).devolver();
         boolean isEliminated = false;
         return isEliminated;
     }
 
-    public boolean darBajaCliente(Cliente c, int numSocio){
+    public boolean BajaCliente(Cliente c, int numSocio){
         boolean isEliminated = false;
         if(this.clientes != null){
             this.clientes [numSocio] = null;
-            for(int i = numSocio + 1; i < nclientes; i++){
+            for(int i = numSocio + 1; i < nClientes; i++){
                 this.clientes [i-1] = this.clientes[i];
             }
-            this.clientes [nclientes-1] = null;
-            nclientes--;
+            this.clientes [nClientes-1] = null;
+            nClientes--;
             isEliminated = true;
             System.out.println("Cliente eliminado");
         }
@@ -143,16 +143,16 @@ public class VideoDaw {
     return isEliminated;
     }
 
-    public boolean darBajaPelicula(Pelicula p, int cod){
+    public boolean BajaPelicula(Pelicula p, int cod){
         boolean isEliminated = false;
-        if (cod >= 0 && cod < npeliculas) {
+        if (cod >= 0 && cod < nPeliculas) {
             this.peliculas [cod] = null;
             
-            for(int i = cod + 1; i < npeliculas; i++){
+            for(int i = cod + 1; i < nPeliculas; i++){
                 this.peliculas [i-1] = this.peliculas[i];
             }
-            this.peliculas [npeliculas-1] = null;
-            npeliculas--;
+            this.peliculas [nPeliculas-1] = null;
+            nPeliculas--;
             isEliminated = true;
             System.out.println("Pelicula eliminada");
         }

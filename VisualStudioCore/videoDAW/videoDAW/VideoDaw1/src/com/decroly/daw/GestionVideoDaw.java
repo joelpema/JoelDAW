@@ -10,10 +10,10 @@ public class GestionVideoDaw {
 		// TODO Auto-generated method stub
 
 	
-		Scanner entrada = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		String opcion; 
 		
-		VideoDaw miFranquicia = null; 
+		VideoDaw Franquicia = null; 
 		Pelicula nuevaPelicula = null; 
 		Cliente nuevoCliente = null; 
 
@@ -22,27 +22,27 @@ public class GestionVideoDaw {
 		final String patronDNI = "[0-9]{8}[A-Z]"; 
 
 
-		System.out.println("\nBienvenido a VideoDaw, ¿Que deseas hacer?");
+		System.out.println("\nBienvenido a VideoDaw");
 		
 	do{
 
-		entrada = new Scanner(System.in);
-		System.out.println("\n1.-Crear y Registrar Videoclub");
-		System.out.println("2.-Registrar pelicula en videoclub");
-		System.out.println("3.-Crear y registrar cliente en videoclub");
-		System.out.println("4.-Alquilar pelicula");
-		System.out.println("5.-Devolver pelicula");
-		System.out.println("6.-Dar de baja cliente");
-		System.out.println("7.-Dar de baja pelicula");
-		System.out.println("8.-SALIR");
-		opcion = entrada.nextLine();
+		sc = new Scanner(System.in);
+		System.out.println("\n1. Crear y Registrar Videoclub");
+		System.out.println("2. Registrar pelicula en videoclub");
+		System.out.println("3. Crear y registrar cliente en videoclub");
+		System.out.println("4. Alquilar pelicula");
+		System.out.println("5. Devolver pelicula");
+		System.out.println("6. Dar de baja cliente");
+		System.out.println("7. Dar de baja pelicula");
+		System.out.println("8. SALIR");
+		opcion = sc.nextLine();
 
 		
 			switch (opcion) {
 
 			
 				case "1": 
-				entrada = new Scanner(System.in);
+				sc = new Scanner(System.in);
 				System.out.println("\nCREAR NUEVA FRANQUICIA");
 
 				
@@ -50,48 +50,55 @@ public class GestionVideoDaw {
 				String direccion = myUtils.leerTextoPantalla("\nAhora añade la direccion");
 
 				
-				miFranquicia = new VideoDaw(cif, direccion);
+				Franquicia = new VideoDaw(cif, direccion);
 				System.out.println("\nFranqucia registrerada con exito");
-				System.out.println(miFranquicia.InfoVideoDaw());
+				System.out.println(Franquicia.InfoVideoDaw());
 					break;
 
 			
 				case "2": 
-				if(miFranquicia != null){
-					entrada = new Scanner(System.in);
+				if(Franquicia != null){
+					sc = new Scanner(System.in);
 					System.out.println("\nREGISTRAR NUEVA PELICULA");	
 
-					
 					String titulo = myUtils.leerTextoPantalla("\nEscribe el titulo de la pelicula");
-
 					
 					for(int i = 0; i < 1; i++){
-						System.out.println("\n¿Cual es el genero de la pelicula? " + "\n1.-ACCION" + 
-						"\n2.-COMEDIA" + "\n3.-DRAMA" + "\n4.-FANTASIA" + "\n5.-TERROR " + "\n6.-DOCUMENTALES");
-						entrada = new Scanner(System.in);
-						int nGenero = entrada.nextInt();
+						System.out.println("\n¿Cual es el genero de la pelicula? ");
+						System.out.println("1. ACCION"); 
+						System.out.println("2. ANIME");
+						System.out.println("3. COMEDIA");
+						System.out.println("4. DRAMA");
+						System.out.println("5. FANTASIA");
+						System.out.println("6. TERROR ");
+						System.out.println("7. DOCUMENTALES");
+						sc = new Scanner(System.in);
+						int nGenero = sc.nextInt();
 
 						if (nGenero == 1){
 							nuevaPelicula = new Pelicula(titulo, Generos.ACCION);	
 						}
 						if (nGenero == 2){
-							nuevaPelicula = new Pelicula(titulo, Generos.COMEDIA);
+							nuevaPelicula = new Pelicula(titulo, Generos.ANIME);	
 						}
 						if (nGenero == 3){
-							nuevaPelicula = new Pelicula(titulo, Generos.DRAMA);
+							nuevaPelicula = new Pelicula(titulo, Generos.COMEDIA);
 						}
 						if (nGenero == 4){
-							nuevaPelicula = new Pelicula(titulo, Generos.FANTASIA);
+							nuevaPelicula = new Pelicula(titulo, Generos.DRAMA);
 						}
 						if (nGenero == 5){
-							nuevaPelicula = new Pelicula(titulo, Generos.TERROR);
+							nuevaPelicula = new Pelicula(titulo, Generos.FANTASIA);
 						}
 						if (nGenero == 6){
+							nuevaPelicula = new Pelicula(titulo, Generos.TERROR);
+						}
+						if (nGenero == 7){
 							nuevaPelicula = new Pelicula(titulo, Generos.DOCUMENTALES);
 						}
 
 						
-						else if(nGenero > 6 || nGenero < 1){
+						else if(nGenero > 6 && nGenero < 1){
 							System.out.println("ERROR. El dato introducido es invalido");
 							i -= 1;
 						}
@@ -101,7 +108,7 @@ public class GestionVideoDaw {
 					if (nuevaPelicula != null){
 						System.out.println("Pelicula registrada correctamente");
 						System.out.println(nuevaPelicula.InfoPelicula());
-						miFranquicia.nuevaPelicula(nuevaPelicula);
+						Franquicia.nuevaPelicula(nuevaPelicula);
 					}
 				}
 				else{
@@ -111,26 +118,25 @@ public class GestionVideoDaw {
 
 			
 				case "3":
-				if (miFranquicia != null){
-					entrada = new Scanner(System.in);
+				if (Franquicia != null){
+					sc = new Scanner(System.in);
 					System.out.println("\nREGISTRAR NUEVO CLIENTE");	
 
 				
 					String dni = myUtils.comprobarPatronRepetidamente(patronDNI, "\nIntroduce el DNI");
 					String nombre = myUtils.leerTextoPantalla("\nEscribe el nombre");
 					String direccionCliente = myUtils.leerTextoPantalla("\nEscribe una direccion");
-					LocalDate fechaNacimiento = myUtils.leerFecha();
+					LocalDate fechaDeNacimiento = myUtils.leerFecha();
 
 				
 					LocalDate hoy = LocalDate.now();
-					Period Años = Period.between(fechaNacimiento, hoy);
-					if (Años.getYears() > 18){
+					Period Edad = Period.between(fechaDeNacimiento, hoy);
+					if (Edad.getYears() >= 18){
+						
+						nuevoCliente = new Cliente(dni, nombre, direccionCliente, fechaDeNacimiento);
 
 						
-						nuevoCliente = new Cliente(dni, nombre, direccionCliente, fechaNacimiento);
-
-						
-						if (miFranquicia.nuevoCliente(nuevoCliente) == true){
+						if (Franquicia.nuevoCliente(nuevoCliente) == true){
 							
 							System.out.println("Cliente registrado con exito");
 							System.out.println(nuevoCliente.InfoCliente());
@@ -142,45 +148,42 @@ public class GestionVideoDaw {
 					else{
 						System.out.println("El cliente debe ser mayor de edad");
 					}
+				
 				}
 				else {
 					System.out.println("Antes de añadir un cliente, registre una franquicia por favor.");
 				}
 					break;
-
-			
 				case "4": 
-				entrada = new Scanner(System.in);
+				sc = new Scanner(System.in);
 
 				
-				if(miFranquicia != null && miFranquicia.getNpeliculas() > 0 &&
+				if(Franquicia != null && Franquicia.getNpeliculas() > 0 &&
 				 nuevaPelicula != null && nuevoCliente != null){
 
 					
 					System.out.println("Quien va a alquilar la pelicula. Introducir numero de codigo de socio");
-					System.out.println(miFranquicia.mostrarClientes());	 
-					int cliente = entrada.nextInt();
+					System.out.println(Franquicia.mostrarClientes());	 
+					int cliente = sc.nextInt();
 				
 					
 					System.out.println("¿Que pelicula quieres alquilar? Introducir numero de codigo de la pelicula");
-					System.out.println(miFranquicia.mostrarPeliculasNoAlquiladas());
-					int pelicula = entrada.nextInt();
+					System.out.println(Franquicia.mostrarPeliculasNoAlquiladas());
+					int pelicula = sc.nextInt();
 
 					
-					if(miFranquicia.obtenerPeliculaPorPosicion(pelicula).isAlquilada() == false){
+					if(Franquicia.PeliculaPorPosicion(pelicula).isAlquilada() == false){
 
-						
-						miFranquicia.alquilarPelicula(cliente, pelicula);
-						miFranquicia.obtenerClientePorPosicion(cliente).addPelicula
-						(miFranquicia.obtenerPeliculaPorPosicion(pelicula));
+						Franquicia.alquilarPelicula(cliente, pelicula);
+						Franquicia.ClientePorPosicion(cliente).addPelicula
+						(Franquicia.PeliculaPorPosicion(pelicula));
 
-						
-						System.out.println(miFranquicia.obtenerClientePorPosicion(cliente).mostrarPeliculas());	
-					} else if (miFranquicia.obtenerPeliculaPorPosicion(pelicula).isAlquilada() == true){
+						System.out.println(Franquicia.ClientePorPosicion(cliente).mostrarPeliculas());	
+					} else if (Franquicia.PeliculaPorPosicion(pelicula).isAlquilada() == true){
 						System.out.println("La pelicula seleccionada ya esta alquilada");
 					}
 				}else {
-					System.out.println("Para alquilar la pelicula, registra primero Peliculas en el videoclub.");
+					System.out.println("Para alquilar la pelicula, registra primero Peliculas o Cliente en el Videoclub.");
 					}
 					break;
 
@@ -188,30 +191,30 @@ public class GestionVideoDaw {
 				case "5": 
 
 				
-				if( miFranquicia != null && miFranquicia.getNclientes() > 0 && 
+				if(Franquicia != null && Franquicia.getNclientes() > 0 && 
 				nuevaPelicula != null && nuevoCliente != null){
 
 					
 					System.out.println("Quien va a devolver la pelicula");
-					System.out.println(miFranquicia.mostrarClientes());	 
-					int bajacliente = entrada.nextInt();
+					System.out.println(Franquicia.mostrarClientes());	 
+					int bajacliente = sc.nextInt();
 
 					
-					if(miFranquicia.obtenerClientePorPosicion(bajacliente).getNalquiladas() > 0){
+					if(Franquicia.ClientePorPosicion(bajacliente).getNalquiladas() > 0){
 
 						
 						System.out.println("Selecciona pelicula a devolver");
-						System.out.println(miFranquicia.obtenerClientePorPosicion(bajacliente).mostrarPeliculas());
-						int bajapelicula = entrada.nextInt();
+						System.out.println(Franquicia.ClientePorPosicion(bajacliente).mostrarPeliculas());
+						int bajapelicula = sc.nextInt();
 
 						
-						miFranquicia.devolverPelicula(bajacliente, bajapelicula);
-						miFranquicia.obtenerClientePorPosicion(bajacliente).elimPelicula
-						(miFranquicia.obtenerPeliculaPorPosicion(bajapelicula));
+						Franquicia.devolverPelicula(bajacliente, bajapelicula);
+						Franquicia.ClientePorPosicion(bajacliente).elimPelicula
+						(Franquicia.PeliculaPorPosicion(bajapelicula));
 
 						
 						System.out.println("Registro movimientos: ");
-						miFranquicia.obtenerClientePorPosicion(bajacliente).mostrarPeliculas();
+						Franquicia.ClientePorPosicion(bajacliente).mostrarPeliculas();
 					} else{
 						System.out.println("No hay peliculas alquiladas, alquila alguna pelicula.");
 						}	
@@ -222,18 +225,18 @@ public class GestionVideoDaw {
 
 			
 				case "6": 
-				entrada = new Scanner(System.in);
+				sc = new Scanner(System.in);
 
 				
-				if(miFranquicia != null && miFranquicia.getNclientes() > 0){
+				if(Franquicia != null && Franquicia.getNclientes() > 0){
 
 				
-				System.out.println(miFranquicia.mostrarClientes());
+				System.out.println(Franquicia.mostrarClientes());
 				System.out.println("Introduce la posicion del cliente a dar de baja");
-		    	int numSocio = entrada.nextInt();
+		    	int numSocio = sc.nextInt();
 
 				
-				miFranquicia.darBajaCliente(nuevoCliente, numSocio);
+				Franquicia.BajaCliente(nuevoCliente, numSocio);
 				} else{
 					System.out.println("No hay clientes registrados");
 				}
@@ -241,18 +244,18 @@ public class GestionVideoDaw {
 
 			
 				case "7": 
-				entrada = new Scanner(System.in);
+				sc = new Scanner(System.in);
 
 				
-				if(miFranquicia != null && miFranquicia.getNpeliculas() > 0){
+				if(Franquicia != null && Franquicia.getNpeliculas() > 0){
 
 			
 				System.out.println("Introduce la posicion de la pelicula a dar de baja");
-				System.out.println(miFranquicia.mostrarPeliculas());
-				int cod = entrada.nextInt();
+				System.out.println(Franquicia.mostrarPeliculas());
+				int cod = sc.nextInt();
 				
 				
-				miFranquicia.darBajaPelicula(nuevaPelicula, cod);
+				Franquicia.BajaPelicula(nuevaPelicula, cod);
 				} else {
 					System.out.println("No hay peliculas registradas");
 				}
@@ -269,7 +272,7 @@ public class GestionVideoDaw {
 			}
 		}
 		while(!opcion.equals("8"));
-		entrada.close();
+		sc.close();
 	}
 
 }

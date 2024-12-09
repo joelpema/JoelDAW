@@ -10,7 +10,7 @@ public class Cliente {
     private String nombre;
     private int cod;
     private String direccion;
-    private LocalDate nacimiento;
+    private LocalDate FechaNacimiento;
     private LocalDate fechaBaja;
     private int nalquiladas;
 
@@ -25,7 +25,7 @@ public class Cliente {
         this.dni = dni;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.nacimiento = nacimiento;
+        this.FechaNacimiento = nacimiento;
         this.nalquiladas = 0;
         this.peliculasCliente = new Pelicula[100];
         this.nPelicula = 0;
@@ -44,8 +44,8 @@ public class Cliente {
     public String getDireccion() {
         return direccion;
     }
-    public LocalDate getNacimiento() {
-        return nacimiento;
+    public LocalDate getFechaNacimiento() {
+        return FechaNacimiento;
     }
     public LocalDate getBaja() {
         return fechaBaja;
@@ -62,7 +62,7 @@ public class Cliente {
     public String InfoCliente(){
         String getInfoCliente = String.format( 
         "\nDNI: %s, Nombre: %s, Codigo: Soc-%s, Direccion: %s, F.Nacimiento %s, Nº Alquiladas %s",  
-        this.dni, this.nombre, this.cod, this.direccion, this.nacimiento, this.nalquiladas );
+        this.dni, this.nombre, this.cod, this.direccion, this.FechaNacimiento, this.nalquiladas );
         return getInfoCliente;
     }
 
