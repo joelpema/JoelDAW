@@ -12,7 +12,7 @@ public class Cliente {
     private String direccion;
     private LocalDate FechaNacimiento;
     private LocalDate fechaBaja;
-    private int nalquiladas;
+    private int nAlquiladas;
 
     private int nPelicula;
     private Pelicula [] peliculasCliente;
@@ -26,7 +26,7 @@ public class Cliente {
         this.nombre = nombre;
         this.direccion = direccion;
         this.FechaNacimiento = nacimiento;
-        this.nalquiladas = 0;
+        this.nAlquiladas = 0;
         this.peliculasCliente = new Pelicula[100];
         this.nPelicula = 0;
         this.fechaBaja = fechaBaja;
@@ -50,8 +50,8 @@ public class Cliente {
     public LocalDate getBaja() {
         return fechaBaja;
     }
-    public int getNalquiladas() {
-        return nalquiladas;
+    public int getNAlquiladas() {
+        return nAlquiladas;
     }
 
     public int getNpeliculas(){
@@ -62,8 +62,8 @@ public class Cliente {
     public String InfoCliente(){
         String getInfoCliente = String.format( 
         "\nDNI: %s, Nombre: %s, Codigo: Soc-%s, Direccion: %s, F.Nacimiento %s, Nº Alquiladas %s",  
-        this.dni, this.nombre, this.cod, this.direccion, this.FechaNacimiento, this.nalquiladas );
-        return getInfoCliente;
+        this.dni, this.nombre, this.cod, this.direccion, this.FechaNacimiento, this.nAlquiladas );
+        return getInfoCliente + "\n";
     }
 
     public String mostrarPeliculas(){ 
@@ -79,7 +79,7 @@ public class Cliente {
         boolean isAdd = false;
         if (p != null){
             this.peliculasCliente[nPelicula] = p;
-            nalquiladas++;
+            nAlquiladas++;
             nPelicula++;
         }
         return isAdd;
@@ -88,7 +88,7 @@ public class Cliente {
     public boolean elimPelicula(Pelicula p){
         boolean isEliminated = false;
         if (p != null){
-            nalquiladas--;
+            nAlquiladas--;
         }
         return isEliminated;
     }

@@ -201,7 +201,7 @@ public class GestionVideoDaw {
 					int bajacliente = sc.nextInt();
 
 					
-					if(Franquicia.ClientePorPosicion(bajacliente).getNalquiladas() > 0){
+					if(Franquicia.ClientePorPosicion(bajacliente).getNAlquiladas() > 0){
 
 						
 						System.out.println("Selecciona pelicula a devolver");
@@ -279,3 +279,5 @@ public class GestionVideoDaw {
 	}
 
 }
+
+
