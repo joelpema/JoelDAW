@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
+
 public class GestionVideoDaw {
 
 	public static void main(String[] args) {
@@ -273,6 +274,8 @@ public class GestionVideoDaw {
 		}
 		while(!opcion.equals("8"));
 		sc.close();
+
+		System.out.println("Hasta Pronto");
 	}
 
 }
