@@ -1,62 +1,62 @@
 public class Astro {
 
-    private double  MasaDelCuerpo;
-    private double  DiametroMedio;
-    private double  PeríodoRotaciónHoras;
-    private double  PeríodoTraslaciónHoras;
-    private double DistanciaMedia;
+    private double  masaDelCuerpo;
+    private double  diametroMedio;
+    private double  períodoRotaciónHoras;
+    private double  períodoTraslaciónHoras;
+    private double distanciaMedia;
 
-    public Astro(double  MasaDelCuerpo, double  DiametroMedio, double  PeríodoRotaciónHoras, double  PeríodoTraslaciónHoras, double  DistanciaMedia) {
-        this.MasaDelCuerpo = MasaDelCuerpo;
-        this.DiametroMedio = DiametroMedio;
-        this.PeríodoRotaciónHoras = PeríodoRotaciónHoras;
-        this.PeríodoTraslaciónHoras = PeríodoTraslaciónHoras;
-        this.DistanciaMedia = DistanciaMedia;
+    public Astro(double  masaDelCuerpo, double  diametroMedio, double  períodoRotaciónHoras, double  períodoTraslaciónHoras, double  distanciaMedia) {
+        this.masaDelCuerpo = masaDelCuerpo;
+        this.diametroMedio = diametroMedio;
+        this.períodoRotaciónHoras = períodoRotaciónHoras;
+        this.períodoTraslaciónHoras = períodoTraslaciónHoras;
+        this.distanciaMedia = distanciaMedia;
     }
 
-    public Astro(double  MasaDelCuerpo, double  DiámetroMedio) {
-        this.MasaDelCuerpo = MasaDelCuerpo;
-        this.DiametroMedio = DiámetroMedio;
+    public Astro(double  masaDelCuerpo, double  diametroMedio) {
+        this.masaDelCuerpo = masaDelCuerpo;
+        this.diametroMedio = diametroMedio;
     }
 
     public String mostrarInfo(){
         String info;
-        info = "Masa del cuerpo.: "+this.MasaDelCuerpo+" Diámetro medio: "+this.DiametroMedio+" Período de rotación sobre su propio eje: "+
-        this.PeríodoRotaciónHoras+" Período de traslación alrededor del cuerpo que orbitan: "+this.PeríodoTraslaciónHoras + " Distancia media a ese cuerpo: "+this.DistanciaMedia;
+        info = "Masa del cuerpo.: "+this.masaDelCuerpo+" Diámetro medio: "+this.diametroMedio+" Período de rotación sobre su propio eje: "+
+        this.períodoRotaciónHoras+" Período de traslación alrededor del cuerpo que orbitan: "+this.períodoTraslaciónHoras + " Distancia media a ese cuerpo: "+this.distanciaMedia;
         return info;
     }
 
     
 
     public double getMasaDelCuerpo() {
-        return MasaDelCuerpo;
+        return masaDelCuerpo;
     }
 
     public double getDiametroMedio(){
-        return DiametroMedio;
-    }
-
-    public double getDistanciaMedia(){
-        return this.DistanciaMedia;
+        return diametroMedio;
     }
 
     public double getPeríodoRotaciónHoras() {
-        return PeríodoRotaciónHoras;
+        return períodoRotaciónHoras;
     }
 
     public double getPeríodoTraslaciónHoras() {
-        return PeríodoTraslaciónHoras;
+        return períodoTraslaciónHoras;
+    } 
+    
+    public double getDistanciaMedia(){
+        return this.distanciaMedia;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Persona{");
-        sb.append("Masa del Cuerpo=").append(MasaDelCuerpo);
-        sb.append(", Diametro Medio=").append(DiametroMedio);
-        sb.append(", Periodo de Rotacion =").append(PeríodoRotaciónHoras);
-        sb.append(", Periodo de Trastacion=").append(PeríodoTraslaciónHoras);
-        sb.append(", Distancia Media =").append(DistanciaMedia);
+        sb.append("Astro{");
+        sb.append("Masa del Cuerpo=").append(masaDelCuerpo);
+        sb.append(", Diametro Medio=").append(diametroMedio);
+        sb.append(", Periodo de Rotacion =").append(períodoRotaciónHoras);
+        sb.append(", Periodo de Trastacion=").append(períodoTraslaciónHoras);
+        sb.append(", Distancia Media =").append(distanciaMedia);
         sb.append('}');
         return sb.toString();
     }
