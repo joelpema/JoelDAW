@@ -51,13 +51,13 @@ public class Astro {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Astro{");
-        sb.append("Masa del Cuerpo=").append(masaDelCuerpo);
-        sb.append(", Diametro Medio=").append(diametroMedio);
-        sb.append(", Periodo de Rotacion =").append(períodoRotaciónHoras);
-        sb.append(", Periodo de Trastacion=").append(períodoTraslaciónHoras);
-        sb.append(", Distancia Media =").append(distanciaMedia);
-        sb.append('}');
+        sb.append("\nAstro\n");
+        sb.append("Masa del Cuerpo= ").append(masaDelCuerpo);
+        sb.append(", Diametro Medio= ").append(diametroMedio);
+        sb.append(", Periodo de Rotacion= ").append(períodoRotaciónHoras);
+        sb.append(", Periodo de Trastacion= ").append(períodoTraslaciónHoras);
+        sb.append(", Distancia Media= ").append(distanciaMedia);
+        
         return sb.toString();
     }
 

@@ -28,7 +28,7 @@ public class Planetas extends Astro{
     }
 
 
-    public String monstrarInfoAlumno(){
+    public String monstrarInfoPlanetas(){
         String info = super.mostrarInfo();
         info += "Distancia al Sol: " + this.distanciaSol + " Orbita al Sol: " + this.orbitaSol + " ¿Tiene satelites?: " + this.tieneSatelites + "\n";
         return info;
