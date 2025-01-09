@@ -13,12 +13,6 @@ public class Astro {
         this.períodoTraslaciónHoras = períodoTraslaciónHoras;
         this.distanciaMedia = distanciaMedia;
     }
-
-    public Astro(double  masaDelCuerpo, double  diametroMedio) {
-        this.masaDelCuerpo = masaDelCuerpo;
-        this.diametroMedio = diametroMedio;
-    }
-
     public String mostrarInfo(){
         String info;
         info = "Masa del cuerpo.: "+this.masaDelCuerpo+" Diámetro medio: "+this.diametroMedio+" Período de rotación sobre su propio eje: "+
