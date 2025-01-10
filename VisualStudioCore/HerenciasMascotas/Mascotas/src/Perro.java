@@ -2,19 +2,19 @@ import java.time.LocalDateTime;
 
 public class Perro extends Mascotas{
 
-    private Razas perros;
+    private String Raza;
     private boolean pulgas = false;
     
-    public Perro(String Nombre, double Edad, boolean Estado, LocalDateTime FechaDeNacimiento, Razas perros, boolean pulgas) {
+    public Perro(String Nombre, double Edad, boolean Estado, LocalDateTime FechaDeNacimiento, String Raza, boolean pulgas) {
 
         super(Nombre, Edad, Estado, FechaDeNacimiento);
 
-        this.perros = perros;
+        this.Raza = Raza;
         this.pulgas = pulgas;
     }
 
-    public Razas getPerros() {
-        return perros;
+    public String getRaza() {
+        return Raza;
     }
 
     public boolean isPulgas() {
@@ -24,13 +24,13 @@ public class Perro extends Mascotas{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nAstro\n");
+        sb.append("\n Mascota\n");
         sb.append("Nombre de la mascota= ").append(super.getNombre());
         sb.append(", Edad de la mascota= ").append(super.getEdad());
-        sb.append(", Estado de la mascota= ").append(super.isEstado());
+        sb.append(", Esta vivo?= ").append(super.isEstado());
         sb.append(", Fecha de nacimiento de la mascota= ").append(super.getFechaDeNacimiento());
-        sb.append("Nombre de la mascota= ").append(perros);
-        sb.append(", Edad de la mascota= ").append(pulgas);
+        sb.append("La raz de la mascota es = ").append(Raza);
+        sb.append(", Tiene Pulgas?= ").append(pulgas);
         
         return sb.toString();
     }

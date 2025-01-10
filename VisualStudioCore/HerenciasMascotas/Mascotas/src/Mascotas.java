@@ -34,11 +34,11 @@ public class Mascotas {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nAstro\n");
-        sb.append("Nombre de la mascota= ").append(Nombre);
-        sb.append(", Edad de la mascota= ").append(Edad);
-        sb.append(", Estado de la mascota= ").append(Estado);
-        sb.append(", Fecha de nacimiento de la mascota= ").append(FechaDeNacimiento);
+        sb.append("\n Mascota \n");
+        sb.append("Nombre de la mascota = ").append(Nombre);
+        sb.append(", Edad de la mascota = ").append(Edad);
+        sb.append(", Esta vivo? = ").append(Estado);
+        sb.append(", Fecha de nacimiento de la mascota = ").append(FechaDeNacimiento);
         
         return sb.toString();
     }

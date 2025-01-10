@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -22,20 +21,5 @@ public class MyUtils {
         LocalDate fechaLocalDate = LocalDate.parse(dateString, formatter);
         return fechaLocalDate;
     }
-
-    public static LocalDate fechaActual(){
-        Scanner entrada = new Scanner(System.in);
-
-        DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        MyUtils.imprimir("\nEscribe la fecha de nacimiento en formato DD/MM/AAAA");
-        LocalDateTime dateString = LocalDateTime.now();
-
-        
-        LocalDate fechaLocalDate = LocalDate(dateString, formatter);
-        return fechaLocalDate;
-    }
-
-    
-
 
 }

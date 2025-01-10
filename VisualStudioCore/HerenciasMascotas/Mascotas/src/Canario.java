@@ -3,9 +3,9 @@ import java.time.LocalDateTime;
 public class Canario extends Aves{
 
     private String Color;
-    private boolean Canta = false;
+    private String Canta;
 
-    public Canario(String Nombre, double Edad, boolean Estado, LocalDateTime FechaDeNacimiento, boolean pico, boolean vuela, String Color, boolean Canta) {
+    public Canario(String Nombre, double Edad, boolean Estado, LocalDateTime FechaDeNacimiento, String pico, String vuela, String Color, String Canta) {
 
         super(Nombre, Edad, Estado, FechaDeNacimiento,pico,vuela);
 
@@ -17,20 +17,20 @@ public class Canario extends Aves{
         return Color;
     }
 
-    public boolean isCanta() {
+    public String getCanta() {
         return Canta;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nAstro\n");
+        sb.append("\n Mascota\n");
         sb.append("Nombre de la mascota= ").append(super.getNombre());
         sb.append(", Edad de la mascota= ").append(super.getEdad());
-        sb.append(", Estado de la mascota= ").append(super.isEstado());
+        sb.append(", Esta vivo?= ").append(super.isEstado());
         sb.append(", Fecha de nacimiento de la mascota= ").append(super.getFechaDeNacimiento());
-        sb.append("Nombre de la mascota= ").append(super.isPico());
-        sb.append(", Edad de la mascota= ").append(super.isVuela());
+        sb.append("Nombre de la mascota= ").append(super.getPico());
+        sb.append(", Edad de la mascota= ").append(super.getVuela());
         sb.append("Nombre de la mascota= ").append(Color);
         sb.append(", Edad de la mascota= ").append(Canta);
         
