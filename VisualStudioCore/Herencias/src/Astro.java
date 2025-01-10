@@ -13,14 +13,6 @@ public class Astro {
         this.períodoTraslaciónHoras = períodoTraslaciónHoras;
         this.distanciaMedia = distanciaMedia;
     }
-    public String mostrarInfo(){
-        String info;
-        info = "Masa del cuerpo.: "+this.masaDelCuerpo+" Diámetro medio: "+this.diametroMedio+" Período de rotación sobre su propio eje: "+
-        this.períodoRotaciónHoras+" Período de traslación alrededor del cuerpo que orbitan: "+this.períodoTraslaciónHoras + " Distancia media a ese cuerpo: "+this.distanciaMedia;
-        return info;
-    }
-
-    
 
     public double getMasaDelCuerpo() {
         return masaDelCuerpo;
@@ -49,7 +41,7 @@ public class Astro {
         sb.append("Masa del Cuerpo= ").append(masaDelCuerpo);
         sb.append(", Diametro Medio= ").append(diametroMedio);
         sb.append(", Periodo de Rotacion= ").append(períodoRotaciónHoras);
-        sb.append(", Periodo de Trastacion= ").append(períodoTraslaciónHoras);
+        sb.append(", Periodo de Traslacion= ").append(períodoTraslaciónHoras);
         sb.append(", Distancia Media= ").append(distanciaMedia);
         
         return sb.toString();

@@ -27,17 +27,6 @@ public class Planetas extends Astro{
         return tieneSatelites;
     }
 
-
-    public String monstrarInfoPlanetas(){
-        String info = super.mostrarInfo();
-        info += "Distancia al Sol: " + this.distanciaSol + " Orbita al Sol: " + this.orbitaSol + " ¿Tiene satelites?: " + this.tieneSatelites + "\n";
-        return info;
-    }
-
-    public void test(){
-        this.mostrarInfo();
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -46,7 +35,7 @@ public class Planetas extends Astro{
         sb.append("Masa del Cuerpo=").append(super.getMasaDelCuerpo());
         sb.append(", Diametro Medio=").append(super.getDiametroMedio());
         sb.append(", Periodo de Rotacion =").append(super.getDistanciaMedia());
-        sb.append(", Periodo de Trastacion=").append(super.getPeríodoRotaciónHoras());
+        sb.append(", Periodo de Traslacion=").append(super.getPeríodoRotaciónHoras());
         sb.append(", Distancia Media =").append(super.getPeríodoTraslaciónHoras());
         sb.append(", Distancia al Sol=").append(this.distanciaSol);
         sb.append(", Orbita al Sol=").append(this.orbitaSol);

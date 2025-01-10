@@ -32,7 +32,7 @@ public class Satelites extends Astro{
         sb.append("Masa del Cuerpo=").append(super.getMasaDelCuerpo());
         sb.append(", Diametro Medio=").append(super.getDiametroMedio());
         sb.append(", Periodo de Rotacion =").append(super.getDistanciaMedia());
-        sb.append(", Periodo de Trastacion=").append(super.getPeríodoRotaciónHoras());
+        sb.append(", Periodo de Traslacion=").append(super.getPeríodoRotaciónHoras());
         sb.append(", Distancia Media =").append(super.getPeríodoTraslaciónHoras());
         sb.append(", Distancia al Planeta=").append(this.distanciaPlaneta);
         sb.append(", Orbita al Planeta=").append(this.orbitaPlaneta);
