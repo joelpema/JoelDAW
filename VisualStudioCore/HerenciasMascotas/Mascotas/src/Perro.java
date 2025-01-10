@@ -29,6 +29,8 @@ public class Perro extends Mascotas{
         sb.append(", Edad de la mascota= ").append(super.getEdad());
         sb.append(", Estado de la mascota= ").append(super.isEstado());
         sb.append(", Fecha de nacimiento de la mascota= ").append(super.getFechaDeNacimiento());
+        sb.append("Nombre de la mascota= ").append(perros);
+        sb.append(", Edad de la mascota= ").append(pulgas);
         
         return sb.toString();
     }
