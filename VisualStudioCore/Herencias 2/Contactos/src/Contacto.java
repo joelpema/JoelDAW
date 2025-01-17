@@ -1,4 +1,4 @@
-public abstract class Contacto {
+public class Contacto {
     private String nombre;
     private String telefono;
 
@@ -13,6 +13,10 @@ public abstract class Contacto {
 
     public String getTelefono() {
         return telefono;
+    }
+
+    public boolean esIgual(Contacto nuevo) {
+        return this.nombre.equals(nuevo.nombre);
     }
 
     @Override
