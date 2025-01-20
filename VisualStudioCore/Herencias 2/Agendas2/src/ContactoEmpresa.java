@@ -16,10 +16,10 @@ public class ContactoEmpresa extends Contacto{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n Agenda \n");
+        sb.append("\n Contacto Empresa \n");
         sb.append("Nombre = ").append(super.getNombre());
         sb.append(", Numero de telefono = ").append(super.getTelefono());
-        sb.append(", Cumpleaños = ").append(paginaWeb);
+        sb.append(", Pagina web = ").append(paginaWeb);
 
         return sb.toString();
     }   

@@ -36,7 +36,7 @@ public class ProgramaAgenda {
             } else if (opcion.equals("2")) {  
                 
                 System.out.print("Introduce el nombre del contacto a eliminar: ");
-                String nombreEliminar = sc.nextLine();
+                String nombreEliminar = sc.nextLine();  
                 if (array.eliminarContacto(nombreEliminar)) {
                     System.out.println("Contacto eliminado correctamente.");
                 } else {

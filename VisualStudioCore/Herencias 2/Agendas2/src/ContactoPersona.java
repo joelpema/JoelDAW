@@ -16,7 +16,7 @@ public class ContactoPersona extends Contacto {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n Agenda \n");
+        sb.append("\n Contacto Persona \n");
         sb.append("Nombre = ").append(super.getNombre());
         sb.append(", Numero de telefono = ").append(super.getTelefono());
         sb.append(", Cumpleaños = ").append(cumpleaños);
