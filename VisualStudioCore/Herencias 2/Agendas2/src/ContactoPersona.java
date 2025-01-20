@@ -1,11 +1,10 @@
-
 import java.time.LocalDate;
-
 public class ContactoPersona extends Contacto {
     private LocalDate cumpleaños;
 
     public ContactoPersona(String nombre, String telefono, LocalDate cumpleaños) {
-        super(nombre, telefono);
+        this.nombre = nombre;
+        this.telefono = telefono;
         this.cumpleaños = cumpleaños;
     }
 
