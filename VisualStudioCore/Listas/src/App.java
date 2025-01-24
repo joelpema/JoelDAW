@@ -6,13 +6,19 @@ import java.util.Iterator;
 public class App {
     public static void main(String[] args) throws Exception{
 
+        //Ejercicio 1
+
         Producto producto1 = new Producto( "Teclado, ", 50); 
         Producto producto2 = new Producto( "Pantalla, ", 20);
         Producto producto3 = new Producto( "Raton, ", 60);
         Producto producto4 = new Producto( "Ordenador, ", 100);
         Producto producto5 = new Producto( "Silla, ", 10);
 
+        //Ejercicio 2
+
         ArrayList<Producto> productos = new ArrayList<Producto>();
+
+        //Ejercicio 3
 
         productos.add(producto1);
         productos.add(producto2);
@@ -24,9 +30,13 @@ public class App {
         
         Producto cadaProducto;
 
+        //Ejercicio 4
+
         while (itera.hasNext()) {
             cadaProducto = itera.next();
             System.out.println(cadaProducto.getNombre() + cadaProducto.getCantidad());
+            
+            //Ejercicio 5
             
             if (cadaProducto.equals(producto4)) {
                 itera.remove();
@@ -43,15 +53,20 @@ public class App {
             System.out.println(productoN.getNombre() + productoN.getCantidad());
         }
 
+        //Ejercicio 6
 
         Producto nuevoProducto = new Producto("Portatil ", 18);
         productos.add(productos.size() / 2, nuevoProducto);
+
+        //Ejercicio 7
 
         System.out.println("\n Recorrido despues de anadir un producto en medio \n");
 
         for (Producto productoN : productos){
             System.out.println(productoN.getNombre() + productoN.getCantidad());
         }
+
+        //Ejercicio 8
 
         System.out.println("\n Recorrido despues de ordenarlos \n");
 
@@ -60,6 +75,8 @@ public class App {
         for (Producto productoN : productos){
             System.out.println(productoN.getNombre() + productoN.getCantidad());
         }
+
+        //Ejercicio 9
 
         productos.clear();
 
