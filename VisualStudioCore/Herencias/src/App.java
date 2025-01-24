@@ -59,7 +59,6 @@ public class App {
                 boolean tieneSatelites = false;
 
                 String tieneSatelitesSi = sc.nextLine();
-               
                     
                     if (tieneSatelitesSi.equalsIgnoreCase("si")){
                         tieneSatelites = true;

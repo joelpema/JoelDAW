@@ -8,11 +8,11 @@ public class DawBank {
 
     Scanner sc = new Scanner(System.in);
 
-     Pattern pat = Pattern.compile("[A-Z]{2}[0-9]{22}");
+    Pattern pat = Pattern.compile("[A-Z]{2}[0-9]{22}");
 
     System.out.println("Introduzca un IBAN correcto: ");
     String iban = sc.nextLine();
-   
+
     Matcher mat = pat.matcher(iban);
 
     while(!mat.matches()){
