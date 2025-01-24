@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class App {
@@ -40,5 +42,32 @@ public class App {
         for (Producto productoN : productos){
             System.out.println(productoN.getNombre() + productoN.getCantidad());
         }
+
+
+        Producto nuevoProducto = new Producto("Portatil ", 18);
+        productos.add(productos.size() / 2, nuevoProducto);
+
+        System.out.println("\n Recorrido despues de anadir un producto en medio \n");
+
+        for (Producto productoN : productos){
+            System.out.println(productoN.getNombre() + productoN.getCantidad());
+        }
+
+        System.out.println("\n Recorrido despues de ordenarlos \n");
+
+        Collections.sort(productos, Comparator.comparing(Producto::getNombre));
+
+        for (Producto productoN : productos){
+            System.out.println(productoN.getNombre() + productoN.getCantidad());
+        }
+
+        productos.clear();
+
+        System.out.println("\n Recorrido despues de eliminar todo \n");
+
+        for (Producto productoN : productos){
+            System.out.println(productoN.getNombre() + productoN.getCantidad());
+        }
+
     }                                           
 }       
