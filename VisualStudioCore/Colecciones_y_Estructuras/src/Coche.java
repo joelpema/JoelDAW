@@ -2,6 +2,7 @@ public class Coche {
 
     private String color;
     private String marca;
+    
 
     public Coche(String color, String marca) {
         this.color = color;
@@ -28,8 +29,10 @@ public class Coche {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nCoche\n");
-        sb.append("color=").append(color);
-        sb.append(", marca=").append(marca);
+        sb.append("color = ").append(color);
+        sb.append(", marca = ").append(marca);
         return sb.toString();
     }
+
+    
 }
