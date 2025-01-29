@@ -37,17 +37,16 @@ public class App {
 
             }else if (option.equals("3")){   
 
-                taller.visualizaMatriculas();
-                taller.visualizaCoches();
-                taller.visualizaTaller();
+                System.out.println("Las matriculas son: "); taller.visualizaMatriculas();
+
+                System.out.println("Los coches en el taller: ");taller.visualizaCoches();
+
+                System.out.println("Detalles del tayer: ");taller.visualizaTaller();
 
             }else {
                 System.out.println("Ingrese una opcion correcta en el menu");
             }
 
-
         } while (!option.equals("3"));
-
-
     }
 }
