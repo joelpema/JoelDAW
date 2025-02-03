@@ -34,6 +34,13 @@ public class Contacto {
         this.correo = correo;
     }
 
-    
-
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Contacto\n");
+        sb.append("nombre=").append(nombre);
+        sb.append(", telefono=").append(telefono);
+        sb.append(", correo=").append(correo);
+        return sb.toString();
+    }
 }

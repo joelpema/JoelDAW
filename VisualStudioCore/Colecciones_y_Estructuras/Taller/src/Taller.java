@@ -16,7 +16,7 @@ public class Taller {
         Coche coche = new Coche (color, marca);
 
         if (coches.containsKey(matricula)){
-        System.out.println("La matricula ya esta ingresada");
+        System.out.println("La matricula ya estaba ingresada");
         }else{
         System.out.println("Coche ingresado correctamente");
         coches.put(matricula, new Coche(color, marca));
