@@ -1,46 +1,39 @@
-public class Contacto {
+class Contacto {
 
     private String nombre;
     private String telefono;
     private String correo;
-    
+
     public Contacto(String nombre, String telefono, String correo) {
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.correo = correo;
+        if (validarNombre(nombre)) this.nombre = nombre;
+        else this.nombre = "";
+        if (validarTelefono(telefono)) this.telefono = telefono;
+        else this.telefono = "";
+        if (validarCorreo(correo)) this.correo = correo;
+        else this.correo = "";
     }
 
-    public String getNombre() {
-        return nombre;
+    private static boolean validarNombre(String nombre) {
+        return Pattern.matches("[A-Z][a-zA-Z]*", nombre);
     }
 
-    public String getTelefono() {
-        return telefono;
+    private static boolean validarTelefono(String telefono) {
+        return Pattern.matches("[6,7,9][0-9]{8}", telefono);
     }
 
-    public String getCorreo() {
-        return correo;
+    private static boolean validarCorreo(String correo) {
+        return Pattern.matches("[a-zA-Z0-9_.-]+@[a-z]+\\.[a-z]{2,4}", correo);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public String getNombre() { return nombre; }
+    public String getTelefono() { return telefono; }
+    public String getCorreo() { return correo; }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        if (validarTelefono(telefono)) this.telefono = telefono;
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Contacto\n");
-        sb.append("nombre=").append(nombre);
-        sb.append(", telefono=").append(telefono);
-        sb.append(", correo=").append(correo);
-        return sb.toString();
+        if (validarCorreo(correo)) this.correo = correo;
     }
 }

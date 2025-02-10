@@ -36,7 +36,7 @@ public class CuentaBancaria {
     }
 
     public boolean insertarMovimiento(Movimiento m1){
-        boolean isAdd = false;
+            boolean isAdd = false;
         if(m1 != null){
 
             if(m1.getTipo().equalsIgnoreCase("ingreso")){
