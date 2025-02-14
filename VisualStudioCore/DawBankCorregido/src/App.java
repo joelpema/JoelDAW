@@ -1,16 +1,24 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido a DawBank tu banco de confianza je je je");
 
         final String patronIban = "[A-Z]{2}[0-9]{22}";
 
         String iban = MiUtils.comprobarPatronRepetidamente(patronIban, "Introduzca el IBAN");
 
-        String titular = MiUtils.leerTextoPantalla("Introduzca el titular");
+        String nombre = MiUtils.leerTextoPantalla("introduce el nombre del cliente");
+        String telefono = MiUtils.leerTextoPantalla("introduce el numero de telefono");
+        LocalDate fechaNacimiento = MiUtils.leerFecha("introduce la fecha del cliente");
+        String email = MiUtils.leerTextoPantalla("introduce el DNI del cliente");
+        String direccion = MiUtils.leerTextoPantalla("Escribe la direccion del cliente");
 
-        CuentaBancaria miCuenta = new CuentaBancaria(titular, iban);
+
+        Cliente nuevoCliente = new Cliente(nombre, iban, fechaNacimiento, telefono, email, nombre);
+        CuentaBancaria miCuenta = new CuentaBancaria(nuevoCliente, iban);
 
         String opcion = "";
         Scanner reader;
@@ -42,7 +50,7 @@ public class App {
     private static void menuBanca(CuentaBancaria miCuenta, String opcion) {
         switch (opcion) {
             case "1":
-                System.out.println(miCuenta.mostrarInfoCuentaBancaria());
+                System.out.println(miCuenta.toString());
                 break;
 
             case "2":
