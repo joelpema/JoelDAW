@@ -10,7 +10,6 @@ public class CuentaBancaria {
 
     private int contadorMovimiento = 0;
     
-    
     public CuentaBancaria(Cliente nuevoCliente, String iban) {
         this.nuevoCliente = nuevoCliente;
         this.iban = iban;
@@ -28,46 +27,40 @@ public class CuentaBancaria {
         return this.saldo;
     }
 
-    public boolean ingresar(double cantidad){
-        boolean isOk = false;
-        Movimiento m = new Movimiento(Tipo.Ingreso, cantidad);
-        this.saldo = this.saldo + m.getCantidad();
-        this.registrarMovimiento(m);
-        isOk = true;
-        return isOk;
-    }
-
-    public boolean retirar(double cantidad){
-        boolean isOk = false;
-        if(this.saldo - cantidad > -50){
-            Movimiento m = new Movimiento(Tipo.Retirada, cantidad);
-            this.saldo = this.saldo - m.getCantidad();
-            this.registrarMovimiento(m);
-            isOk = true;
-        }
-        return isOk;
-    }
-
-    public void registrarMovimiento(Movimiento m){
-        boolean contador = true;
-        if (contador == true){
-            contadorMovimiento++;
+    public void ingreso(double cantidad) throws AvisarHaciendaException{
+        saldo += cantidad;
+        registrarMovimiento(Tipo.Ingreso, cantidad);
+        if(cantidad <= 0){
+            throw new AvisarHaciendaException("Error, debe ser mayor que 0");
+        }else if(cantidad >= 3000){
+            throw new AvisarHaciendaException("Error, no debe ser mayor que 3000, notificando a hacienda");
         }
     }
 
-    public String mostrarInfoCuentaBancaria(){
-        String info = String.format("CuentaBancaria - Titular: %s IBAN: %s Saldo: %s ",this.nuevoCliente, this.iban, this.saldo) ;
-        return info;
+    public void retirada(double cantidad) throws AvisarHaciendaException{
+        if(cantidad <= 0){
+            throw new AvisarHaciendaException("Error, debe ser mayor que 0");
+        }else if(cantidad >= 3000){
+            throw new AvisarHaciendaException("Error, no debe ser mayor que 3000, notificando a hacienda");
+        }else if((saldo-cantidad) < -50){
+            throw new AvisarHaciendaException("Error, El saldo minimo disponible es 50");
+        }
+        saldo-=cantidad;
+        registrarMovimiento(Tipo.Retirada, cantidad);
+    }
+
+    public void registrarMovimiento(Tipo tipo, double cantidad){
+        Movimiento m = new Movimiento(tipo, cantidad);
+        movimientos.add(m);
+        contadorMovimiento++;
     }
 
     public String mostrarInfoMovimientos(){
         String info = "";
-        if(contadorMovimiento > 0){
-            for(int i = 0; i < this.contadorMovimiento; i++){
-                if(this.movimientos != null) {
-                    info += this.movimientos.toString() + "\n";
-                }
-            }
+        if (contadorMovimiento != 0){
+        for (Movimiento movimiento : movimientos) {
+            info += movimiento.toString();
+        }
         }else{
             info = "No hay movimientos en esta cuenta";
         }
@@ -75,4 +68,12 @@ public class CuentaBancaria {
         return info;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Iban=").append(iban);
+        sb.append(", Saldo=").append(saldo);
+        sb.append('}');
+        return sb.toString();
+    }
 }

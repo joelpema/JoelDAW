@@ -29,13 +29,13 @@ public class Cliente extends Persona{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Cliente");
-        sb.append(", Nombre= ").append(getNombre());
+        sb.append("Cliente{");
+        sb.append("Nombre= ").append(getNombre());
         sb.append(", DNI= ").append(getDni());
         sb.append(", Fecha de nacimiento= ").append(getFechaNacimiento());
         sb.append(", telefono= ").append(telefono);
         sb.append(", email= ").append(email);
-        sb.append("y direccion= ").append(direccion);
+        sb.append(", direccion= ").append(direccion);
         return sb.toString();
     }
 }

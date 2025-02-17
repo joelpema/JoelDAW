@@ -2,22 +2,33 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido a DawBank tu banco de confianza je je je");
+        
 
         final String patronIban = "[A-Z]{2}[0-9]{22}";
+        String iban = "";
+        String nombre = "";
+        String telefono = "";
+        String dni = "";
+        LocalDate fechaNacimiento = null;
+        String email = "";
+        String direccion = "";
 
-        String iban = MiUtils.comprobarPatronRepetidamente(patronIban, "Introduzca el IBAN");
+        try{
+        iban = MiUtils.comprobarPatronRepetidamente(patronIban, "Introduzca el IBAN");
+        nombre = MiUtils.leerTextoPantalla("introduce el nombre del cliente");
+        telefono = MiUtils.leerTextoPantalla("introduce el numero de telefono");
+        dni = MiUtils.leerTextoPantalla("introduce el DNI");
+        fechaNacimiento = MiUtils.leerFecha("introduce la fecha del cliente");
+        email = MiUtils.leerTextoPantalla("introduce el gmail del cliente");
+        direccion = MiUtils.leerTextoPantalla("Escribe la direccion del cliente");
+        }catch (CuentaExcepcion e) {
+            System.out.println(e.getMessage());
+        }
 
-        String nombre = MiUtils.leerTextoPantalla("introduce el nombre del cliente");
-        String telefono = MiUtils.leerTextoPantalla("introduce el numero de telefono");
-        LocalDate fechaNacimiento = MiUtils.leerFecha("introduce la fecha del cliente");
-        String email = MiUtils.leerTextoPantalla("introduce el DNI del cliente");
-        String direccion = MiUtils.leerTextoPantalla("Escribe la direccion del cliente");
-
-
-        Cliente nuevoCliente = new Cliente(nombre, iban, fechaNacimiento, telefono, email, nombre);
+        Cliente nuevoCliente = new Cliente(nombre, dni, fechaNacimiento, telefono, email, direccion);
         CuentaBancaria miCuenta = new CuentaBancaria(nuevoCliente, iban);
 
         String opcion = "";
@@ -28,8 +39,7 @@ public class App {
             imprimirMenuOpciones();
 
             opcion = reader.nextLine();
-
-            menuBanca(miCuenta, opcion);
+            menuBanca(miCuenta, opcion, nuevoCliente);
 
 
         } while (!opcion.equalsIgnoreCase("8"));
@@ -47,10 +57,10 @@ public class App {
         System.out.println("8. Salir");
     }
 
-    private static void menuBanca(CuentaBancaria miCuenta, String opcion) {
+    private static void menuBanca(CuentaBancaria miCuenta, String opcion, Cliente nuevoCliente) {
         switch (opcion) {
             case "1":
-                System.out.println(miCuenta.toString());
+                System.out.println(nuevoCliente.toString() + miCuenta.toString());
                 break;
 
             case "2":
@@ -65,21 +75,23 @@ public class App {
                 break;
 
             case "5":
-                double cantidad = MiUtils.leerDoublePantalla("Introduzca la cantidad a ingresar");
-                miCuenta.ingresar(cantidad);
-                if(cantidad > 3000.0){
-                    System.out.println("ALta cantidad: se ejecuta aviso a Hacienda");
+                try {
+                    double cantidad = MiUtils.leerDoublePantalla("Introduzca la cantidad a ingresar");
+                    miCuenta.ingreso(cantidad);
+                }catch (AvisarHaciendaException e) {
+                    System.out.println(e.getMessage());
                 }
+
                 break;
 
             case "6":
-                double cantidadR = MiUtils.leerDoublePantalla("Introduzca la cantidad a retirar");
-                if((miCuenta.getSaldo()-cantidadR) < -50){
-                    System.out.println("“AVISO: Saldo negativo, no se puede realizar la retirada");
+                try{
+                    double cantidadR = MiUtils.leerDoublePantalla("Introduzca la cantidad a retirar");
+                    miCuenta.retirada(cantidadR);
+                }catch (AvisarHaciendaException e) {
+                    System.out.println(e.getMessage());
                 }
-                else{
-                    miCuenta.retirar(cantidadR);
-                }
+
                 break;
 
             case "7":
@@ -94,3 +106,5 @@ public class App {
         }
     }
 }
+
+
