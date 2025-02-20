@@ -8,11 +8,19 @@ public class ContactoPersona extends Contacto {
         this.cumpleaños = cumpleaños;
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getCumpleaños() {
         return cumpleaños;
     } 
 
-    @Override
+    
+    /** 
+     * @return String
+     */
+@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n Contacto Persona \n");

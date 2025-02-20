@@ -2,6 +2,10 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class App {
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido a DawBank tu banco de confianza je je je");

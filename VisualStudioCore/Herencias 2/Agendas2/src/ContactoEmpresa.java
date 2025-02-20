@@ -7,6 +7,10 @@ public class ContactoEmpresa extends Contacto{
         this.paginaWeb = paginaWeb;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getPaginaWeb() {
         return paginaWeb;
     }

@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class ProgramaAgenda {
 
+    
+    /**
+     * @param args
+     */
+    
     public static void main(String[] args) {
 
         Agenda array = new Agenda();

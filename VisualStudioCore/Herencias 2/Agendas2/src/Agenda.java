@@ -9,6 +9,11 @@ public class Agenda{
         this.contador = 0;
         
     }
+    
+    /** 
+     * @param c
+     * @return boolean
+     */
     public boolean añadirContacto(Contacto c) {
         if (contador >= 20) {
             System.out.println("La agenda está llena.");
@@ -22,6 +27,11 @@ public class Agenda{
         return true;
     }
 
+    
+    /** 
+     * @param nombre
+     * @return boolean
+     */
     public boolean eliminarContacto(String nombre) {
         int posicion = buscaContacto(nombre);
         if (posicion == -1) {
@@ -35,6 +45,11 @@ public class Agenda{
         return true;
     }
 
+    
+    /** 
+     * @param nombre
+     * @return boolean
+     */
     public boolean existeContacto(String nombre) {
         return buscaContacto(nombre) != -1;
     }

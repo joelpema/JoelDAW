@@ -4,10 +4,18 @@ import java.util.Scanner;
 
 public class MyUtils {
 
+        
+        /** 
+         * @param mensaje
+         */
         public static void imprimir(String mensaje){
             System.out.println(mensaje);
         }
 
+        
+        /** 
+         * @return LocalDate
+         */
         public static LocalDate leerFecha(){
         Scanner entrada = new Scanner(System.in);
 
