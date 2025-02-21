@@ -12,11 +12,11 @@ public class App {
         Scanner sc = new Scanner(System.in);
         List<Producto> productos = new LinkedList<>();
         String opcion = "";
-
+        
         System.out.println("Bienvenido a mi tienda!!");
 
         try (FileOutputStream fichero = new FileOutputStream("./resources/Almacen.dat", false)) {
-                
+            
         } catch (Exception e) {
             System.out.println("fichero no encontrado");
         }
@@ -29,7 +29,6 @@ public class App {
                 System.out.println("5. Salir");
                                 
                 opcion = sc.nextLine();
-
                 
                 switch (opcion) {
                     case "1":
