@@ -30,7 +30,7 @@ public class myUtils {
         return isOk;
     }
 
-    public static String comprobarPatronRepetidamente(String patron, String mensaje){/
+    public static String comprobarPatronRepetidamente(String patron, String mensaje){
         boolean isOk = false;
         String texto;
         do { 

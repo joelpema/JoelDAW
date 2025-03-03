@@ -71,8 +71,8 @@ public class VideoDaw {
     }
 
     public String mostrarPeliculas(){
-     String peliculasDisponibles = "";
-     for(int i = 0; i < npeliculas; i++){
+    String peliculasDisponibles = "";
+    for(int i = 0; i < npeliculas; i++){
         System.out.println(i + "." + peliculas[i].InfoPelicula());
         }
     return peliculasDisponibles;
