@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         final String patroncif = "[A-Z]{1}[0-9]{8}";
         final String patrondni = "[0-9]{8}[A-Z]{1}";
         VideoDaw videoclub = null;
@@ -25,11 +25,11 @@ public class App {
             System.out.println("7. Dar de baja articulo");
             System.out.println("8. Salir");
             System.out.print("Selecciona una opcion: ");
-            opcion = entrada.nextLine();
+            opcion = sc.nextLine();
 
             switch(opcion){
                 case "1":
-                    entrada = new Scanner (System.in);
+                    sc = new Scanner (System.in);
                     String cif = myUtils.comprobarPatronRepetidamente(patroncif, "Introduce el CIF del videoclub");
                     String direccion = myUtils.leerTexto("Introduce la direccion del videoclub");
                     VideoDaw v = new VideoDaw(cif, direccion);
@@ -38,15 +38,16 @@ public class App {
                     break;
                 case "2":
                     if(videoclub!=null){
-                        entrada = new Scanner(System.in);
-                        System.out.println("Pulsa 1 para registrar una pelicula, 2 para un videojuego");
-                        String opcion1 = entrada.nextLine();
+                        sc = new Scanner(System.in);
+                        System.out.println("1. Pelicula");
+                        System.out.println("2. Videojuego");
+                        String opcion1 = sc.nextLine();
                         try {
                             switch (opcion1) {
                                     case "1":
                                         System.out.println("Registrar pelicula");
                                         String titulo = myUtils.leerTexto("Introduce el titulo de la pelicula");
-                                        Genero_Peliculas genero_Peliculas = myUtils.menuGeneroPeliculas();
+                                        Genero_Peliculas genero_Peliculas = myUtils.menuGeneroP();
                                         Pelicula p = new Pelicula(titulo, genero_Peliculas);
                                         videoclub.registrarPelicula(p);
                                         pelicula = p;
@@ -55,7 +56,7 @@ public class App {
                                     case "2":
                                         System.out.println("Registrar videojuego");
                                         String titulo1 = myUtils.leerTexto("Introduce el titulo del videojuego");
-                                        Genero_Videojuegos genero_Videojuegos = myUtils.menuGeneroVideojuegos();
+                                        Genero_Videojuegos genero_Videojuegos = myUtils.menuGeneroV();
                                         Videojuego v1= new Videojuego(titulo1, genero_Videojuegos);
                                         videoclub.registrarVideojuego(v1);
                                         videojuego = v1;
@@ -69,7 +70,7 @@ public class App {
                 break;
                 case "3":
                     if(videoclub != null){
-                        entrada = new Scanner (System.in);
+                        sc = new Scanner (System.in);
                         String dni = myUtils.comprobarPatronRepetidamente(patrondni, "Introduce el dni del cliente"); 
                         String nombre = myUtils.leerTexto("Introduce el nombre del cliente");
                         String direccion1 = myUtils.leerTexto("Introduce la direccion del cliente");
@@ -94,43 +95,43 @@ public class App {
                     break;
                 case "4":
                     if(videoclub != null) {
-                        entrada = new Scanner (System.in);
+                        sc = new Scanner (System.in);
                         System.out.println("Quien va a alquilar?");
                         System.out.println(videoclub.mostrarClientes());
-                        int c1 = entrada.nextInt();
+                        int c1 = sc.nextInt();
                         System.out.println(videoclub.mostrarArticulosNoAlquilados(videoclub));
-                        int v1 = entrada.nextInt();
+                        int v1 = sc.nextInt();
                         videoclub.alquilarArticulo(v1, c1);
                         System.out.println(cliente.mostrarArticulosAlquilados());
                     }
                 break;
                 case "5":
                 if(videoclub != null) {
-                    entrada = new Scanner (System.in);
+                    sc = new Scanner (System.in);
                     System.out.println("Quien va a devolver?");
                     System.out.println(videoclub.mostrarClientes());
-                    int c1 = entrada.nextInt();
+                    int c1 = sc.nextInt();
                     System.out.println(cliente.mostrarArticulosAlquilados());
-                    int v1 = entrada.nextInt();
+                    int v1 = sc.nextInt();
                     videoclub.devolverArticulo(v1, c1);
                     System.out.println(videoclub.mostrarArticulosNoAlquilados(videoclub));
                 }
                 break;
                 case "6":
                     if(videoclub != null && cliente != null){
-                        entrada = new Scanner (System.in);
+                        sc = new Scanner (System.in);
                         System.out.println("Selecciona el cliente que quieres dar de baja.");
                         System.out.println(videoclub.mostrarClientes());
-                        int codSocio = entrada.nextInt();
+                        int codSocio = sc.nextInt();
                         videoclub.darBajaCliente(codSocio);
                     }
                 break;
                 case "7":
                     if(videoclub != null && (pelicula != null || videojuego != null)){
-                        entrada = new Scanner (System.in);
+                        sc = new Scanner (System.in);
                         System.out.println("Selecciona el articulo que quieres dar de baja.");
                         System.out.println(videoclub.mostrarArticulosNoAlquilados(videoclub));
-                        int a2 = entrada.nextInt();
+                        int a2 = sc.nextInt();
                         videoclub.darBajaArticulo(a2);
                     }
                 break;

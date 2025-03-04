@@ -49,7 +49,7 @@
                 return texto;
             }
     
-            public static Genero_Peliculas menuGeneroPeliculas(){
+            public static Genero_Peliculas menuGeneroP(){
                 Scanner entrada = new Scanner(System.in);
     
                 Genero_Peliculas generoP =  null;
@@ -66,7 +66,7 @@
                 return generoP;
             }
 
-            public static Genero_Videojuegos menuGeneroVideojuegos(){
+            public static Genero_Videojuegos menuGeneroV(){
                 Scanner entrada = new Scanner(System.in);
     
                 Genero_Videojuegos generoV =  null;

@@ -6,7 +6,7 @@ public class Articulo {
     protected String titulo;
     protected LocalDate fechaRegistro;
     protected LocalDate fechaBaja;
-    protected static int codArticulo = 1;
+    protected int codArticulo = 1;
 
     public Articulo(String titulo) {
         this.cod = codArticulo;
