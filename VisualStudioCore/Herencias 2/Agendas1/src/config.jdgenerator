@@ -1,0 +1,87 @@
+==== CONFIGS ====		
+{
+    "base_path": "c:\\Users\\pacoe\\Documents\\JoelDAW\\JoelDAW\\VisualStudioCore\\Herencias 2\\Agendas1\\src",
+    "out": "c:\\Users\\pacoe\\Documents\\JoelDAW\\JoelDAW\\VisualStudioCore\\Herencias 2\\Agendas1\\src\\javadoc",
+    "javadoc_executable": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.5.11-hotspot\\bin\\javadoc.exe",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\javadoc.exe" 
+	-sourcepath "c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src" 
+	-d "c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc" 
+	"c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java"
+	"c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java"
+	"c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\ProgramaAgenda.java"
+
+
+==== JAVADOC OUTPUT ====
+Loading source file c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java...
+Loading source file c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java...
+Loading source file c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\ProgramaAgenda.java...
+Constructing Javadoc information...
+Building index for all the packages and classes...
+Standard Doclet version 21.0.5+11-LTS
+Building tree for all the packages and classes...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\Agenda.html...
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:2: warning: no comment
+public class Agenda{
+       ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:7: warning: no comment
+    public Agenda(){
+           ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:12: warning: no comment
+    public boolean a�adirContacto(Contacto c) {
+                   ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:52: warning: no comment
+    public int buscaContacto(String nombre) {
+               ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:25: warning: no comment
+    public boolean eliminarContacto(String nombre) {
+                   ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:38: warning: no comment
+    public boolean existeContacto(String nombre) {
+                   ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Agenda.java:42: warning: no comment
+    public void listarContactos() {
+                ^
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\Contacto.html...
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java:1: warning: no comment
+public class Contacto {
+       ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java:5: warning: no comment
+    public Contacto(String nombre, String telefono) {
+           ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java:18: warning: no comment
+    public boolean esIgual(Contacto nuevo) {
+                   ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java:10: warning: no comment
+    public String getNombre() {
+                  ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\Contacto.java:14: warning: no comment
+    public String getTelefono() {
+                  ^
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\ProgramaAgenda.html...
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\ProgramaAgenda.java:4: warning: no comment
+public class ProgramaAgenda {
+       ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\ProgramaAgenda.java:4: warning: use of default constructor, which does not provide a comment
+public class ProgramaAgenda {
+       ^
+c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\ProgramaAgenda.java:6: warning: no comment
+    public static void main(String[] args) {
+                       ^
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\package-summary.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\package-tree.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\overview-tree.html...
+Building index for all classes...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\allclasses-index.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\allpackages-index.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\index-all.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\search.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\index.html...
+Generating c:\Users\pacoe\Documents\JoelDAW\JoelDAW\VisualStudioCore\Herencias 2\Agendas1\src\javadoc\help-doc.html...
+15 warnings
+
+
