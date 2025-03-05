@@ -4,7 +4,7 @@
     import java.util.regex.Matcher;
     import java.util.regex.Pattern;
         
-        public class myUtils {
+        public class MyUtils {
         
             Scanner entrada = new Scanner(System.in);
         
@@ -21,7 +21,7 @@
             public static LocalDate leerFecha(String mensaje){
                 Scanner entrada = new Scanner(System.in);
                 DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                System.out.println("\nEscribe tu fecha de nacimiento en formato DD/MM/AAAA");
+                System.out.println("\nEscribe su fecha de nacimiento en formato DD/MM/AAAA");
                 String dateString = entrada.next();
                 LocalDate fechaLocalDate = LocalDate.parse(dateString, formatter);
                 return fechaLocalDate;
@@ -40,10 +40,10 @@
                 boolean isOk = false;
                 String texto;
                 do { 
-                    texto = myUtils.leerTexto(mensaje);
-                    isOk = myUtils.comprobarPatron(patron, texto);
+                    texto = MyUtils.leerTexto(mensaje);
+                    isOk = MyUtils.comprobarPatron(patron, texto);
                     if(!isOk){
-                        myUtils.imprimir("El formato es incorrecto");
+                        MyUtils.imprimir("El formato es incorrecto");
                     }
                 } while (!isOk);
                 return texto;

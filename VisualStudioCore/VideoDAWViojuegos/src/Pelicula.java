@@ -7,7 +7,7 @@ public class Pelicula extends Articulo{
     private Genero_Peliculas generoP;
     private LocalDateTime fechaAlquiler;
     private boolean isAlquilada;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/mm/yyyy hh:mm:ss");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/mm/yyyy");
     
     public Pelicula(String titulo, Genero_Peliculas generoP) {
         super(titulo);

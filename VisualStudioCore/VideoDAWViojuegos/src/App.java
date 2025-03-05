@@ -23,15 +23,14 @@ public class App {
             System.out.println("5. Devolver articulo");
             System.out.println("6. Dar de baja cliente");
             System.out.println("7. Dar de baja articulo");
-            System.out.println("8. Salir");
-            System.out.print("Selecciona una opcion: ");
+            System.out.println("8. Salir\n");
             opcion = sc.nextLine();
 
             switch(opcion){
                 case "1":
                     sc = new Scanner (System.in);
-                    String cif = myUtils.comprobarPatronRepetidamente(patroncif, "Introduce el CIF del videoclub");
-                    String direccion = myUtils.leerTexto("Introduce la direccion del videoclub");
+                    String cif = MyUtils.comprobarPatronRepetidamente(patroncif, "Introduce el CIF del videoclub");
+                    String direccion = MyUtils.leerTexto("Introduce la direccion del videoclub");
                     VideoDaw v = new VideoDaw(cif, direccion);
                     videoclub = v;
                     System.out.println(videoclub.toString());
@@ -46,8 +45,8 @@ public class App {
                             switch (opcion1) {
                                     case "1":
                                         System.out.println("Registrar pelicula");
-                                        String titulo = myUtils.leerTexto("Introduce el titulo de la pelicula");
-                                        Genero_Peliculas genero_Peliculas = myUtils.menuGeneroP();
+                                        String titulo = MyUtils.leerTexto("Introduce el titulo de la pelicula");
+                                        Genero_Peliculas genero_Peliculas = MyUtils.menuGeneroP();
                                         Pelicula p = new Pelicula(titulo, genero_Peliculas);
                                         videoclub.registrarPelicula(p);
                                         pelicula = p;
@@ -55,8 +54,8 @@ public class App {
                                     break;
                                     case "2":
                                         System.out.println("Registrar videojuego");
-                                        String titulo1 = myUtils.leerTexto("Introduce el titulo del videojuego");
-                                        Genero_Videojuegos genero_Videojuegos = myUtils.menuGeneroV();
+                                        String titulo1 = MyUtils.leerTexto("Introduce el titulo del videojuego");
+                                        Genero_Videojuegos genero_Videojuegos = MyUtils.menuGeneroV();
                                         Videojuego v1= new Videojuego(titulo1, genero_Videojuegos);
                                         videoclub.registrarVideojuego(v1);
                                         videojuego = v1;
@@ -71,10 +70,10 @@ public class App {
                 case "3":
                     if(videoclub != null){
                         sc = new Scanner (System.in);
-                        String dni = myUtils.comprobarPatronRepetidamente(patrondni, "Introduce el dni del cliente"); 
-                        String nombre = myUtils.leerTexto("Introduce el nombre del cliente");
-                        String direccion1 = myUtils.leerTexto("Introduce la direccion del cliente");
-                        LocalDate fechaNacimiento = myUtils.leerFecha("Escribe la fecha de nacimiento del cliente con el siguiente formato: DD/MM/YYYY");
+                        String dni = MyUtils.comprobarPatronRepetidamente(patrondni, "Introduce el dni del cliente"); 
+                        String nombre = MyUtils.leerTexto("Introduce el nombre del cliente");
+                        String direccion1 = MyUtils.leerTexto("Introduce la direccion del cliente");
+                        LocalDate fechaNacimiento = MyUtils.leerFecha("Escribe la fecha de nacimiento del cliente con el siguiente formato: DD/MM/YYYY");
                         LocalDate hoy = LocalDate.now();
                         Period mayorEdad = Period.between(fechaNacimiento, hoy);
                         if(mayorEdad.getYears() >= 18){
