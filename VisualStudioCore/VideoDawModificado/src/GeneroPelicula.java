@@ -1,0 +1,3 @@
+enum GeneroPelicula {
+    ACCION, COMEDIA, DRAMA, TERROR, DOCUMENTAL
+}

@@ -1,0 +1,3 @@
+enum GeneroVideojuego {
+    AVENTURA, RPG, DEPORTES, ESTRATEGIA, SHOOTER
+}
