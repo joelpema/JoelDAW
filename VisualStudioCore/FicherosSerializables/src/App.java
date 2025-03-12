@@ -34,7 +34,6 @@ public class App {
                 for (Libro libro : libros) {
                     if (libro.getIsbn().equals(isbn)) {
                         existe = true;
-                        break;
                     }
                 }
 
