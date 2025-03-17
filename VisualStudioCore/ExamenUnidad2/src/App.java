@@ -27,10 +27,6 @@ public class App {
 
         Empresa e = new Empresa(nombreEmpresa, cif, fecha1, null, null, null);
 
-
-    
-
-
     do { 
         sc = new Scanner(System.in);
 
@@ -114,6 +110,7 @@ public class App {
 
                     Trabajador t = new Trabajador(nombre, fecha, dni, direccion, email, 1200, enumerado, false);
                     trabajadores = t;
+                    
                     System.out.println(trabajadores.toString());
                     
                 }else {

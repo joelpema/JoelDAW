@@ -54,8 +54,4 @@ public class Trabajador extends  Persona{
         sb.append('}');
         return sb.toString();
     }
-
-     
-
-
 }
