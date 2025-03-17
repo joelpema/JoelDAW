@@ -1,6 +1,8 @@
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,6 +37,37 @@ public class Inventario {
                     for (Producto linea : productos) {
                         System.out.println(linea);
                     }
+
+                    int i = 0;
+                boolean eof = false;
+                try (FileInputStream fichero = new FileInputStream(".\\resources\\almacen.dat"); DataInputStream lector = new DataInputStream(fichero)) {
+
+
+                    while(!eof){
+                        int cantidad = lector.readInt();
+                        double precio = lector.readDouble();
+                        int descuento = lector.readInt();
+                        int iva = lector.readInt();
+                        boolean aplicarDto = lector.readBoolean();
+
+
+
+                        System.out.println(cantidad);
+                        System.out.println(precio);
+                        System.out.println(descuento);
+                        System.out.println(iva);
+                        System.out.println(aplicarDto);
+
+                        if(i < productos.size()){
+                            i++;
+                        }
+
+                    }
+
+                } catch (IOException e) {
+                    eof = true;
+                }
+
                 break;
 
                 case "2":
@@ -54,7 +87,7 @@ public class Inventario {
                     }
                 break;
                 case "3":
-                    try (FileWriter writer = new FileWriter("./Recursos/productos.csv"); BufferedWriter buffer = new BufferedWriter(writer)) {
+                    try (FileWriter writer = new FileWriter(".\\resources\\productos.csv"); BufferedWriter buffer = new BufferedWriter(writer)) {
                         for (Producto producto : productos) {
                             buffer.write(producto.toString());
                             buffer.newLine();
