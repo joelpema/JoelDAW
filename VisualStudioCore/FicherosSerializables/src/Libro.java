@@ -5,19 +5,19 @@ import java.time.LocalDate;
 public class Libro implements Serializable{
     
 
-    private static final long serialVersionUID = 1702410486215217110L;
+    private static final long serialVersionUID = 3086286986810536201L;
 
     private String isbn;
     private String titulo;
-    private String Autor;
+    private String autor;
     private LocalDate fechaPublicacion;
 
     public Libro(String isbn, String titulo, String autor, LocalDate fechaPublicacion) {
-    
+
     
     this.isbn = isbn;
         this.titulo = titulo;
-        Autor = autor;
+        this.autor = autor;
         this.fechaPublicacion = fechaPublicacion;
     }
 
@@ -38,11 +38,11 @@ public class Libro implements Serializable{
     }
 
     public String getAutor() {
-        return Autor;
+        return autor;
     }
 
     public void setAutor(String autor) {
-        Autor = autor;
+        this.autor = autor;
     }
 
     public LocalDate getFechaPublicacion() {
@@ -59,13 +59,9 @@ public class Libro implements Serializable{
         sb.append("Libro{");
         sb.append("isbn=").append(isbn);
         sb.append(", titulo=").append(titulo);
-        sb.append(", Autor=").append(Autor);
+        sb.append(", Autor=").append(autor);
         sb.append(", fechaPublicacion=").append(fechaPublicacion);
         sb.append('}');
         return sb.toString();
     }
-
-    
-
-
 }

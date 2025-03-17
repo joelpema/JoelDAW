@@ -9,14 +9,14 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         List<Libro> libros = new LinkedList<>();
 
         Scanner sc = new Scanner(System.in);
         String opcion = "";
         Libro nuevoLibro = new Libro (" "," "," ", null);
 
-        System.out.println("Bienvenido a mi libreria, escoge una opcion correcta en el menu");
+        System.out.println("Bienvenido a mi Biblioteca, escoge una opcion correcta en el menu");
         do{
 
             System.out.println("1. Crear Libro y registrarlo en la Biblioteca (ISBN único)");
@@ -34,7 +34,6 @@ public class App {
                 for (Libro libro : libros) {
                     if (libro.getIsbn().equals(isbn)) {
                         existe = true;
-                        break;
                     }
                 }
 
@@ -58,7 +57,7 @@ public class App {
                     for(int i = 0; i<libros.size();i++){
                         System.out.println(libros.get(i).toString());
                     }
-                }
+                } 
             }else if (opcion.equals("3")){
 
                 System.out.println("intoduce el ISBN del libro que quieres eliminar");
@@ -75,31 +74,29 @@ public class App {
 
             }else if (opcion.equals("4")){
 
-                try (FileOutputStream file = new FileOutputStream("./Resources/libro.dat", true); ObjectOutputStream buffer = new ObjectOutputStream(file)){
+                try (FileOutputStream file = new FileOutputStream("./Resources/Biblioteca.dat", true); ObjectOutputStream buffer = new ObjectOutputStream(file)) {
 
-                    buffer.writeObject(nuevoLibro);
+                    buffer.writeObject(libros);
 
+                    System.out.println("Libros guardados exitosamente.");
                 } catch (IOException e) {
-                    System.out.println("Se ha producido un error: "+e.getMessage());
+                    System.out.println("Se ha producido un error al guardar: " + e.getMessage());
                 }
-
-            }else if (opcion.equals("5")){
-
-                try (FileOutputStream file = new FileOutputStream("./Resources/libro.dat", true); ObjectOutputStream buffer = new ObjectOutputStream(file)){
-
-                    buffer.writeObject(nuevoLibro);
-
-                } catch (IOException e) {
-                    System.out.println("Se ha producido un error: "+e.getMessage());
-                }
-
-                System.out.println("hasta la proxima!!");
             }
+            else if (opcion.equals("5")){
+
+                try (FileOutputStream file = new FileOutputStream("./Resources/Biblioteca.dat", true); ObjectOutputStream buffer = new ObjectOutputStream(file)) {
+
+                    buffer.writeObject(libros);
+
+                    System.out.println("Libros guardados exitosamente.");
+                } catch (IOException e) {
+                    System.out.println("Se ha producido un error al guardar: " + e.getMessage());
+                }
+                System.out.println("\nHASTA LA PROXIMA!!!!");
+            }
+
+
         }while (!opcion.equals("5"));
-
-
-
-
-
     }
 }
