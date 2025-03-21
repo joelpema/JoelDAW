@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Inventario {
@@ -57,13 +58,12 @@ public class Inventario {
 
                 
                     while(!eof){
+
                         int cantidad = lector.readInt();
                         double precio = lector.readDouble();
                         int descuento = lector.readInt();
                         int iva = lector.readInt();
                         boolean aplicarDto = lector.readBoolean();
-
-                        
 
                         System.out.println(cantidad);
                         System.out.println(precio);
@@ -74,37 +74,39 @@ public class Inventario {
                         if(i < producto.size()){
                             i++;
                         }
-                        
                     }
                     
                 } catch (EOFException e) {
+
                     eof = true;
+
                 }catch (IOException e){
                     System.out.println(e.getMessage());
                 }
 
-                for (Producto p : producto) {
-                    System.out.println(p);
-                }
-
             }else if (opcion.equals("2")){
+                System.out.println("selecciona la referencia que vas a eliminar");
+                String reference = sc.nextLine();
 
+                    Producto eliminaProducto = null;
+                        for (Producto p : producto) {
+                            if(Objects.equals(p.getReferencia(), reference)){
+                                eliminaProducto = p;
+                            }
+                        }
+                    producto.remove(eliminaProducto);
+                    System.out.println("el producto se elimino");
                 
-                
-
             }else if (opcion.equals("3")){
+
                 
-                
-                
+
                 
             }else if (opcion.equals("4")){
-
-
                 
             }else {
                 System.out.println("Pon una opcion correcta en el menu");
             }
-
             
         } while (!opcion.equals("3"));
     }

@@ -1,5 +1,6 @@
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Persona {
 
@@ -52,6 +53,31 @@ public class Persona {
         sb.append(", direccion=").append(direccion);
         sb.append('}');
         return sb.toString();
+
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.Nombre, other.Nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
+        if (!Objects.equals(this.direccion, other.direccion)) {
+            return false;
+        }
+        return Objects.equals(this.fechaNacimiento, other.fechaNacimiento);
     }
 
 }

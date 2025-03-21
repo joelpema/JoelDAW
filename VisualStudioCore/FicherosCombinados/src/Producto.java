@@ -96,8 +96,4 @@ public class Producto {
         return sb.toString();
     }
 
-
-    
-    
-
 }
