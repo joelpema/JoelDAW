@@ -1,4 +1,7 @@
-package com.decroly;
+package com;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class TablaProductos {
 
@@ -6,25 +9,27 @@ public class TablaProductos {
     private String referencia;
     private String nombre;
     private String descripcion;
-    private int tipo;
+    private List<Tipo> tipo;
     private int cantidad;
     private double precio;
     private int descuento;
     private int iva;
     private boolean aplicarDto;
-
-    public TablaProductos(boolean aplicarDto, int cantidad, String descripcion, int descuento, int id, int iva, String nombre, double precio, String referencia, int tipo) {
-        this.aplicarDto = aplicarDto;
-        this.cantidad = cantidad;
-        this.descripcion = descripcion;
-        this.descuento = descuento;
+    
+    public TablaProductos(int id, String referencia, String nombre, String descripcion, Tipo tipo, int cantidad,
+            double precio, int descuento, int iva, boolean aplicarDto) {
         this.id = id;
-        this.iva = iva;
-        this.nombre = nombre;
-        this.precio = precio;
         this.referencia = referencia;
-        this.tipo = tipo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.tipo = new LinkedList<>();
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.descuento = descuento;
+        this.iva = iva;
+        this.aplicarDto = aplicarDto;
     }
+
 
     public int getId() {
         return id;
@@ -58,11 +63,11 @@ public class TablaProductos {
         this.descripcion = descripcion;
     }
 
-    public int getTipo() {
+    public List<Tipo> getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(List<Tipo> tipo) {
         this.tipo = tipo;
     }
 
@@ -108,20 +113,9 @@ public class TablaProductos {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("TablaProductos{");
-        sb.append("id=").append(id);
-        sb.append(", referencia=").append(referencia);
-        sb.append(", nombre=").append(nombre);
-        sb.append(", descripcion=").append(descripcion);
-        sb.append(", tipo=").append(tipo);
-        sb.append(", cantidad=").append(cantidad);
-        sb.append(", precio=").append(precio);
-        sb.append(", descuento=").append(descuento);
-        sb.append(", iva=").append(iva);
-        sb.append(", aplicarDto=").append(aplicarDto);
-        sb.append('}');
-        return sb.toString();
+        return "TablaProductos [id=" + id + ", referencia=" + referencia + ", nombre=" + nombre + ", descripcion="
+                + descripcion + ", tipo=" + tipo + ", cantidad=" + cantidad + ", precio=" + precio + ", descuento="
+                + descuento + ", iva=" + iva + ", aplicarDto=" + aplicarDto + "]";
     }
 
 }
