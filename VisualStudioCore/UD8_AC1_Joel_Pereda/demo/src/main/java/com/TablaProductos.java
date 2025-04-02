@@ -1,28 +1,25 @@
 package com;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class TablaProductos {
 
     private int id;
     private String referencia;
     private String nombre;
     private String descripcion;
-    private List<Tipo> tipo;
+    private int tipo;
     private int cantidad;
     private double precio;
     private int descuento;
     private int iva;
     private boolean aplicarDto;
     
-    public TablaProductos(int id, String referencia, String nombre, String descripcion, Tipo tipo, int cantidad,
+    public TablaProductos(int id, String referencia, String nombre, String descripcion, int tipo, int cantidad,
             double precio, int descuento, int iva, boolean aplicarDto) {
         this.id = id;
         this.referencia = referencia;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.tipo = new LinkedList<>();
+        this.tipo = tipo;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descuento = descuento;
@@ -30,6 +27,8 @@ public class TablaProductos {
         this.aplicarDto = aplicarDto;
     }
 
+
+    
 
     public int getId() {
         return id;
@@ -63,11 +62,11 @@ public class TablaProductos {
         this.descripcion = descripcion;
     }
 
-    public List<Tipo> getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(List<Tipo> tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

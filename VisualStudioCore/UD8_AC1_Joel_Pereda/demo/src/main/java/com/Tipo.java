@@ -23,4 +23,5 @@ public class Tipo {
         return "Tipo [id=" + id + ", nombre=" + nombre + "]";
     }
 
+
 }
