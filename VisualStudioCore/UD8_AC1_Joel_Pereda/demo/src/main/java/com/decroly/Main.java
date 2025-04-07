@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.TablaProductos;
+import com.Tipo;
 
 public class Main {
     public static void main(String[] args) {
@@ -81,7 +82,7 @@ public class Main {
                 System.out.println("Inserta la referencia del nuevo producto");
                 String referencia = scanner.nextLine();
                 System.out.println("Inserta el nombre del nuevo producto");
-                String nombre= scanner.nextLine();
+                String nombre = scanner.nextLine();
                 System.out.println("Inserta la descripcion del nuevo producto");
                 String descripcion = scanner.nextLine();
                 System.out.println("Inserta el id del tipo del nuevo producto");
@@ -117,19 +118,59 @@ public class Main {
 
             } else if (opcion.equals("6")) {
 
-                System.out.println("\nInserta una referencia \n Ejemplo: PRD001");
+                System.out.println("\nInserta una referencia a Eliminar\n Ejemplo: PRD001");
                 String refre = scanner.nextLine();
                 misDatos.deleteByReference(refre);
   
             } else if (opcion.equals("7")) {
 
+                scanner = new Scanner(System.in);
+                System.out.println("introduce el ID del producto que quieres actualizar");
+                int id = scanner.nextInt();
 
-              
+                scanner = new Scanner(System.in);
+                System.out.println("Inserta la descripcion del producto actualizado");
+                String descripcions = scanner.nextLine();
+                System.out.println("Inserta la cantidad del producto actualizado");
+                int cantidads = scanner.nextInt();
+                System.out.println("Inserta el precio del producto actualizado");
+                double precios = scanner.nextDouble();
+                System.out.println("Inserta el descuento del producto actualizado");
+                int descuentos = scanner.nextInt();
+                boolean aplicarDtos = false;
+                
+                scanner = new Scanner(System.in);
+                System.out.println("aplicar descuento? s/n poner una letra que no sea ni 's' ni 'n' se dara por hecho que es que no");
+                scanner = new Scanner(System.in);
+                String apDescuento = scanner.nextLine();
+                if (apDescuento.equalsIgnoreCase("s")){
+                    aplicarDtos = true;
+                }else if (apDescuento.equalsIgnoreCase("n")){
+                    aplicarDtos = false;
+                }else {
+                    System.out.println("pon una opcion correcta, se dara por hecho que que es que no");
+                }
+
+                TablaProductos actualizarProducto = new TablaProductos( id, descripcions, cantidads, precios, descuentos, aplicarDtos);
+
+                misDatos.getUpdateProductos(actualizarProducto);
+
+
+
             } else if (opcion.equals("8")) {
+                scanner = new Scanner(System.in);
+                System.out.println("introduce la ID del nuevo tipo");
+                int ids = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                System.out.println("introduce el Nombre del nuevo tipo");
+                String nombreTipo = scanner.nextLine();
+                Tipo nuevoTipo = new Tipo(ids, nombreTipo);
 
 
                
             } else if (opcion.equals("9")) {
+
+                System.out.println("hasta la proxima!!");
                 
             } else {
 

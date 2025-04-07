@@ -27,8 +27,16 @@ public class TablaProductos {
         this.iva = iva;
         this.aplicarDto = aplicarDto;
     }
+    
 
-
+    public TablaProductos( int id, String descripcion, int cantidad, double precio, int descuento, boolean aplicarDto) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.descuento = descuento;
+        this.aplicarDto = aplicarDto;
+    }
 
 
     public TablaProductos(int id, String referencia, String nombre, String descripcion, int tipo, int cantidad,
@@ -45,8 +53,6 @@ public class TablaProductos {
         this.aplicarDto = aplicarDto;
     }
 
-
-    
 
     public int getId() {
         return id;

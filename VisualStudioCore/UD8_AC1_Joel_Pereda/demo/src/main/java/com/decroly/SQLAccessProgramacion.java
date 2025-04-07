@@ -189,6 +189,27 @@ public class SQLAccessProgramacion {
         return elements;
     }
 
+    public int getUpdateProductos(TablaProductos productos){
+        int response = -1;
+        String actualizarProd = "UPDATE producto set descripcion = ? , cantidad = ? , precio = ? , descuento = ? , AplicarDto = ? where id = ?";
+
+        try (Connection connection = SQLDataBaseManager.getConnection(); PreparedStatement statement = connection.prepareStatement(actualizarProd);) {
+            statement.setNString(1, productos.getDescripcion());
+            statement.setInt(2, productos.getCantidad());
+            statement.setDouble(3, productos.getPrecio());
+            statement.setInt(4, productos.getDescuento());
+            statement.setBoolean(5, productos.isAplicarDto());
+            statement.setInt(6, productos.getId());
+
+            response = statement.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println("ERROR: "+e.getMessage());
+        }
+        return response;
+    }
+
+
 
 
 
