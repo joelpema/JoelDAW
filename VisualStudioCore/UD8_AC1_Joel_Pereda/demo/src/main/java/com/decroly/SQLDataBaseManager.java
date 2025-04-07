@@ -1,16 +1,36 @@
 package com.decroly;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQLDataBaseManager {
 
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/";
-    private static final String SCHEMA = "programacion";
-    private static final String USUARIO = "root";
-    private static final String CLAVE = "daw12";
+    private static String DRIVER;
+    private static String URL;
+    private static String SCHEMA;
+    private static String USUARIO;
+    private static String CLAVE;
+
+     static {
+        try (InputStream inputStream = SQLDataBaseManager.class.getClassLoader().getResourceAsStream("application.dat");
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+
+            DRIVER = br.readLine();
+            URL = br.readLine();
+            SCHEMA = br.readLine();
+            USUARIO = br.readLine();
+            CLAVE = br.readLine();
+
+        } catch (IOException | NullPointerException e) {
+            System.out.println("Error al leer el archivo de configuración: " + e.getMessage());
+        }
+    }
+
 
    public static Connection getConnection(){
         Connection connection = null;

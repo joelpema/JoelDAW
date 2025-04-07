@@ -1,0 +1,5 @@
+com.mysql.cj.jdbc.Driver
+jdbc:mysql://localhost:3306/
+programacion
+root
+daw12
