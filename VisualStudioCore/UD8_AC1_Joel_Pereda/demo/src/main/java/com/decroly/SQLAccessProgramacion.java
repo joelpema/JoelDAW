@@ -148,22 +148,23 @@ public class SQLAccessProgramacion {
 
     public int getInsertarProducto(TablaProductos producto){
         int response = -1;
-        String insertarProd = "INSERT INTO characters (id, referencia, nombre, descripcion, tipo, cantidad, precio, descuento, iva, aplicarDto)" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertarProd = "INSERT INTO producto (referencia, nombre, descripcion, tipo, cantidad, precio, descuento, iva, aplicarDto)" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = SQLDataBaseManager.getConnection(); PreparedStatement statement = connection.prepareStatement(insertarProd);) {
 
-            statement.setInt(1, producto.getId());
-            statement.setNString(2, producto.getReferencia());
-            statement.setNString(3, producto.getNombre());
-            statement.setNString(4, producto.getDescripcion());
-            statement.setInt(5, producto.getTipo());
-            statement.setInt(6, producto.getCantidad());
-            statement.setDouble(7, producto.getPrecio());
-            statement.setInt(8, producto.getDescuento());
-            statement.setInt(9, producto.getIva());
-            statement.setBoolean(10, producto.isAplicarDto());
+            
+            statement.setNString(1, producto.getReferencia());
+            statement.setNString(2, producto.getNombre());
+            statement.setNString(3, producto.getDescripcion());
+            statement.setInt(4, producto.getTipo());
+            statement.setInt(5, producto.getCantidad());
+            statement.setDouble(6, producto.getPrecio());
+            statement.setInt(7, producto.getDescuento());
+            statement.setInt(8, producto.getIva());
+            statement.setBoolean(9, producto.isAplicarDto());
 
             response = statement.executeUpdate();
+            
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -171,6 +172,23 @@ public class SQLAccessProgramacion {
 
         return response;
     }
+    public int deleteByReference(String referencia){
+        int elements = -1;
+
+        String deleteRef = "DELETE FROM producto where referencia = ?";
+
+        try (Connection connection = SQLDataBaseManager.getConnection(); PreparedStatement statement = connection.prepareStatement(deleteRef);) {
+
+            statement.setNString(1, referencia);
+            
+            elements = statement.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return elements;
+    }
+
 
 
 

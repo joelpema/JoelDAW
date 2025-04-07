@@ -15,6 +15,8 @@ public class Main {
         SQLAccessProgramacion misDatos = new SQLAccessProgramacion();
 
         do {
+
+            scanner = new Scanner(System.in);
             System.out.println("\nMenú");
             System.out.println("1. Mostrar todos los Productos en el Inventario.");
             System.out.println("2. Buscar producto por referencia.");
@@ -26,7 +28,7 @@ public class Main {
             System.out.println("8. Insertar un nuevo tipo de producto.");
             System.out.println("9. Salir");
 
-            
+            scanner = new Scanner(System.in);
             opcion = scanner.nextLine();
             scanner.nextLine();
             
@@ -40,7 +42,7 @@ public class Main {
 
             } else if (opcion.equals("2")) {
 
-                System.out.println("\nInserta una referencia \n Ejemplo: PRD001");
+                System.out.println("\nInserta una referencia \n Ejemplo: 'PRD001'");
                 String ref = scanner.nextLine();
 
                 List<TablaProductos> referencia = misDatos.getByRef(ref);
@@ -52,7 +54,7 @@ public class Main {
 
             } else if (opcion.equals("3")) {
 
-                System.out.println("\nInserta el id de tipo \n Ejemplo: 1");
+                System.out.println("\nInserta el id de tipo \n Ejemplo: '1'");
                 String tip = scanner.nextLine();
 
                 List<TablaProductos> tipos = misDatos.getByTipo(tip);
@@ -75,11 +77,7 @@ public class Main {
                
             } else if (opcion.equals("5")) {
 
-                boolean añadido = false;
-
-
-                System.out.println("\nInserta el id del nuevo producto");
-                int id = scanner.nextInt();
+                scanner = new Scanner(System.in);
                 System.out.println("Inserta la referencia del nuevo producto");
                 String referencia = scanner.nextLine();
                 System.out.println("Inserta el nombre del nuevo producto");
@@ -90,7 +88,7 @@ public class Main {
                 int tipo = scanner.nextInt();
                 System.out.println("Inserta la cantidad del nuevo producto");
                 int cantidad = scanner.nextInt();
-                System.out.println("Inserta el predio del nuevo producto");
+                System.out.println("Inserta el precio del nuevo producto");
                 double precio = scanner.nextDouble();
                 System.out.println("Inserta el descuento del nuevo producto");
                 int descuento = scanner.nextInt();
@@ -98,8 +96,9 @@ public class Main {
                 int iva = scanner.nextInt();
                 boolean aplicarDto = false;
                 
-
+                scanner = new Scanner(System.in);
                 System.out.println("aplicar descuento? s/n poner una letra que no sea ni 's' ni 'n' se dara por hecho que es que no");
+                scanner = new Scanner(System.in);
                 String apDescuento = scanner.nextLine();
                 if (apDescuento.equalsIgnoreCase("s")){
                     aplicarDto = true;
@@ -109,7 +108,8 @@ public class Main {
                     System.out.println("pon una opcion correcta, se dara por hecho que que es que no");
                 }
 
-                TablaProductos nuevoProducto = new TablaProductos(id, referencia, nombre, descripcion, tipo, cantidad, precio, descuento, iva, aplicarDto);
+                TablaProductos nuevoProducto = new TablaProductos(referencia, nombre, descripcion, tipo, cantidad, precio, descuento, iva, aplicarDto);
+                
 
                 int insertar = misDatos.getInsertarProducto(nuevoProducto);
                 System.out.println("Se han insertado " + insertar + " elementos");
@@ -117,8 +117,10 @@ public class Main {
 
             } else if (opcion.equals("6")) {
 
-
-
+                System.out.println("\nInserta una referencia \n Ejemplo: PRD001");
+                String refre = scanner.nextLine();
+                misDatos.deleteByReference(refre);
+  
             } else if (opcion.equals("7")) {
 
 
