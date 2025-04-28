@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.TablaProductos;
+import com.Tipo;
 
 public class SQLAccessProgramacion {
 
@@ -209,6 +210,21 @@ public class SQLAccessProgramacion {
         return response;
     }
 
+    public int getIsertarTipos(Tipo tipo){
+        int response = -1;
+        String insertarTipo = "INSERT INTO tipo (id, nombre)" + "VALUES (?, ?)";
+
+        try (Connection connection = SQLDataBaseManager.getConnection(); PreparedStatement statement = connection.prepareStatement(insertarTipo);) {
+            statement.setInt(1, tipo.getId());
+            statement.setNString(2, tipo.getNombre());
+
+            response = statement.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println("ERROR: "+e.getMessage());
+        }
+        return response;
+    }
 
 
 

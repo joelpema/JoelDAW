@@ -165,6 +165,8 @@ public class Main {
                 System.out.println("introduce el Nombre del nuevo tipo");
                 String nombreTipo = scanner.nextLine();
                 Tipo nuevoTipo = new Tipo(ids, nombreTipo);
+                
+                misDatos.getIsertarTipos(nuevoTipo);
 
 
                
