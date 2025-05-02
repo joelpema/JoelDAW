@@ -1,74 +1,122 @@
 package com.decroly;
 
+import java.util.LinkedList;
+import java.util.List;
 
-import java.util.Scanner;
-
+import com.Alquiler;
+import com.Articulo;
 import com.Cliente;
 import com.Pelicula;
-import com.VideoDaw;
-import com.Videojuego;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        String opcion;
+         //conexion base
+         if (SQLDatabaseManager.getConecction() != null) {
+            System.out.println("Conexión exitosa.");
+        } else {
+            System.out.println("Error al conectar con la base de datos.");
+        }
+
+
+        SQLAcessVideoDaw VideoDawData = new SQLAcessVideoDaw();
+        Pelicula miPelicula;
+        List<Alquiler> alquileres = new LinkedList<>();
         
-        Scanner entrada = new Scanner(System.in);
-        final String patroncif = "[A-Z]{1}[0-9]{8}";
-        final String patrondni = "[0-9]{8}[A-Z]{1}";
-        VideoDaw videoclub = null;
-        Cliente cliente = null;
-        Pelicula pelicula = null;
-        Videojuego videojuego = null;
-
-
-        System.out.println("¡¡Bienvenido a VideoDaw!!");
+        //MENU
+        List<String> principal = new LinkedList<>();
+        System.out.println("1 Mostrar todos los Articulos en el Inventario.");
+        System.out.println("2 Mostrar articulos disponibles.");
+        System.out.println("3 Buscar articulo por codigo.");
+        System.out.println("4 Buscar cliente por codigo");
+        System.out.println("5 Alquilar articulo.");
+        System.out.println("6 Devolver articulo.");
+        System.out.println("7 SALIR");
+        String Principal = "";
 
         do {
-            sc = new Scanner(System.in);
-            System.out.println("\nMenú");
-            System.out.println("1. Crear y registrar VideoClub en la franquicia.");
-            System.out.println("2. Registrar película en videoclub.");
-            System.out.println("3. Crear y registrar cliente en videoclub");
-            System.out.println("4. Alquilar. ");
-            System.out.println("5. Devolver");
-            System.out.println("6. Dar de baja cliente. ");
-            System.out.println("7. Dar de baja articulo. ");
-            System.out.println("8. Salir");
-
-            sc = new Scanner(System.in);
-            opcion = sc.nextLine();
-            sc.nextLine();
-            
-            if (opcion.equals("1")) {
-
+            Principal = myUtils.generarMenu(principal);
+            System.out.println("Opcion escogida: "+Principal);
+            switch (Principal) {
                 
-            
-            } else if (opcion.equals("2")) {
+                case "1": //MOSTRAMOS todos los articulos
+                    System.out.println("\n" + "Articulos en el inventario: ");
+                    List<Articulo> names = VideoDawData.getArticulos();
 
+                    for(Articulo nm : names){
+                        System.out.println(nm);
+                    }
+                    break;
+
+                case "2": //Mostramos articulos disponibles
+                    System.out.println("Peliculas disponibles: \n");
+                        List<Articulo> pelisNA = VideoDawData.getPeliculasNoAlquiladas();
+
+                        for(Articulo nm : pelisNA){
+                            System.out.println(nm);
+                        }
+
+                    System.out.println("\nVideojuegos disponibles: \n");
+                        List<Articulo> videojuegossNA = VideoDawData.getVideoJuegosNA();
+
+                        for(Articulo nm : videojuegossNA){
+                            System.out.println(nm);
+                        }
+                    break;
                 
-            } else if (opcion.equals("3")) {
+                case "3": //Buscamos articulo por codigo
+                    System.out.println("Buscar articulo por codigo");
+                    int cod = myUtils.leerNumeroPantalla("Introduce el codigo del articulo");
 
+                    List<Articulo> artCod = VideoDawData.getArticuloCodigo(cod);
 
-            } else if (opcion.equals("4")) {
-
-                 
-            } else if (opcion.equals("5")) {
-
+                    for(Articulo nm : artCod){
+                        System.out.println(nm);
+                    }
+                    break;
                 
-            } else if (opcion.equals("6")) {
+                case "4": //Buscamos cliente por codigo
+                    System.out.println("Buscar cliente por codigo");
+                    int codCliente = myUtils.leerNumeroPantalla("Introduce el codigo del cliente");
 
+                    List<Cliente> clienteCod = VideoDawData.getClienteCod(codCliente);
 
-            } else if (opcion.equals("7")) {
+                    for(Cliente c : clienteCod){
+                        System.out.println(c);
+                    }
+                    break;
 
+                case "5": //Alquilar articulo
+                    System.out.println("Alquilar articulo");
+                    int Cliente = myUtils.leerNumeroPantalla("Introduce el codigo del cliente que va a alquilar");
+                    int Art = myUtils.leerNumeroPantalla("Introduce el codigo del articulo a alquilar");
 
-            }else { 
-                System.out.println("introduce una opcion correcta en el menu!");
+                    Alquiler alquiler = new Alquiler(Cliente, Art);
+                    alquileres.add(alquiler);
+                    int response = VideoDawData.insertAlquiler(alquiler);
+                    int estado = VideoDawData.actEstadoTrue(Art);
 
+                    System.out.println("Se ha insertado " + response + " elementos");
+                    break;
+
+                case "6": //Devolver articulo
+                    int codAlquiler = myUtils.leerNumeroPantalla("Introduce el codigo del alquiler");
+                    Alquiler alq = alquileres.get(codAlquiler);
+
+                    int response2 = VideoDawData.insertDevolucion(alq);
+                    int estado2 = VideoDawData.actEstadoFalse(alq.getCodArticulo());
+                    System.out.println("Se ha insertado " + response2 + " elementos");
+                    break;
+
+                case "7"://Salir
+                    System.out.println("Saliendo del programa.");
+                    break;
+
+                default://Opcion por defecto
+                    System.out.println("Opcion no valida, por favor seleccione una opcion valida.");
+                    break;
             }
-
-        } while (!opcion.equals("8"));
+        } while (!Principal.equals("7"));
     }
-}    
 
+}

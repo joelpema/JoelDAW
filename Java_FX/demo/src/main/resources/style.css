@@ -1,0 +1,14 @@
+.my-button {
+    -fx-background-color: #020278;
+    -fx-text-fill: white;
+}
+.my-button:hover {
+    -fx-background-color: #1d71ae; /*color de fondo al pasar el raton*/
+}
+.my-button-secundary {
+    -fx-background-color: #b60202;
+    -fx-text-fill: white;
+}
+.my-button-secundary:hover {
+    -fx-background-color: #ff0000; /*color de fondo al pasar el raton*/
+}

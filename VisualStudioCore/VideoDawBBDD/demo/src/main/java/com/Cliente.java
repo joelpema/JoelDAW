@@ -1,63 +1,86 @@
 package com;
 
-import java.time.LocalDate;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.Date;
 
-public class Cliente extends Persona{
+public class Cliente{
+    private static int contador = 0;
 
-    private int codSocio;
-    private LocalDate fechaBaja;
-    private LinkedList <Articulo> articulosAlquilados;
-    private static int contadorSocio = 1;
-    
-    public Cliente(String dni, String nombre, String direccion, LocalDate fechaNacimiento) {
-        super(dni, nombre, direccion, fechaNacimiento);
-        this.codSocio = contadorSocio;
-        contadorSocio++;
-        this.fechaBaja = null;
-        this.articulosAlquilados = new LinkedList<>();
+    //ATRIBUTOS
+    private int cod;
+    private String dni;
+    private String nombre;
+    private String direccion;
+    private Date fechaNacimiento;
+    private Date fechaBaja;
+    private int nalquiladas;
+    private int nArticulos;
+
+    public Cliente(int cod, String dni, String nombre, String direccion, Date fechaNacimiento) {
+        this.cod = cod; 
+        cod++; 
+        this.dni = dni;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.fechaNacimiento = fechaNacimiento;
+        
     }
 
-    public int getCodSocio() {
-        return codSocio;
+    public int getCod() {
+        return cod;
     }
 
-    public LocalDate getFechaBaja() {
+    public String getDni() {
+        return dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public Date getFechaBaja() {
         return fechaBaja;
     }
 
-    public LinkedList<Articulo> getArticulosAlquilados() {
-        return articulosAlquilados;
+    public void setFechaBaja(Date fechaBaja) {
+        this.fechaBaja = fechaBaja;
+    }
+
+    public int getNalquiladas() {
+        return nalquiladas;
+    }
+
+    public void setNalquiladas(int nalquiladas) {
+        this.nalquiladas = nalquiladas;
+    }
+
+    public int getnArticulos() {
+        return nArticulos;
+    }
+
+    public void setnArticulos(int nArticulos) {
+        this.nArticulos = nArticulos;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Cliente: ");
-        sb.append("codSocio: ").append(codSocio);
-        sb.append(", dni: ").append(getDni());
-        sb.append(", nombre: ").append(getNombre());
-        sb.append(", direccion: ").append(getDireccion());
-        sb.append(", fechaNacimiento: ").append(getFechaNacimiento());
-        sb.append('.');
-        return sb.toString();
+        return "Cliente [cod=" + cod + ", dni=" + dni + ", nombre=" + nombre + ", direccion=" + direccion
+                + ", fechaNacimiento=" + fechaNacimiento + ", fechaBaja=" + fechaBaja + ", nalquiladas=" + nalquiladas
+                + ", nArticulos=" + nArticulos + "]";
     }
+
     
-    public void agregarArticuloAlquilado(Articulo articulo) {
-        articulosAlquilados.add(articulo);
-    }
 
-    public void eliminarArticuloAlquilado(Articulo articulo) {
-        articulosAlquilados.remove(articulo);
-    }
-
-    public String mostrarArticulosAlquilados(){
-        Iterator <Articulo> itera = articulosAlquilados.iterator();
-        Articulo cadaArticulo = null;
-        while (itera.hasNext()){
-            cadaArticulo = itera.next();
-        }
-        return cadaArticulo.toString();
-    }
+   
 }

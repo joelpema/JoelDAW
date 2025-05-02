@@ -1,28 +1,41 @@
 package com;
 
-import java.time.LocalDate;
+import java.util.Date;
 
-public abstract class Articulo{
+public class Articulo{
 
-    protected int Cod;
-    protected String titulo;
-    protected LocalDate fechaRegistro;
-    protected LocalDate fechaBaja;
+    private int codigo;
+    private String titulo;
+    private String descripcion;
+    private Date fechaRegistro;
+    private Date fechaBaja;
+    private String tipo;
+    private boolean isAlquilada; 
 
-    public Articulo(int cod, String titulo, LocalDate fechaRegistro, LocalDate fechaBaja) {
-        Cod = cod;
+    private static int contador = 0;
+
+    public Articulo(int codigo, String titulo, String descripcion, Date fechaRegistro, String tipo, boolean isAlquilada) {
+        this.codigo = codigo;
         this.titulo = titulo;
+        this.descripcion = descripcion;
         this.fechaRegistro = fechaRegistro;
-        this.fechaBaja = fechaBaja;
+        this.tipo = tipo;
+        this.isAlquilada = isAlquilada;
     }
 
-
-    public int getCod() {
-        return Cod;
+    public Articulo(int codigo, String titulo, String descripcion, String tipo) {
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
     }
 
-    public void setCod(int cod) {
-        Cod = cod;
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getTitulo() {
@@ -33,34 +46,33 @@ public abstract class Articulo{
         this.titulo = titulo;
     }
 
-    public LocalDate getFechaRegistro() {
+    public Date getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalDate fechaRegistro) {
+    public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public LocalDate getFechaBaja() {
+    public Date getFechaBaja() {
         return fechaBaja;
     }
 
-    public void setFechaBaja(LocalDate fechaBaja) {
+    public void setFechaBaja(Date fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
 
+    public boolean isAlquilada() {
+        return isAlquilada;
+    }
 
+    public void setAlquilada(boolean isAlquilada) {
+        this.isAlquilada = isAlquilada;
+    }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Articulo{");
-        sb.append("Cod=").append(Cod);
-        sb.append(", titulo=").append(titulo);
-        sb.append(", fechaRegistro=").append(fechaRegistro);
-        sb.append(", fechaBaja=").append(fechaBaja);
-        sb.append('}');
-        return sb.toString();
+        return "Articulo [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", fechaRegistro="
+                + fechaRegistro + ", fechaBaja=" + fechaBaja + ", tipo=" + tipo + ", isAlquilada=" + isAlquilada + "]";
     }
-
 }
