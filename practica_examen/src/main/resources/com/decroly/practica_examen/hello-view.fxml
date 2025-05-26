@@ -25,11 +25,11 @@
                <children>
                   <TextField fx:id="nombreField" cache="true" layoutX="300.0" layoutY="34.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Nombre" />
                   <TextField fx:id="apellidoField" layoutX="300.0" layoutY="74.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Apellido" />
-                  <TextField fx:id="emailField" layoutX="300.0" layoutY="114.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Edad" />
+                  <TextField fx:id="edadField" layoutX="300.0" layoutY="114.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Edad" />
                   <TextField fx:id="direccionField" layoutX="300.0" layoutY="153.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Direccion" />
                   <ComboBox fx:id="profesionCombo" layoutX="300.0" layoutY="192.0" prefHeight="25.0" prefWidth="200.0" />
                   <Button fx:id="saveButton" layoutX="297.0" layoutY="414.0" mnemonicParsing="false" onAction="#OnSaveButton" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Guardar" />
-                  <Button fx:id="nextButton" layoutX="407.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Siguiente" />
+                  <Button fx:id="nextButton" layoutX="407.0" layoutY="414.0" mnemonicParsing="false" onAction="#OnSiguienteButton" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Siguiente" />
                   <Button fx:id="exitButton" layoutX="739.0" layoutY="456.0" mnemonicParsing="false" onAction="#OnExitButton" styleClass="closeButton" text="Salir" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />

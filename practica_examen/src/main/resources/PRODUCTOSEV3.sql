@@ -1,16 +1,13 @@
-DROP DATABASE IF EXISTS PRODUCTOS;
-CREATE DATABASE PRODUCTOS;
-USE PRODUCTOS;
+Drop database if exists prueba_examen;
+create database prueba_examen;
+use prueba_examen;
 
-CREATE TABLE ALMACEN (
-    ID CHAR(4) PRIMARY KEY,
-    ALMACEN_DE VARCHAR(40)
-);
 
-CREATE TABLE PRODUCTOS (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    NOMBRE VARCHAR(40) NOT NULL,
-    DESCRIPCION VARCHAR(80) NOT NULL,
-    ALMACEN CHAR(4) NOT NULL,
-    FOREIGN KEY (ALMACEN) REFERENCES ALMACEN(ID)
+Create table Profesor(
+                         Id_profe INT PRIMARY KEY auto_increment,
+                         Nombre VarChar (50) Not Null,
+                         Apellido Varchar (50),
+                         Edad int Not Null,
+                         Direccion Varchar (100),
+                         Profesion Enum ('estudiante', 'profesor')
 );

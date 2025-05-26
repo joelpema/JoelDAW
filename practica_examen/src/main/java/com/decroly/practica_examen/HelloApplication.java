@@ -33,8 +33,5 @@ public class HelloApplication extends Application {
             System.out.println("Error al probar la conexión: " + e.getMessage());
             launch();
         }
-
-
-
     }
 }
