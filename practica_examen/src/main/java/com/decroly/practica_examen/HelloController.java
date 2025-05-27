@@ -12,6 +12,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController {
+
+    @FXML
+    private ListView<Profesor> personListView;
     @FXML
     private VBox registro;
     @FXML
@@ -31,57 +34,13 @@ public class HelloController {
     @FXML
     private Button nextButton;
 
-    @FXML
-    protected void OnExitButton(ActionEvent event){
-        Platform.exit();
-    }
-
-    @FXML
-    protected void OnSaveButton(ActionEvent event){
-        registro.setVisible(false);
-        listRegistro.setVisible(true);
-        this.clearFields();
-
-        try {
-            String nombre = nombreField.getText();
-            String apellido = apellidoField.getText();
-            int edad = Integer.parseInt(edadField.getText());
-            String direccion = direccionField.getText();
-            Profesion profesion = profesionCombo.getValue();
-
-            Profesor profesor = new Profesor(nombre, apellido, edad, direccion, profesion);
-            ProfesorDAO.insertarProfesor(profesor);
-
-            // Opcional: mostrar mensaje de éxito o limpiar campos
-        } catch (Exception e) {
-            // Manejar errores, por ejemplo, mostrar alerta
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    protected void OnSiguienteButton(ActionEvent event){
-        registro.setVisible(false);
-        listRegistro.setVisible(true);
-
-        ObservableList<Profesor> profesores = FXCollections.observableArrayList(ProfesorDAO.getAllProfesores());
-        ListView<Profesor> listView = new ListView<>(profesores);
-        listView.setPrefSize(400, 300);
-        listRegistro.getChildren().add(listView);
-    }
-
-    @FXML
-    protected void OnVolverButton(ActionEvent event){
-        registro.setVisible(true);
-        listRegistro.setVisible(false);
-    }
+    ObservableList<Profesor> profesores = FXCollections.observableArrayList();
 
     @FXML
     public void initialize (){
-
         registro.setVisible(true);
         listRegistro.setVisible(false);
+        personListView.setItems(profesores);
         profesionCombo.getItems().addAll(Profesion.values());
 
         nombreField.setPromptText("Nombre");
@@ -90,13 +49,59 @@ public class HelloController {
         direccionField.setPromptText("Direccion");
         profesionCombo.setPromptText("Profesion");
 
+        personListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                nombreField.setText(newValue.getNombre());
+                apellidoField.setText(newValue.getApellido());
+                edadField.setText(String.valueOf(newValue.getEdad()));
+                direccionField.setText(newValue.getDireccion());
+                profesionCombo.setValue(newValue.getProfesion());
+                registro.setVisible(true);
+            }
+        });
     }
+
+    @FXML
+    private void añadirProfesor(){
+
+        String nombre = nombreField.getText();
+        String apellido = apellidoField.getText();
+        String edadText = edadField.getText();
+        String direccion = direccionField.getText();
+        Profesion profesion = profesionCombo.getValue();
+
+        if (nombre.isEmpty() || apellido.isEmpty() || edadText.isEmpty() || direccion.isEmpty() || profesion == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Por favor, completa todos los campos.");
+            alert.showAndWait();
+        } else {
+            Profesor profesor = new Profesor(nombre, apellido, Integer.parseInt(edadText), direccion, profesion);
+            profesores.add(profesor);
+            try {
+                SQLAccess.insertarProfesor(profesor);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Profesor añadido correctamente.");
+                alert.showAndWait();
+                clearFields();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Error al añadir el profesor: " + e.getMessage());
+                alert.showAndWait();
+            }
+            clearFields();
+            registro.setVisible(false);
+            listRegistro.setVisible(true);
+            personListView.refresh();
+        }
+    }
+
+
+
 
     private void clearFields() {
         nombreField.setText("");
         apellidoField.setText("");
         edadField.setText("");
         direccionField.setText("");
+        profesionCombo.setPromptText("Profesion");
+        profesionCombo.getSelectionModel().clearSelection();
     }
 
 

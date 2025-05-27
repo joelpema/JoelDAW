@@ -5,7 +5,7 @@ use prueba_examen;
 
 Create table Profesor(
                          Id_profe INT PRIMARY KEY auto_increment,
-                         Nombre VarChar (50) Not Null,
+                         Nombre VarChar (50) Not Null UNIQUE,
                          Apellido Varchar (50),
                          Edad int Not Null,
                          Direccion Varchar (100),
