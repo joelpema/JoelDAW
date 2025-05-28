@@ -1,0 +1,8 @@
+
+.button_examen{
+    -fx-background-color: #a153ec;
+    -fx-border-radius: 90%;
+    -fx-height: 50px;
+    -fx-width: 300px;
+}
+
