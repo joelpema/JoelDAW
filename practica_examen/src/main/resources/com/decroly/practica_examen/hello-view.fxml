@@ -29,9 +29,9 @@
                   <TextField fx:id="edadField" layoutX="300.0" layoutY="114.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Edad" />
                   <TextField fx:id="direccionField" layoutX="300.0" layoutY="153.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Direccion" />
                   <ComboBox fx:id="profesionCombo" layoutX="300.0" layoutY="192.0" prefHeight="25.0" prefWidth="200.0" />
-                  <Button fx:id="saveButton" layoutX="297.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#añadirProfesor" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Guardar" />
-                  <Button fx:id="nextButton" layoutX="407.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Siguiente" />
-                  <Button fx:id="exitButton" layoutX="739.0" layoutY="456.0" mnemonicParsing="false"  styleClass="closeButton" text="Salir" textOverrun="CLIP">
+                  <Button fx:id="saveButton" layoutX="297.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#anadirProfesor" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Guardar" />
+                  <Button fx:id="nextButton" layoutX="440.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#mostrarRegistro" prefHeight="30.0" prefWidth="90.0" styleClass="saveButton" text="Siguiente" />
+                  <Button fx:id="exitButton" layoutX="739.0" layoutY="456.0" mnemonicParsing="false" styleClass="closeButton" text="Salir" textOverrun="CLIP">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
@@ -57,6 +57,9 @@
                         <Font name="Gabriola" size="75.0" />
                      </font>
                   </Label>
+                  <Button fx:id="exportarButton" layoutX="457.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#guardarArchivo" prefHeight="48.0" prefWidth="90.0" styleClass="saveButton" stylesheets="@../../../Style.css" text="Exportar" />
+                  <Button layoutX="332.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#eliminarProfesor" prefHeight="48.0" prefWidth="90.0" styleClass="saveButton" stylesheets="@../../../Style.css" text="Eliminar" />
+                  <Button layoutX="197.0" layoutY="495.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" styleClass="saveButton" stylesheets="@../../../Style.css" text="Editar" />
                </children>
             </AnchorPane>
          </children>
