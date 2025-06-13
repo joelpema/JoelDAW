@@ -11,6 +11,7 @@ import java.util.List;
 public class SQLAccess {
 
     // obtener todos los tipos de mascota
+
     public List<Tipo> getAllTipos() {
         List<Tipo> tipos = new LinkedList<>();
         String getTipos = "SELECT idTipo, Tipo FROM tipo";
@@ -29,6 +30,7 @@ public class SQLAccess {
     }
 
     // obtener todos los Propietarios
+
     public List<Propietario> getAllPropietario() {
         List<Propietario> propietarios = new LinkedList<>();
         String getPropietarios = "SELECT * FROM propietario";
@@ -85,7 +87,9 @@ public class SQLAccess {
         }
         return mascotas;
     }
+
     // obtener un propietario por pasaporte
+
     public Mascota getMascotaByPasaporte(String pasaporte) {
 
         Mascota mascota = null;
@@ -127,6 +131,7 @@ public class SQLAccess {
     }
 
     // Insertar un propietario
+
     public int añadirPropietario (Propietario propietario){
         int response = -1;
         String SQLStatement = "INSERT INTO Propietario (dni, Nombre, Apellido, Telefono, Direccion, Email) VALUES (?,?,?,?,?,?)";
@@ -168,6 +173,8 @@ public class SQLAccess {
 
     }
 
+    // Insertar una consulta
+
     public int InsertarConsulta (Consulta consulta) {
         int response = -1;
 
@@ -175,18 +182,62 @@ public class SQLAccess {
 
         try (Connection conection = SQLManager.getConnection(); PreparedStatement statement = conection.prepareStatement(insertConsulta)) {
 
-            statement.setTimestamp(1, Timestamp.valueOf(consulta.getFecha()));
+            statement.setDate(1, (new Date (consulta.getFecha())));
             statement.setInt(2, consulta.getDuracion());
             statement.setString(3, consulta.getObservaciones());
             statement.setString(4, consulta.getMascota().getPasaporte());
             statement.setString(5, consulta.getMascota().getPropietario().getDni());
             response = statement.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return response;
 
     }
+
+    public  Mascota getMascotaByPropietario(String dni) {
+
+        Mascota mascota = null;
+
+        String SqlState = "SELECT  m.*, t.tipo, p.* FROM mascota m " +
+                "JOIN propietario p ON p.dni = m.Propietario_dni " +
+                "JOIN tipo t ON m.Tipo_idTipo = t.idTipo" + " WHERE p.dni = ?";
+
+        try (Connection conection = SQLManager.getConnection(); PreparedStatement statement = conection.prepareStatement(SqlState);
+        ) {
+            statement.setString(1, dni);
+            ResultSet dataSet = statement.executeQuery();
+
+            while (dataSet.next()) {
+                Mascota m = new Mascota(
+
+                        dataSet.getNString(2), // nombre
+                        dataSet.getNString(1), // pasaporte
+                        dataSet.getDouble(3), // fechaNacimiento
+                        LocalDate.from(dataSet.getDate(4).toLocalDate()), // peso
+                        new Propietario(
+                                dataSet.getNString(8), // dni
+                                dataSet.getNString(9), // nombre
+                                dataSet.getNString(10), // apellidos
+                                dataSet.getNString(11), // direccion
+                                dataSet.getNString(12), // telefono
+                                dataSet.getNString(13)  // email
+                        ),
+                        new Tipo(
+                                dataSet.getNString(7), // tipo
+                                dataSet.getInt(6) // idTipo
+
+                        ));
+                mascota = m;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return mascota;
+    }
+
+
 
 
 }

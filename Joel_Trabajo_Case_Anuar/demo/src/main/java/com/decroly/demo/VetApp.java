@@ -31,9 +31,9 @@ public class VetApp extends Application {
         System.out.println("Mascota por pasaporte:");
         System.out.println(m);
 
-        Propietario p = vetdawAccess.getInsertarPropietario( "12345678A", "Juan", "Pérez",987654321, "Calle Falsa 123", "hola@gmai.com");
-
-
+        Mascota p = vetdawAccess.getMascotaByPropietario("12345678B");
+        System.out.println("Mascota por propietario:");
+        System.out.println(p);
 
         try (Connection connection = SQLManager.getConnection()) {
             if (connection != null) {
