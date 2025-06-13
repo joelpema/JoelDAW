@@ -6,22 +6,14 @@ public class Profesor {
     private String apellido;
     private int edad;
     private String direccion;
-    private Profesion profesion;
+    private Asignatura id_asignatura;
 
-    public Profesor(String nombre, String apellido, int edad, String direccion, Profesion profesion) {
+    public Profesor(String nombre, String apellido, int edad, String direccion, Asignatura id_asignatura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.direccion = direccion;
-        this.profesion = profesion;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.id_asignatura = id_asignatura;
     }
 
     public String getNombre() {
@@ -30,6 +22,14 @@ public class Profesor {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public int getEdad() {
@@ -48,12 +48,12 @@ public class Profesor {
         this.direccion = direccion;
     }
 
-    public Profesion getProfesion() {
-        return profesion;
+    public Asignatura getId_asignatura() {
+        return id_asignatura;
     }
 
-    public void setProfesion(Profesion profesion) {
-        this.profesion = profesion;
+    public void setId_asignatura(Asignatura id_asignatura) {
+        this.id_asignatura = id_asignatura;
     }
 
     @Override
@@ -63,7 +63,6 @@ public class Profesor {
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +
                 ", direccion='" + direccion + '\'' +
-                ", profesion=" + profesion
-                ;
+                ", id_asignatura=" + id_asignatura;
     }
 }
