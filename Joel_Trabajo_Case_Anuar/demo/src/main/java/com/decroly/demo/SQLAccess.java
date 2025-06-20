@@ -26,7 +26,7 @@ public class SQLAccess {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return tipos;
+        return tipos
     }
 
     // obtener todos los Propietarios

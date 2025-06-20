@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.decroly.pruebaexamenfinal.HelloController">
+    <children>
+        <VBox fx:id="botonesVBox" prefHeight="600.0" prefWidth="900.0" visible="false">
+            <children>
+                <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="colorFondo" stylesheets="@../../../style.css">
+                    <children>
+                        <Button fx:id="pacienteButton" layoutX="184.0" layoutY="135.0" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#panelPaciente" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Registrar Paciente" />
+                        <Button fx:id="consultaButton" layoutX="184.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#panelConsulta" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Registrar Consulta" />
+                        <Button fx:id="exportarDatosBtn" layoutX="184.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#saveInFile" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Exportar Datos" />
+                        <Button fx:id="doctorButton" layoutX="624.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#panelDoctor" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Registrar Doctor" />
+                        <Button fx:id="buscarButton" layoutX="624.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#panelLista" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Bucar Doctor" />
+                        <Button fx:id="SalirApp" layoutX="624.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#salir" prefHeight="50.0" prefWidth="150.0" styleClass="button_examen" stylesheets="@../../../style.css" text="Salir App" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <VBox fx:id="registrarDoctor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+            <children>
+                <HBox fx:id="titlePanel" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="900.0" text="Registro Nuevo Doctor" textAlignment="CENTER">
+                            <font>
+                                <Font name="Impact" size="34.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="900.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Separator>
+                <AnchorPane prefHeight="499.0" prefWidth="900.0">
+                    <children>
+                        <TextField fx:id="dniDoctorText" layoutX="135.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Dni" />
+                        <TextField fx:id="telefonoDoctorText" layoutX="135.0" layoutY="196.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Telefono" />
+                        <Button fx:id="registrarMascotaBtn" alignment="CENTER" layoutX="360.0" layoutY="395.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#registrarDoctor" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: blue;" text="Registrar" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <TextField fx:id="apellidoDoctorText" layoutX="135.0" layoutY="112.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Apellido" />
+                        <TextField fx:id="nombreDoctorText" layoutX="135.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Nombre" />
+                        <Button fx:id="volver1" layoutX="800.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#volver" style="-fx-background-color: red;" text="volver" />
+                  <TextField fx:id="direccionDoctorText" layoutX="437.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="295.0" promptText="Direccion" />
+                  <TextField fx:id="emailDoctorText" layoutX="437.0" layoutY="112.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="295.0" promptText="Email" />
+                  <TextField fx:id="nColegiadoText" layoutX="437.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="295.0" promptText="Numero de Colegiado" />
+                  <ComboBox fx:id="tipoComboBox" layoutX="360.0" layoutY="249.0" prefHeight="25.0" prefWidth="131.0" promptText="Tipo" />
+                  <DatePicker fx:id="fechaValdecillaText" layoutX="437.0" layoutY="196.0" prefHeight="25.0" prefWidth="295.0" promptText="Fecha de inicio en Valdecilla" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <VBox fx:id="registrarConsulta" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+            <children>
+                <HBox fx:id="titlePanel2" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="900.0" text="Registro Nueva Consulta" textAlignment="CENTER">
+                            <font>
+                                <Font name="Impact" size="34.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="900.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Separator>
+                <AnchorPane prefHeight="499.0" prefWidth="900.0">
+                    <children>
+                        <TextField fx:id="observacionesConsultaText" layoutX="135.0" layoutY="109.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Observaciones" />
+                        <Button fx:id="registrarConsultaBtn" alignment="CENTER" layoutX="360.0" layoutY="395.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: blue;" text="Registrar" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <TextField fx:id="DniPacienteConsultaText" layoutX="461.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Dni Paciente" />
+                        <Button fx:id="volver2" layoutX="813.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#volver" style="-fx-background-color: red;" text="volver" />
+                  <ComboBox fx:id="tipoComboBox1" layoutX="373.0" layoutY="161.0" prefHeight="26.0" prefWidth="131.0" promptText="Tipo" />
+                  <DatePicker fx:id="fechaConsultaDate" layoutX="135.0" layoutY="73.0" prefHeight="26.0" prefWidth="274.0" promptText="Fecha de Consulta" />
+                  <TextField fx:id="numeroColegiadoConsultaText" layoutX="461.0" layoutY="109.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="274.0" promptText="Numero de colegiado del doctor" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <VBox fx:id="registrarPaciente" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+            <children>
+                <HBox fx:id="titlePanel1" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="900.0" text="Registro Nuevo Paciente" textAlignment="CENTER">
+                            <font>
+                                <Font name="Impact" size="34.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="900.0">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Separator>
+                <AnchorPane prefHeight="499.0" prefWidth="900.0">
+                    <children>
+                        <TextField fx:id="apellidoPacienteText" layoutX="135.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Apellido" />
+                        <TextField fx:id="telefonoPacienteText" alignment="TOP_LEFT" layoutX="135.0" layoutY="194.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Telefono" />
+                        <TextField fx:id="direccionPacienteText" layoutX="135.0" layoutY="236.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Direccion" />
+                        <TextField fx:id="emailPacienteText" layoutX="135.0" layoutY="281.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Email" />
+                        <Button fx:id="registrarPacienteBtn" alignment="CENTER" layoutX="360.0" layoutY="377.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#registrarPaciente" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: blue;" text="Registrar" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <TextField fx:id="nombrePacienteText" layoutX="135.0" layoutY="112.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Nombre" />
+                        <TextField fx:id="dniPacienteText" layoutX="135.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" promptText="Dni" />
+                        <Button fx:id="volver3" layoutX="807.0" layoutY="444.0" mnemonicParsing="false" onMouseClicked="#volver" style="-fx-background-color: red;" text="volver" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <VBox fx:id="tablaPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="900.0" text="Tabla Pacientes" textAlignment="CENTER">
+                            <font>
+                                <Font name="Impact" size="34.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="volver4" alignment="CENTER_RIGHT" layoutX="838.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#volver" style="-fx-background-color: red;" text="volver" textAlignment="RIGHT" />
+                        <ListView fx:id="listaDoctoresView" layoutX="62.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0">
+                            <cursor>
+                                <Cursor fx:constant="CROSSHAIR" />
+                            </cursor>
+                        </ListView>
+                  <ComboBox fx:id="tipoComboBox2" layoutX="112.0" layoutY="50.0"  prefHeight="26.0" prefWidth="131.0" promptText="Tipo" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
