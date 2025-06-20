@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Mascota implements Serializable {
 
-    private static final long serialVersionUID = 8693185508957165416L;
+    private static final long serialVersionUID = -1296657531207758518L;
 
     private String nombre;
     private String pasaporte;
@@ -64,8 +64,8 @@ public class Mascota implements Serializable {
     @Override
     public String toString() {
         return "Mascota{" +
-                "nombre='" + nombre + '\'' +
-                ", pasaporte='" + pasaporte + '\'' +
+                "pasaporte='" + pasaporte + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", peso=" + peso +
                 ", propietario=" + propietario.getNombre() + " - " + propietario.getDni() +

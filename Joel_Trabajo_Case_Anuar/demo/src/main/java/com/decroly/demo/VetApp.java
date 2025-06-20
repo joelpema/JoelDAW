@@ -13,7 +13,7 @@ public class VetApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(VetApp.class.getResource("VetAppView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("VetDaw");
         stage.setScene(scene);
         stage.show();

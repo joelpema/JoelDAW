@@ -24,6 +24,6 @@ public class Tipo implements Serializable {
 
     @Override
     public String toString() {
-        return "Tipo{" + tipo + '}';
+        return tipo;
     }
 }

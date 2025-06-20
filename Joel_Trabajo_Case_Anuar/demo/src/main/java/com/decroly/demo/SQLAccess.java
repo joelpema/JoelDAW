@@ -134,7 +134,7 @@ public class SQLAccess {
 
     public int añadirPropietario (Propietario propietario){
         int response = -1;
-        String SQLStatement = "INSERT INTO Propietario (dni, Nombre, Apellido, Telefono, Direccion, Email) VALUES (?,?,?,?,?,?)";
+        String SQLStatement = "INSERT INTO Propietario (dni, Nombre, Apellido, Telefono, Direcion, Email) VALUES (?,?,?,?,?,?)";
 
         try(Connection connection = SQLManager.getConnection(); PreparedStatement statement = connection.prepareStatement(SQLStatement);) {
             statement.setNString(1, propietario.getDni());
@@ -155,7 +155,7 @@ public class SQLAccess {
     public int InsertarMascota(Mascota mascota) {
         int response = -1;
 
-        String insertMascota = "INSERT INTO mascota (Pasaporte, Nombre, FechaNacimiento, Peso, Propietario_dni, Tipo_idTipo) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertMascota = "INSERT INTO mascota (Pasaporte, Nombre, Peso, FechaNacimiento, Propietario_dni, Tipo_idTipo) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conection = SQLManager.getConnection(); PreparedStatement statement = conection.prepareStatement(insertMascota)) {
 
@@ -178,11 +178,11 @@ public class SQLAccess {
     public int InsertarConsulta (Consulta consulta) {
         int response = -1;
 
-        String insertConsulta = "INSERT INTO consulta (Fecha, Duracion, Observaciones, Mascota_Pasaporte, Mascota_Propietario_dni) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertConsulta = "INSERT INTO consulta (Fecha, Duracion, Observaciones, Mascota_Pasaporte, Mascota_Propietario_dni) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conection = SQLManager.getConnection(); PreparedStatement statement = conection.prepareStatement(insertConsulta)) {
 
-            statement.setDate(1, (new Date (consulta.getFecha())));
+            statement.setDate(1, Date.valueOf(consulta.getFecha()));
             statement.setInt(2, consulta.getDuracion());
             statement.setString(3, consulta.getObservaciones());
             statement.setString(4, consulta.getMascota().getPasaporte());

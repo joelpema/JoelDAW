@@ -68,13 +68,6 @@ public class Propietario implements Serializable {
 
     @Override
     public String toString() {
-        return "Propietario{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", dni='" + dni + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return nombre + " " + apellido + " " + "DNI = " + dni;
     }
 }
