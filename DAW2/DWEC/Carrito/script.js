@@ -19,27 +19,75 @@ console.log(productos);
 
 const tbody = document.getElementById("tabla");
 
+    data.products.forEach((producto) =>{
 
-
-    productos.forEach((products) =>{
     const fila = document.createElement("tr");
 
     const tdSku = document.createElement("td");
-    tdSku.textContent = productos.SKU;
+    tdSku.innerHTML= producto.title + "<br>" + producto.SKU;
 
-    const tdProducto = document.createElement("td");
-    tdProducto.textContent = productos.title;
+    const tdCantidad = document.createElement("td");
 
-    const tdPrecio = document.createElement("td");
-    tdPrecio.textContent = productos.price;
+    const btn_resta = document.createElement("button");
+    
+
+    const inputObjetos = document.createElement("input");
+    
+
+    const btn_suma = document.createElement("button");
+
+    btn_suma.textContent = "+";
+    btn_resta.textContent = "-";
+
+    btn_suma.classList.add("btn");
+    btn_resta.classList.add("btn");
+
+    const sumaPrecios = producto.price * valorActual;
+
+    btn_suma.addEventListener("click", function () {
+
+    let valorActual = Number(inputObjetos.value);
+
+    valorActual++;
+
+    inputObjetos.value = valorActual;
+
+
+    });
+
+    btn_resta.addEventListener("click", function () {
+
+    let valorActual = Number(inputObjetos.value);
+
+    valorActual--;
+
+    inputObjetos.value = valorActual;
+
+    });
+
+
+    const tdUnidad = document.createElement("td");
+    tdUnidad.textContent = producto.price;
+    
+    
+
+    const tdTotal = document.createElement("td");
+    tdTotal.value = sumaPrecios; 
+    
 
     fila.appendChild(tdSku);
-    fila.appendChild(tdProducto);
-    fila.appendChild(tdPrecio);
+    fila.appendChild(tdCantidad);
+    tdCantidad.append(btn_resta, inputObjetos, btn_suma);
+    fila.appendChild(tdUnidad);
+    fila.appendChild(tdTotal);
+    tdTotal.append(sumaPrecios);
     tbody.appendChild(fila);
-
 });
 
+
+function click(){
+
+}
 
 
 
