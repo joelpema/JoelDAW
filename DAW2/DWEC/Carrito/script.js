@@ -49,6 +49,7 @@ data.products.forEach((producto) => {
     }
     inputObjetos.value = valorActual;
     actualizarTotal();
+    actualizarTablaTotal();
     });
 
 
@@ -81,6 +82,16 @@ const fila2 = document.createElement("tr");
 
 
 const ifhoneTabla = document.createElement("td");
+ifhoneTabla.textContent = "";
+
+const actualizarTablaTotal = () => {
+    if(valorActual > 0){
+
+        const datosTabla = precio + data.currency + valorActual;
+        ifhoneTabla.textContent = datosTabla; 
+
+    }
+}
 
 const cargadorTabla = document.createElement("td");
 const fundaTabla = document.createElement("td");
