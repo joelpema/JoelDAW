@@ -8,9 +8,6 @@ export default class Productos {
         this.SKU = SKU;
         this.titulo = titulo;
         this.precio = parseFloat(precio);
-
-
-
     }
 }
 

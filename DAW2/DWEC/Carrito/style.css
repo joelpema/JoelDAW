@@ -31,7 +31,7 @@ table {
     border-collapse: collapse;
 }
 
-table th,
+
 table td {
     text-align: left;
     padding: 12px;
@@ -59,12 +59,9 @@ table th {
     height: fit-content;
 }
 
-#contenedorTotal .resumen {
-    margin-top: 15px;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+
+.inputNumeros{
+
+    width: 5%;
+
 }
