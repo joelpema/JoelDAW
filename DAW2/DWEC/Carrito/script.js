@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const tdSku = document.createElement("td");
-        tdSku.innerHTML = producto.title + "<br>" + producto.SKU;
+        tdSku.textContent = `${producto.title}  ${producto.sku}`;
 
 
         const tdCantidad = document.createElement("td");
@@ -100,14 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const actualizarTablaTotal = () => {
             
             const valorTotal = producto.title + " " +  total + " " + valorActual;
-            ifhoneTabla.textContent = valorTotal;
+            fila2.textContent = valorTotal;
             
         }
 
         const ifhoneTabla = document.createElement("td");
-
-
-
         const cargadorTabla = document.createElement("td");
         const fundaTabla = document.createElement("td");
 
