@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const fila = document.createElement("tr");
 
                 const tdSku = document.createElement("td");
-                tdSku.innerHTML = producto.title + "<br>" + producto.SKU;
+                tdSku.textContent = producto.title;
 
                 const tdCantidad = document.createElement("td");
 
@@ -40,14 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputObjetos.classList.add('inputNumeros');
                 const btn_suma = document.createElement("button");
 
-<<<<<<< HEAD
-        const tdSku = document.createElement("td");
-        tdSku.textContent = `${producto.title}  ${producto.sku}`;
-=======
                 inputObjetos.readOnly = true;
                 inputObjetos.value = 0;
                 let valorActual = 0;
->>>>>>> 29d0c737147dcd7c67eb74c578e9d1a370022d3b
 
                 btn_suma.textContent = "+";
                 btn_resta.textContent = "-";
@@ -130,66 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             console.log("Datos cargados:", data);
 
-<<<<<<< HEAD
-        const precio = Number(producto.price);
-
-        const tdUnidad = document.createElement("td");
-        tdUnidad.textContent = precio.toFixed(2) + data.currency;
-
-        const tdTotal = document.createElement("td");
-        tdTotal.textContent = "0.00 €";
-
-        let total = 0;
-
-        const actualizarTotal = () => {
-            total = (valorActual * precio).toFixed(2) + data.currency;
-            tdTotal.textContent = total;
-        };
-
-
-
-        fila.appendChild(tdSku);
-        fila.appendChild(tdCantidad);
-        tdCantidad.append(btn_resta, inputObjetos, btn_suma);
-        fila.appendChild(tdUnidad);
-        fila.appendChild(tdTotal);
-        tbody.appendChild(fila);
-
-
-
-        const tbody2 = document.getElementById("tablaTotal");
-        const fila2 = document.createElement("tr");
-
-        const actualizarTablaTotal = () => {
-            
-            const valorTotal = producto.title + " " +  total + " " + valorActual;
-            fila2.textContent = valorTotal;
-            
-        }
-
-        const ifhoneTabla = document.createElement("td");
-        const cargadorTabla = document.createElement("td");
-        const fundaTabla = document.createElement("td");
-
-
-        fila2.appendChild(ifhoneTabla);
-        fila2.appendChild(cargadorTabla);
-        fila2.appendChild(fundaTabla);
-
-        tbody2.appendChild(fila2);
-
-
-
-
-    });
-
-    console.log("Datos cargados:", data);
-
-                // Ejemplo: mostrar los productos en pantalla
-                const lista = document.getElementById('lista-productos');
-=======
             const lista = document.getElementById('lista-productos');
->>>>>>> 29d0c737147dcd7c67eb74c578e9d1a370022d3b
 
             if (lista && data.productos) {
                 data.productos.forEach(producto => {
