@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Pistas de Pádel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Gestión de Pistas de Pádel</h1>
+<!-- Formulario para añadir una nueva pista -->
+<h2>Añadir Nueva Pista</h2>
+<form action="/addPista" method="post">
+<label for="nombrePista">Nombre de la pista:</label>
+<input type="text" id="nombrePista" name="nombrePista" required><br><br>
+<!-- Campo para las horas disponibles -->
+<label for="horas">Horas disponibles (separadas por comas):</label>
+<input type="text" id="horas" name="horas" required><br><br>
+<button type="submit">Añadir Pista</button>
+</form>
+<!-- Listado de pistas disponibles -->
+<h2>Pistas Disponibles</h2>
+<ul id="listaPistas">
+<!-- Aquí se mostrarán las pistas disponibles -->
+<li th:each="pista : ${pistas}">
+<strong th:text="${pista.nombrePista}"></strong>
+<span th:text="${pista.horasDisponibles}"></span>
+</li>
+
+</ul>
+</body>
+</html>
+<style>
+  body {
+    background: radial-gradient(circle at center, #b6986d 0%, #875a34 100%);
+    font-family: 'Press Start 2P', cursive;
+    color: #4b261b;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    background-color: #6b4026;
+    color: #fff7d1;
+    padding: 25px;
+    box-shadow: 0 5px 0 #4b261b;
+    border-bottom: 4px solid #331a0b;
+    text-shadow: 2px 2px 0 #000;
+    font-size: 20px;
+  }
+
+  h2 {
+    margin-top: 30px;
+    color: #ffe8a0;
+    text-shadow: 1px 1px 0 #000;
+  }
+
+  form {
+    background-color: #f9e4b7;
+    display: inline-block;
+    padding: 20px;
+    border: 3px solid #4b261b;
+    border-radius: 12px;
+    box-shadow: 5px 5px 0 #4b261b;
+    margin-top: 10px;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: 10px;
+  }
+
+  input {
+    width: 80%;
+    padding: 8px;
+    border: 2px solid #6b4026;
+    border-radius: 6px;
+    background-color: #ffe5b4;
+    color: #4b261b;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+  }
+
+  button {
+    background-color: #9f7547;
+    border: 2px solid #4b261b;
+    border-radius: 6px;
+    color: #fff1c1;
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 2px 3px 0 #4b261b;
+    transition: all 0.2s;
+  }
+
+  button:active {
+    transform: scale(0.95);
+    box-shadow: 1px 1px 0 #4b261b;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    width: 70%;
+  }
+
+  li {
+    background-color: #ffe8c2;
+    border: 3px solid #4b261b;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 #4b261b;
+    text-align: left;
+    transition: transform 0.1s ease;
+  }
+
+  li:hover {
+    transform: translateY(-5px);
+    background-color: #fff2db;
+  }
+
+  strong {
+    display: block;
+    color: #6b4026;
+  }
+
+  /* Cookie decoration for fun */
+  body::after {
+    content: "🍪";
+    font-size: 100px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.3;
+    animation: float 5s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+</style>
