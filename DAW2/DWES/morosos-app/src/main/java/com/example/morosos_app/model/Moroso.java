@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Moroso {
 
-    private Long id;
+    private String id;
     private String nombre;
     private String dni;
     private String email;
@@ -16,7 +16,7 @@ public class Moroso {
 
     }
 
-    public Moroso(Long id, String nombre, String dni, String email, String telefono,
+    public Moroso(String id, String nombre, String dni, String email, String telefono,
                 BigDecimal importe, String concepto) {
         this.id = id;
         this.nombre = nombre;
@@ -27,8 +27,8 @@ public class Moroso {
         this.concepto = concepto;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
