@@ -2,5 +2,6 @@ export interface NoticiaInterface {
 
     title: string,
     image: string,
-    text: string
+    text: string,
+    fecha: Date
 }

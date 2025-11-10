@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NoticiaInterface } from '../../interface/noticia-interface';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-notices-components',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './notices-components.html',
   styleUrl: './notices-components.css',
 })
@@ -15,15 +16,17 @@ export class NoticesComponents {
   constructor(){
     this.noticiaActual = 0;
     this.arrayNoticias = [{
-      title: "La Audiencia Nacional investigará los pagos en metálico del PSOE a Ábalos y Koldo tras la petición del Supremo",
-      image: 'https://cadenaser.com/resizer/v2/PBPHCEH7XE6YZU5BDDJZFYBI2Y.jpg?auth=d268c0db51f7975c2507b2872cf733a53ac11cb165bd689aea8c5ee093852a92&quality=70&width=768&height=576&smart=true',
-      text: "El juez Ismael Moreno, instructor del caso Koldo en la Audiencia Nacional que investiga el supuesto cobro de comisiones por la venta de mascarillas durante la pandemia en el marco del caso Koldo, ha acordado abrir una pieza separada sobre los pagos en metálico realizados al exministro de Transportes y exsecretario de Organización del PSOE José Luis Ábalos y su asesor ministerial, Koldo García. En una providencia a la que ha tenido acceso RTVE este jueves, el magistrado ha detallado que incluye en la pieza toda la documentación enviada por el magistrado del Tribunal Supremo Leopoldo Puente. El alto tribunal adjuntó en su auto las declaraciones prestadas por al exdirector gerente del PSOE Mariano Moreno Pavón, la empleada del partido Celia Rodríguez, así como la de la empresaria Carmen Pano, que aseguró haber entregado 90.000 euros en metálico en la sede de Ferraz a petición del comisionista del caso Koldo, Víctor de Aldama. Junto a esta información, el TS remitió a Moreno la parte del informe de la Unidad Central Operativa (UCO) de la Guardia Civil en el que se analizan esos pagos en efectivo a Ábalos y a Koldo, que en algunas ocasiones recogía su mujer Patricia Úriz, así como la información facilitada por el PSOE y que vincula dichos pagos a liquidaciones de gastos."
+      title: "Alcaraz presume de revés para comenzar las ATP Finals con victoria ante De Miñaur",
+      image: 'https://fotografias-2.larazon.es/clipping/cmsimages02/2025/11/09/22C83F8B-7A9E-4963-98C2-5689D34973A6/98.jpg?crop=6176,3475,x0,y322&width=1900&height=1069&optimize=low&format=webply',
+      text: "Carlos Alcaraz tuvo un momento de duda en el primer set de su debut en las ATP Finals ante Álex de Miñaur (ganó el español por 7-6 [7/5] y 6-2). En un rato, pasó de mandar 4-1 y 0-40, tres pelotas para doble break, a verse 4-4; y poco después, en el tie-break, perdía 4-5, con dos saques del australiano para cerrar el parcial. De Miñaur no logró jugar ninguno de los dos puntos con primer servicio, y el español apretó sin dudar para dar la vuelta a la situación.",
+      fecha: new Date(2025, 10, 9)
     },
     {
-      title: "",
-      image: "",
-      text: ""
-    }
+      title: "El Real Madrid clama contra el arbitraje en Vallecas por los agarrones a Bellingham y Mbappé",
+      image: 'https://objetos-xlk.estaticos-marca.com/files/article_660_widen_webp/uploads/2025/11/09/6910de8240c2f.webp',
+      text: "La indignación en el Real Madrid tras el 0-0 en Vallecas es absoluta. El club blanco considera que el arbitraje de Martínez Munuera condicionó un partido ya de por sí gris de los de Xabi Alonso, marcado a su juicio por dos acciones determinantes dentro del área del Rayo. Un agarrón de Chavarría a Bellingham en la primera parte y otro del mismo defensa del Rayo a Mbappé en la segunda, en el tramo final del encuentro. Ambas jugadas, a juicio del Madrid, eran susceptibles de penalti y, en consecuencia, de revisión en VAR. Sin embargo, ni el colegiado sobre el césped ni la sala VOR —dirigida por Figueroa Vázquez— intervinieron.",
+      fecha: new Date(2025, 10, 9)
+    },
   
   ];
 
