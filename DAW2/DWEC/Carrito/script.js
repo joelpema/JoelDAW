@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     actualizarTablaTotal();
                     calcularTotal();
                 });
-
+                
                 btn_resta.addEventListener("click", function () {
                     valorActual--;
                     if (valorActual < 0) {
