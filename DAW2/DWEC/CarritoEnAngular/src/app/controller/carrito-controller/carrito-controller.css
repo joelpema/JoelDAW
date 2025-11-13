@@ -1,0 +1,66 @@
+.margenes{
+    margin: 50px;
+}
+
+.carrito{
+    margin: 10%;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#contenedorCarrito {
+    flex: 2;
+}
+
+#contenedorCarrito h2,
+#contenedorTotal h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.vacio {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-style: italic;
+}
+
+#contenedorTotal {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    height: fit-content;
+}
+
+
+.inputNumeros{
+
+    width: 7%;
+
+}
