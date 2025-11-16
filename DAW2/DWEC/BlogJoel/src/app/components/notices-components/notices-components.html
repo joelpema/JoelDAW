@@ -1,52 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid bg-dark ">
+    <a class="navbar-brand text-white" href="#"><h2>Las Noticias</h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
 
-<section class="container-mt-3">
-    <h2>Formulario Nuevas NoticiasS</h2>
-    <hr>
-    <div>
-        <form action="" class="shadow p-5" #misNoticias="ngForm" (ngSubmit)="getDataForm(misNoticias)">
-            <div>
-                <label for="title" class="form-label mt-3">Titulo</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Introduce el titulo"
-                    ngModel>
-            </div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="container-mt-3">
+                <form action="" class="shadow p-5" #misNoticias="ngForm" (ngSubmit)="getDataForm(misNoticias)">
+                    <div>
+                        <label for="title" class="form-label mt-3">Titulo</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Introduce el titulo" ngModel>
+                    </div>
 
-            <div>
-                <label for="image" class="form-label mt-3">Immagen (URL)</label>
-                <input type="text" class="form-control" id="image" name="image" placeholder="Introduce la url"
-                    ngModel>
-            </div>
+                    <div>
+                        <label for="image" class="form-label mt-3">Imagen (URL)</label>
+                        <input type="text" class="form-control" id="image" name="image" placeholder="Introduce la url" ngModel>
+                    </div>
 
-            <div>
-                <label for="text" class="form-label mt-3">Texto</label>
-                <input type="text" class="form-control" id="text" name="text" placeholder="Introduce el texto" ngModel>
-            </div>
+                    <div>
+                        <label for="text" class="form-label mt-3">Texto</label>
+                        <input type="text" class="form-control" id="text" name="text" placeholder="Introduce el texto" ngModel>
+                    </div>
 
-            <div>
-                <label for="fecha" class="form-label mt-3">Fecha</label>
-                <input type="date" id="fecha" name="fecha" ngModel>
-            </div>
+                    <div>
+                        <label for="fecha" class="form-label mt-3">Fecha</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" ngModel>
+                    </div>
 
-            <input type="submit" value="Enviar" class="btn btn-danger mt-5">
-        </form>
-
-    </div>
-</section>
-
-<section>
-    <hr>
-    <div class="row justify-content-center row-cols-1 row-cols-md-2 g-4 d-flex ">
-        @for(noticiaActual of arrayNoticias; track $index) {
-        <div class="card">
-            <img [src]="noticiaActual.image" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{noticiaActual.title}}</h5>
-                <p class="card-text">{{noticiaActual.text}}</p>
-                <p>{{noticiaActual.fecha | date: 'dd/MM/yyyy'}}</p>
-            </div>
+                    <input type="submit" value="Enviar" class="btn btn-secondary mt-5" [disabled]="!misNoticias.valid">
+                </form>
+            </section>
         </div>
 
-        }@empty {
-        <li class="estudiante par">NO HAY NOTICIAS</li>
-        }
+        <div class="col-md-6 mt-0 ml-3">
+            <section>
+                <div class="row row-cols-2 g-4">
+                    @for(noticiaActual of arrayNoticias; track $index) {
+                    <div class="card">
+                        <img [src]="noticiaActual.image" class="card-img-top mt-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{noticiaActual.title}}</h5>
+                            <p class="card-text">{{noticiaActual.text}}</p>
+                            <p>{{noticiaActual.fecha | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                    }@empty {
+                    <li class="estudiante par">NO HAY NOTICIAS</li>
+                    }
+                </div>
+            </section>
+        </div>
     </div>
-</section>
+</div>
+<footer class="container-fluid bg-dark d-flex justify-content-center align-items-center py-4 mt-5">
+    <h3 class="text-white text-center mb-0">Página de Joel 2025</h3>
+</footer>
