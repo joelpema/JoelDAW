@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CarritoInterface } from '../initenrface/carrito-interface';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -23,12 +24,15 @@ export class CarritoService {
             return response.json();
         })
         .then(data => {
-          
-            this.arrayProductos.push(data.arrayProductos);
-            console.log(this.arrayProductos);
-          
+            this.arrayProductos =data.arrayProductos;
           })
         .catch(error => console.error(error));
 
   }
+
+  ObtenerProductos(): CarritoInterface[]{
+    return this.arrayProductos;
+  }
+
+  console.log(arrayProductos);
 }

@@ -1,0 +1,39 @@
+<section class="container">
+    <h1>Formulario del tipo FormsModel</h1>
+    <hr>
+
+    <form [formGroup]="modelForm" class="card p-3 shadow" (ngSubmit)="getDataForm()">
+        <div class="my-2">
+            <label for="nombre" class="form-label mt-3">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce tu nombre" formControlName="nombre">
+            @if(modelForm.get('nombre')?.hasError('required') &&  modelForm.get('nombre')?.touched){
+                <p class="error">Campo Requerido</p>
+            }
+            @if(modelForm.get('nombre')?.hasError('minlength') &&  modelForm.get('nombre')?.touched){
+                <p class="error">Longitud minima 3 caracteres</p>
+            }
+
+        </div>
+        <div class="my-2">
+            <label for="email" class="form-label mt-3">Email</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="Introduce tu email" formControlName="email">
+        </div>
+        <div class="my-2">
+            <label for="edad" class="form-label mt-3">Edad</label>
+            <input type="number" class="form-control" name="edad" id="edad" placeholder="Introduce tu edad" formControlName="edad">
+        </div>
+        <div class="my-2">
+            <label for="dni" class="form-label mt-3">DNI</label>
+            <input type="text" class="form-control" name="dni" id="dni" placeholder="Introduce tu dni" formControlName="dni">
+        </div>
+        <div class="my-2">
+            <label for="password" class="form-label mt-3">Contraseña</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu password" formControlName="password">
+        </div>
+        <div class="my-2"> 
+            <label for="repitePassword" class="form-label mt-3">Repetir Contraseña</label>
+            <input type="password" class="form-control" name="repitePassword" id="repitePassword" placeholder="Introduce tu contraseña" formControlName="repitePassword">
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-secondary mt-5">
+    </form>
+</section>

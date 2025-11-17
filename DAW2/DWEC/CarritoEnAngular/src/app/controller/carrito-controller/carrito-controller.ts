@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { CarritoInterface } from '../initenrface/carrito-interface';
+ 
 @Component({
   selector: 'app-carrito-controller',
   imports: [],
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './carrito-controller.css',
 })
 export class CarritoController {
+
+
 
 }
