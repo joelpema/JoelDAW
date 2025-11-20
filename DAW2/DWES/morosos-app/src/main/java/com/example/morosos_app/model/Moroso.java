@@ -1,34 +1,33 @@
 package com.example.morosos_app.model;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.math.BigDecimal;
 
 public class Moroso {
 
-    private String id;
+    private int id;
     private String nombre;
     private String dni;
-    private String email;
-    private String telefono;
-    private BigDecimal importe;
-    private String concepto;
+    private double cantidad_adeudada;
+    private Date fecha_alta;
+    private EstadoPago estado_pago;
 
     public Moroso() {
 
     }
 
-    public Moroso(String id, String nombre, String dni, String email, String telefono,
-                BigDecimal importe, String concepto) {
+    public Moroso(int id, String nombre, String dni, double cantidad_adeudada, Date fecha_alta, EstadoPago estado_pago) {
         this.id = id;
         this.nombre = nombre;
         this.dni = dni;
-        this.email = email;
-        this.telefono = telefono;
-        this.importe = importe;
-        this.concepto = concepto;
+        this.cantidad_adeudada = cantidad_adeudada;
+        this.fecha_alta = fecha_alta;
+        this.estado_pago = estado_pago;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
@@ -36,29 +35,34 @@ public class Moroso {
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public double getCantidadAdeudada() { return cantidad_adeudada; }
+    public void setCantidadAdeudada(double cantidad_adeudada) { this.cantidad_adeudada = cantidad_adeudada; }
 
-    public String getTelefono() { return telefono; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public Date getFechaAlta() { return fecha_alta; }
+    public void setFechaAlta(Date fecha_alta) { this.fecha_alta = fecha_alta; }
 
-    public BigDecimal getImporte() { return importe; }
-    public void setImporte(BigDecimal importe) { this.importe = importe; }
+    public EstadoPago getEstadoPago() { return estado_pago; }
+    public void setEstadoPago(EstadoPago estado_pago) { this.estado_pago = estado_pago; }
 
-    public String getConcepto() { return concepto; }
-    public void setConcepto(String concepto) { this.concepto = concepto; }
 
+
+    
+
+    public void setEstado(String nuevoEstado) {
+        this.estado_pago = EstadoPago.valueOf(nuevoEstado);
+    }
 
     @Override
     public String toString() {
-        return "Moroso{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", dni='" + dni + '\'' +
-                ", email='" + email + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", importe=" + importe +
-                ", concepto='" + concepto + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Moroso{");
+        sb.append("id=").append(id);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", dni=").append(dni);
+        sb.append(", cantidad_adeudada=").append(cantidad_adeudada);
+        sb.append(", fecha_alta=").append(fecha_alta);
+        sb.append(", estado_pago=").append(estado_pago);
+        sb.append('}');
+        return sb.toString();
     }
 }
