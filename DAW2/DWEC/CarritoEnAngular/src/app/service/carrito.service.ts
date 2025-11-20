@@ -14,7 +14,6 @@ export class CarritoService {
   constructor(){
 
     this.arrayProductos = [];
-    this.currency = "€";
 
   fetch('http://localhost:8080/api/carrito')
         .then(response => {
@@ -27,12 +26,10 @@ export class CarritoService {
             this.arrayProductos =data.arrayProductos;
           })
         .catch(error => console.error(error));
-
   }
 
-  ObtenerProductos(): CarritoInterface[]{
+  getAllProductos(): CarritoInterface[]{
     return this.arrayProductos;
   }
 
-  console.log(arrayProductos);
 }
