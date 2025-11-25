@@ -1,0 +1,7 @@
+<section class="container-fluid w-100 my-2 shadow-lg d-flex flex-column justify-content-evenly">
+    
+        @for(producto of arrayProductos; track producto.sku){
+            <app-components-card [producto]="producto"></app-components-card>
+        }
+    
+</section>
