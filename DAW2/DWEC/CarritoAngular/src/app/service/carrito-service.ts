@@ -45,7 +45,7 @@ export class CarritoService {
     return this.arrayProductos;
   }
 
-  addProductCart (producto : any) : void {
+  addProductCarrito (producto : any) : void {
 
     let indice = this.carritoProductos.findIndex((prod) => prod.sku === producto.sku);
 
@@ -57,7 +57,7 @@ export class CarritoService {
     this.precioTotal += producto.price;
   }
 
-  removeProductCart(producto : any) : void {
+  removeProductCarrito(producto : any) : void {
     let indice = this.carritoProductos.findIndex((prod) => prod.sku === producto.sku);
 
     if(indice !== -1){
@@ -90,25 +90,6 @@ export class CarritoService {
 
   getInitialQuantity() : number{
     return this.initialQuantity;
-  }
-
-  resetInitialQuantity() : void{
-    this.initialQuantity = 0;
-  }
-
-  filtrarListaPrecio(rango: any) {
-    let arrayAuxiliar = [];
-
-    arrayAuxiliar = this.arrayProductos;
-
-    this.arrayProductos.sort();
-    const indice = this.arrayProductos.findIndex((prod) => Number(prod.price) > rango);
-
-    if(indice != -1){
-      this.arrayProductos.splice(indice, this.arrayProductos.length);
-    }
-
-    this.arrayProductos = arrayAuxiliar;
   }
   
 }

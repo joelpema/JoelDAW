@@ -2,8 +2,7 @@ import { Component, signal, inject} from '@angular/core';
 import {ComponentsList} from "./components/components-list/components-list";
 import {CarritoService} from './service/carrito-service';
 import {ComponentsCarrito} from './components/components-carrito/components-carrito';
-import { FormsModule } from '@angular/forms';
-import { ComponentsCard } from './components/components-card/components-card';
+
 
 
 @Component({
@@ -41,8 +40,5 @@ export class App {
     this.carritoProductos = this.servicioProd.getCarritoProducts();
   }
 
-  filtrarPorPrecio(rango : any) {
-    this.servicioProd.filtrarListaPrecio(rango);
-  }
 
 }

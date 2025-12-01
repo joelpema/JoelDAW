@@ -42,21 +42,21 @@ ComprarProducto() {
     quantity: this.quantity
   };
 
-  this.sCarrito.addProductCart(compra);
-
+  this.sCarrito.addProductCarrito(compra);
 }
-VenderProducto() {
-  if(this.quantity >= 1){
-    this.quantity--;
-  }
 
-  let venta = {
-    sku: this.producto.sku,
-    title: this.producto.title,
-    price: Number(this.producto.price),
-    quantity: this.quantity
-  };
-  this.sCarrito.removeProductCart(venta);
+VenderProducto() {
+  if(this.quantity > 0) {
+    this.quantity--;
+    
+    let venta = {
+      sku: this.producto.sku,
+      title: this.producto.title,
+      price: Number(this.producto.price),
+      quantity: this.quantity
+    };
+    this.sCarrito.removeProductCarrito(venta);
+  }
 }
 
 }
