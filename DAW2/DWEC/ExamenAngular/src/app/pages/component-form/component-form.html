@@ -1,0 +1,58 @@
+<section class="container">
+    @if(isNew){
+    <h1>Insertar nueva Prenda</h1>
+    }
+    @else{
+    <h1>Editar Prenda</h1>
+    }
+
+    <hr>
+
+    <form [formGroup]="productForm" class="card p-3 shadow bg-secondary" (ngSubmit)="getDataForm()">
+        <div class="my-2">
+            <label for="name" class="form-label mt-lg-3">Nombre</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Introduce el nombre"
+                formControlName="name">
+        </div>
+
+        <div class="my-2">
+            <label for="description" class="form-label mt-lg-3">Descripcion</label>
+            <input type="text" class="form-control" name="description" id="description" placeholder="Introduce la descripcion"
+                formControlName="description">
+        </div>
+
+        <div class="my-2">
+            <label for="price" class="form-label mt-lg-3">Precio</label>
+            <input type="number" class="form-control" name="price" id="price" placeholder="Introduce el Precio"
+                formControlName="price">
+        </div>
+
+        <div class="my-2">
+            <label for="category" class="for-label">Categoria</label>
+            <select name="category" id="category" class="form-control" formControlName="category">
+                @for(categoria of productoService.getAllCategory() ; track $index){
+                <option [value]="categoria">{{categoria}}</option>
+                }
+            </select>
+        </div>
+
+        <div class="my-2">
+            <label for="image" class="form-label mt-lg-3">Imagen</label>
+            <input type="text" class="form-control" name="image" id="image" placeholder="Introduce el link de la imagen"
+                formControlName="image">
+        </div>
+
+        <div class="my-2">
+            <label for="active" class="for-label">Activo</label>
+            <select name="active" id="active" class="form-control" formControlName="active">
+                <option [value]="true">true</option>
+                <option [value]="false">false</option>
+            </select>
+        </div>
+
+        <div class="d-flex ms-auto gap-2">
+            <input type="submit" value="Guardar" class="btn btn-success mt-5" [disabled]="!productForm.valid && isNew">
+            <button class="btn btn-warning mt-5" [routerLink]="['/productos']">Volver</button>
+        </div>
+    </form>
+</section>

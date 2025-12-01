@@ -1,0 +1,10 @@
+<div class="row">
+
+    <app-component-filter class="m-5" (categoriaSelecionada)="getCourse($event)"></app-component-filter>
+
+    @for(product of productArr; track product.id){
+    <article class="col-12 col-md-6 col-sm-3">
+        <app-component-card [miProduct]="product"></app-component-card>
+    </article>
+    }
+</div>

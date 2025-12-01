@@ -25,7 +25,7 @@ export class NoticesComponents {
   }
 
   getDataForm(misNoticias: NgForm){
-    let noticia : NoticiaInterface = misNoticias.value as NoticiaInterface;;
+    let noticia : NoticiaInterface = misNoticias.value as NoticiaInterface;
     console.log(noticia);
     this.noticiasServicios.insertNoticia(noticia);
   }
