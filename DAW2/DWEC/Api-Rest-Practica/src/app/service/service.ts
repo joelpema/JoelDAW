@@ -12,12 +12,7 @@ export class Service {
   private baseUrl: string = 'https://peticiones.online/api/users';
   httpClient = inject(HttpClient)
 
-
   constructor(){  }
-
-  getAllUsers(): Observable<Iresult[]>{
-    return this.httpClient.get<Iresult[]>(this.baseUrl)
-  }
 
   getAllUsersWithPromise(): Promise<Iresult[]> {
         return lastValueFrom(this.httpClient.get<Iresult[]>(this.baseUrl))

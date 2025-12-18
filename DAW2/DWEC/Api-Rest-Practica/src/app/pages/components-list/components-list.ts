@@ -11,7 +11,6 @@ import { Iresult } from '../../interfaces/iresult.interface';
 })
 export class ComponentsList {
 
-
   UserArr : Iresult[];
   usersService = inject(Service);
 
@@ -27,7 +26,6 @@ export class ComponentsList {
       console.log("Error al conectar a la API")
       alert('Error al conectar a la API')
     }
-
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input} from '@angular/core';
 import { Service } from '../../service/service';
 import { Router } from '@angular/router';
 import { Iresult } from '../../interfaces/iresult.interface';
@@ -15,6 +15,5 @@ export class ComponentsCard {
   router = inject(Router);
   @Input() miUser!: Iresult;
 
-  
 
 }

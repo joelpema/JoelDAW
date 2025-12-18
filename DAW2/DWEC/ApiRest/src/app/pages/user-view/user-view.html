@@ -1,0 +1,33 @@
+
+<section class="row align-items-center m-5 p-5 justify-content-center">
+
+    <div class="col-md-4 text-center">
+        <img [src]="usuario.image" class="rounded-circle img-fluid border border-3 border-white shadow" [alt]="usuario.first_name + ' ' + usuario.last_name">
+    </div>
+
+    <div class="col-md-1 d-flex justify-content-center">
+        <div class="divider"></div>
+    </div>
+
+    <div class="col-md-7">
+        <h4 class="card-title">{{ usuario.first_name }}</h4>
+        <h5 class="card-title">{{usuario.last_name}}</h5>
+
+        <p><strong>Nombre Usuario:</strong>{{usuario.username}}</p>
+        <p><strong>Email:</strong> {{usuario.email}}</p>
+
+        <div class="btn-group mt-4">
+            <div class="btn-group w-100" role="group">
+                <a class="btn btn-outline-primary" title="Ver detalles">
+                    <p>Eliminar</p>
+                </a>
+                <a class="btn btn-outline-secondary" title="Actualizar">
+                    <p>Actializar</p>
+                </a>
+                <button [routerLink]="['usuarios']" class="btn btn-outline-danger" title="Eliminar">
+                    <p>Volver al Listado</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
