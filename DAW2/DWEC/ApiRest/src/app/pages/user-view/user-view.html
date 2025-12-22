@@ -1,33 +1,36 @@
-
 <section class="row align-items-center m-5 p-5 justify-content-center">
 
-    <div class="col-md-4 text-center">
-        <img [src]="usuario.image" class="rounded-circle img-fluid border border-3 border-white shadow" [alt]="usuario.first_name + ' ' + usuario.last_name">
+  <div class="col-md-4 text-center">
+    <img [src]="usuario.image" class="rounded-circle img-fluid border border-3 border-white shadow" [alt]="usuario.first_name + ' ' + usuario.last_name">
+  </div>
+
+  <div class="col-md-1 d-flex justify-content-center">
+    <div class="divider"></div>
+  </div>
+
+  <div class="col-md-7">
+    <h4 class="card-title fw-bold mb-2">{{ usuario.first_name }} {{ usuario.last_name }}</h4>
+
+    <p class="card-text mb-1"><strong>Nombre Usuario:</strong> {{ usuario.username }}</p>
+    <p class="card-text mb-2">
+      <strong>Email:</strong>
+      <a [href]="'mailto:' + usuario.email" class="text-decoration-none">
+        {{ usuario.email }}
+      </a>
+    </p>
+
+    <div class="btn-group mt-4">
+      <div class="btn-group w-100" role="group">
+        <a class="btn btn-outline-primary" (click)="eliminarUsuario(usuario)" title="Ver detalles">
+          <p>Eliminar</p>
+        </a>
+        <a class="btn btn-outline-primary" [routerLink]="['/formulario', usuario._id]">
+          <p>Actualizar</p>
+        </a>
+        <a class="btn btn-outline-primary" [routerLink]="['/usuarios']">
+          Volver al Listado
+        </a>
+      </div>
     </div>
-
-    <div class="col-md-1 d-flex justify-content-center">
-        <div class="divider"></div>
-    </div>
-
-    <div class="col-md-7">
-        <h4 class="card-title">{{ usuario.first_name }}</h4>
-        <h5 class="card-title">{{usuario.last_name}}</h5>
-
-        <p><strong>Nombre Usuario:</strong>{{usuario.username}}</p>
-        <p><strong>Email:</strong> {{usuario.email}}</p>
-
-        <div class="btn-group mt-4">
-            <div class="btn-group w-100" role="group">
-                <a class="btn btn-outline-primary" title="Ver detalles">
-                    <p>Eliminar</p>
-                </a>
-                <a class="btn btn-outline-secondary" title="Actualizar">
-                    <p>Actializar</p>
-                </a>
-                <button [routerLink]="['usuarios']" class="btn btn-outline-danger" title="Eliminar">
-                    <p>Volver al Listado</p>
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>

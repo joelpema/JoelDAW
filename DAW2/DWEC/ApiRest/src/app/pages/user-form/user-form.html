@@ -1,39 +1,147 @@
-<section class="container mt-5 p-5">
+<section class="container-fluid py-5">
+    <div class="container">
+        @if(isNew){
+            <h1 class="text-center mb-5">
+                <i class="bi bi-person-plus-fill me-3"></i>Nuevo Empleado
+            </h1>
+        }
+        @else{
+            <h1 class="text-center mb-5">
+                <i class="bi bi-pencil-square me-3"></i>Editar Empleado
+            </h1>
+        }
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-7">
+                <form [formGroup]="userForm" class="bg-light p-4" (ngSubmit)="getDataForm()">
+                    
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">
+                            <i class="bi bi-person-fill me-2"></i>Nombre
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="first_name" 
+                            id="first_name" 
+                            placeholder="Nombre"
+                            formControlName="first_name">
+                        @if(checkControl('first_name', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                        @if(checkControl('first_name', 'minlength')){
+                            <small class="text-danger d-block mt-2">Mínimo 3 caracteres</small>
+                        }
+                    </div>
 
-    <h1>Insertar un nuevo Usuario</h1>
-    <hr>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">
+                            <i class="bi bi-person-fill me-2"></i>Apellido
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="last_name" 
+                            id="last_name" 
+                            placeholder="Apellido"
+                            formControlName="last_name">
+                        @if(checkControl('last_name', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                        @if(checkControl('last_name', 'minlength')){
+                            <small class="text-danger d-block mt-2">Mínimo 3 caracteres</small>
+                        }
+                    </div>
 
-        <div class="my-2">
-            <label for="nombre" class="form-label mt-lg-3">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce el nombre"
-                formControlName="nombre">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">
+                            <i class="bi bi-at me-2"></i>Usuario
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="username" 
+                            id="username" 
+                            placeholder="Usuario"
+                            formControlName="username">
+                        @if(checkControl('username', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                        @if(checkControl('username', 'minlength')){
+                            <small class="text-danger d-block mt-2">Mínimo 3 caracteres</small>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            <i class="bi bi-envelope-fill me-2"></i>Email
+                        </label>
+                        <input type="email" 
+                            class="form-control" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Correo"
+                            formControlName="email">
+                        @if(checkControl('email', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                        @if(checkControl('email', 'pattern')){
+                            <small class="text-danger d-block mt-2">Email inválido</small>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">
+                            <i class="bi bi-lock-fill me-2"></i>Contraseña
+                        </label>
+                        <input type="password" 
+                            class="form-control" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Contraseña"
+                            formControlName="password">
+                        @if(checkControl('password', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                        @if(checkControl('password', 'minlength')){
+                            <small class="text-danger d-block mt-2">Mínimo 6 caracteres</small>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">
+                            <i class="bi bi-image-fill me-2"></i>Foto de Perfil
+                        </label>
+                        <input 
+                            type="url" 
+                            class="form-control" 
+                            name="image" 
+                            id="image" 
+                            placeholder="URL de la imagen"
+                            formControlName="image">
+                        @if(checkControl('image', 'required')){
+                            <small class="text-danger d-block mt-2">Campo requerido</small>
+                        }
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <div class="d-flex justify-content-start">
+                            <button 
+                                type="submit" 
+                                class="btn btn-primary me-2" 
+                                [disabled]="userForm.invalid">
+                                <i class="bi bi-check-circle me-2"></i>Guardar
+                            </button>
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-primary" 
+                                [routerLink]="['/usuarios']">
+                                <i class="bi bi-x-circle me-2"></i>Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="my-2">
-            <label for="apellido" class="form-label mt-lg-3">Apellido</label>
-            <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Introduce el apellido"
-                formControlName="apellido">
-        </div>
-
-        <div class="my-2">
-            <label for="username" class="form-label mt-lg-3">Nombre de Usuario</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Introduce el nombre de usuario"
-                formControlName="username">
-        </div>
-
-        <div class="my-2">
-            <label for="email" class="form-label mt-lg-3">Email</label>
-            <input type="text" class="form-control" name="email" id="email"
-                placeholder="Introduce las fechas de emision" formControlName="email">
-        </div>
-
-        <div class="my-2">
-            <label for="image" class="form-label mt-lg-3">Imagen</label>
-            <input type="text" class="form-control" name="image" id="image" placeholder="Introduce el link de la imagen"
-                formControlName="image">
-        </div>
-
-        <div class="d-flex ms-auto gap-2">
-            <button class="btn btn-warning mt-5" [routerLink]="['/usuarios']">Volver</button>
-        </div>
+    </div>
 </section>
