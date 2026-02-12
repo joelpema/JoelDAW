@@ -17,7 +17,7 @@ export class UserView {
 
   usuario !: Iusuario;
 SUsuarioService = inject(UsuarioService);
-activatedRoute = inject(ActivatedRoute);
+activatedRoute = inject(ActivatedRoute);   
   constructor(){}
 
   ngOnInit(): void{
@@ -30,7 +30,7 @@ activatedRoute = inject(ActivatedRoute);
             this.usuario = response;
           }
       }
-    })
+    }) 
 
   }
 

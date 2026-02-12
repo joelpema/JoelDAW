@@ -16,16 +16,10 @@
                 <form [formGroup]="userForm" class="bg-light p-4" (ngSubmit)="getDataForm()">
                     
                     <div class="mb-3">
-                        <label for="first_name" class="form-label">
-                            <i class="bi bi-person-fill me-2"></i>Nombre
+                        <label for="first_name" class="form-label"><i class="bi bi-person-fill me-2"></i>Nombre
                         </label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            name="first_name" 
-                            id="first_name" 
-                            placeholder="Nombre"
-                            formControlName="first_name">
+                        <input type="text" class="form-control" name="first_name" id="first_name"
+                        placeholder="Nombre"formControlName="first_name">
                         @if(checkControl('first_name', 'required')){
                             <small class="text-danger d-block mt-2">Campo requerido</small>
                         }

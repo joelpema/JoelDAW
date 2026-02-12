@@ -40,13 +40,13 @@ export class UsuarioService {
       );
     }
 
-        async create(usuario: Iusuario): Promise<Iusuario> {
+    async create(usuario: Iusuario): Promise<Iusuario> {
       return lastValueFrom(
         this.httpClient.post<Iusuario>(this.baseURL, usuario)
       );
     }
 
-        async delete(_id: string): Promise<Iusuario> {
+    async delete(_id: string): Promise<Iusuario> {
       return lastValueFrom(
         this.httpClient.delete<Iusuario>(`${this.baseURL}/${_id}`)
       );

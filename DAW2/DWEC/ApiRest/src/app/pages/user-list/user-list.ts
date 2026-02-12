@@ -16,7 +16,6 @@ export class UserList {
   arrUSuarios: Iusuario[] = [];
   Susuaruis = inject(UsuarioService);
 
-  
   paginaActual: number = 1;
   totalPaginas: number = 1;
   totalUsuarios: number = 0;
@@ -24,7 +23,7 @@ export class UserList {
   cargando: boolean = false;
 
   async cargarUsuarios(pagina: number): Promise<void> {
-    this.cargando = true;
+    this.cargando = true; 
     try {
       const response = await this.Susuaruis.getAllUsers(pagina);
 

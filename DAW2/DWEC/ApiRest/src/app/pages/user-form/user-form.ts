@@ -32,29 +32,12 @@ export class UserFormComponent {
     return new FormGroup({
       _id: new FormControl(null),
       id: new FormControl(null),
-      first_name: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
-      last_name: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3)
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.pattern(this.emailRegex)
-      ]),
-      image: new FormControl('', [
-        Validators.required
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6)
-      ])
+      first_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      last_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      username: new FormControl('', [ Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)]),
+      image: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required,Validators.minLength(6)])
     });
   }
 
@@ -80,12 +63,12 @@ export class UserFormComponent {
         alert('Usuario actualizado exitosamente');
         this.userForm.reset();
         this.router.navigate(['/usuarios']);
-      }).catch(error => {
+      }).catch(error => {     8
         console.error('Error al actualizar usuario:', error);
         alert('Error al actualizar el usuario');
       });
     }
-  }
+  } 
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: any) => {
